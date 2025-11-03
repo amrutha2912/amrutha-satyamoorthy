@@ -23,7 +23,7 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-24 px-6">
+    <section id="projects" className="py-24 px-6 section-hover rounded-lg">
       <div className="container mx-auto max-w-4xl">
         <h2 className="text-2xl font-semibold mb-12">Projects</h2>
 
@@ -34,7 +34,7 @@ const Projects = () => {
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="block p-6 rounded-lg border border-border hover:border-foreground/20 transition-all duration-300 hover-lift group"
+              className="block p-6 rounded-lg border border-border/40 hover:border-border transition-all duration-300 hover-lift hover:bg-accent/10 group"
             >
               <div className="flex items-start justify-between mb-3">
                 <h3 className="text-lg font-medium group-hover:text-foreground transition-colors">

@@ -9,7 +9,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-24 px-6">
+    <section id="contact" className="py-24 px-6 section-hover rounded-lg">
       <div className="container mx-auto max-w-4xl">
         <h2 className="text-2xl font-semibold mb-12">Get in Touch</h2>
 
@@ -26,7 +26,7 @@ const Contact = () => {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-border hover:border-foreground/20 transition-colors text-muted-foreground hover:text-foreground"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-border/40 hover:border-border hover:bg-accent/10 transition-all text-muted-foreground hover:text-foreground"
               >
                 <link.icon className="w-4 h-4" />
                 <span className="text-sm">{link.label}</span>
