@@ -4,11 +4,6 @@ const Hero = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="space-y-12 animate-fade-in">
           <div className="space-y-6">
-            <div className="inline-block">
-              <span className="text-sm tracking-[0.3em] uppercase text-muted-foreground/60 font-light">
-                Portfolio 2025
-              </span>
-            </div>
             <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter leading-none">
               [Your Name]
             </h1>
@@ -24,10 +19,6 @@ const Hero = () => {
               <div>
                 <div className="text-xs uppercase tracking-wider text-muted-foreground/60 mb-2">Based in</div>
                 <div className="text-sm">Your Location</div>
-              </div>
-              <div>
-                <div className="text-xs uppercase tracking-wider text-muted-foreground/60 mb-2">Available for</div>
-                <div className="text-sm">Freelance Work</div>
               </div>
             </div>
           </div>

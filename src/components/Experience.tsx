@@ -39,7 +39,7 @@ const Experience = () => {
             >
               <div className="grid md:grid-cols-12 gap-8">
                 <div className="md:col-span-3">
-                  <span className="text-xs font-mono text-muted-foreground/50">{exp.period}</span>
+                  <span className="text-xs font-mono text-foreground">{exp.period}</span>
                 </div>
                 
                 <div className="md:col-span-9">

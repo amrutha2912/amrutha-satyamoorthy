@@ -2,7 +2,7 @@ const About = () => {
   return (
     <section id="about" className="py-32 px-6">
       <div className="container mx-auto max-w-6xl">
-        <div className="grid md:grid-cols-12 gap-12">
+        <div className="grid md:grid-cols-12 gap-20">
           <div className="md:col-span-4">
             <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground/60">About Me</span>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight mt-4">Background</h2>
