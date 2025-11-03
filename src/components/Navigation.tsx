@@ -44,46 +44,34 @@ const Navigation = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-background/80 backdrop-blur-md shadow-md"
+          ? "bg-background/95 backdrop-blur-sm border-b border-border/40"
           : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
+      <div className="container mx-auto px-6 py-5">
+        <div className="flex items-center justify-between max-w-6xl mx-auto">
           <button
             onClick={() => scrollToSection("home")}
-            className="text-xl font-bold text-primary hover:text-accent transition-colors"
+            className="text-lg font-semibold hover:text-muted-foreground transition-colors"
           >
-            Portfolio
+            ~
           </button>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="flex items-center gap-1">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-sm font-medium transition-colors relative ${
+                className={`px-4 py-2 text-sm font-medium transition-colors rounded-md ${
                   activeSection === item.id
-                    ? "text-accent"
-                    : "text-foreground/70 hover:text-accent"
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 {item.label}
-                {activeSection === item.id && (
-                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent rounded-full" />
-                )}
               </button>
             ))}
           </div>
-
-          <Button
-            variant="default"
-            size="sm"
-            onClick={() => scrollToSection("contact")}
-            className="bg-accent hover:bg-accent/90 text-accent-foreground"
-          >
-            Get in Touch
-          </Button>
         </div>
       </div>
     </nav>
