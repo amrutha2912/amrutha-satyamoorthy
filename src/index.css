@@ -57,7 +57,7 @@ All colors MUST be HSL.
 
 @layer utilities {
   .hover-lift {
-    @apply transition-all duration-300 ease-out;
+    @apply transition-all duration-500 ease-out;
   }
   
   .hover-lift:hover {
@@ -66,14 +66,6 @@ All colors MUST be HSL.
   
   .text-gradient {
     @apply bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent;
-  }
-  
-  .section-hover {
-    @apply transition-all duration-300 ease-out;
-  }
-  
-  .section-hover:hover {
-    @apply bg-accent/5;
   }
 }
 

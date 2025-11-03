@@ -23,39 +23,48 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-24 px-6 section-hover rounded-lg">
-      <div className="container mx-auto max-w-4xl">
-        <h2 className="text-2xl font-semibold mb-12">Projects</h2>
+    <section id="projects" className="py-32 px-6">
+      <div className="container mx-auto max-w-6xl">
+        <div className="mb-20">
+          <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground/60">Selected Work</span>
+          <h2 className="text-5xl md:text-6xl font-bold tracking-tight mt-4">Projects</h2>
+        </div>
 
-        <div className="space-y-8">
+        <div className="space-y-1">
           {projects.map((project, index) => (
             <a
               key={index}
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="block p-6 rounded-lg border border-border/40 hover:border-border transition-all duration-300 hover-lift hover:bg-accent/10 group"
+              className="group block border-t border-border/40 last:border-b py-8 hover:bg-accent/5 transition-all duration-500 px-6 -mx-6"
             >
-              <div className="flex items-start justify-between mb-3">
-                <h3 className="text-lg font-medium group-hover:text-foreground transition-colors">
-                  {project.title}
-                </h3>
-                <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
-              </div>
-              
-              <p className="text-muted-foreground/80 mb-4 leading-relaxed">
-                {project.description}
-              </p>
-              
-              <div className="flex flex-wrap gap-2">
-                {project.tech.map((tech, idx) => (
-                  <span
-                    key={idx}
-                    className="px-3 py-1 text-xs bg-secondary text-secondary-foreground rounded-md"
-                  >
-                    {tech}
-                  </span>
-                ))}
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                <div className="flex-1">
+                  <div className="flex items-center gap-4 mb-3">
+                    <span className="text-xs text-muted-foreground/50 font-mono">0{index + 1}</span>
+                    <h3 className="text-2xl md:text-3xl font-bold group-hover:translate-x-2 transition-transform duration-300">
+                      {project.title}
+                    </h3>
+                  </div>
+                  
+                  <p className="text-muted-foreground/70 leading-relaxed mb-4 max-w-2xl">
+                    {project.description}
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-3">
+                    {project.tech.map((tech, idx) => (
+                      <span
+                        key={idx}
+                        className="text-xs tracking-wider uppercase text-muted-foreground/60"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                
+                <ExternalLink className="w-5 h-5 text-muted-foreground/40 group-hover:text-foreground group-hover:rotate-45 transition-all duration-300" />
               </div>
             </a>
           ))}

@@ -24,28 +24,34 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-24 px-6 section-hover rounded-lg">
-      <div className="container mx-auto max-w-4xl">
-        <h2 className="text-2xl font-semibold mb-12">Experience</h2>
+    <section id="experience" className="py-32 px-6">
+      <div className="container mx-auto max-w-6xl">
+        <div className="mb-20">
+          <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground/60">Career Path</span>
+          <h2 className="text-5xl md:text-6xl font-bold tracking-tight mt-4">Experience</h2>
+        </div>
 
-        <div className="space-y-12">
+        <div className="space-y-1">
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className="group hover-lift"
+              className="group border-t border-border/40 last:border-b py-10 hover:bg-accent/5 transition-all duration-500 px-6 -mx-6"
             >
-              <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-3">
-                <div>
-                  <h3 className="text-lg font-medium group-hover:text-foreground transition-colors">
-                    {exp.company}
-                  </h3>
-                  <p className="text-muted-foreground">{exp.role}</p>
+              <div className="grid md:grid-cols-12 gap-8">
+                <div className="md:col-span-3">
+                  <span className="text-xs font-mono text-muted-foreground/50">{exp.period}</span>
                 </div>
-                <span className="text-sm text-muted-foreground/70">{exp.period}</span>
+                
+                <div className="md:col-span-9">
+                  <h3 className="text-2xl font-bold mb-2 group-hover:text-foreground transition-colors">
+                    {exp.role}
+                  </h3>
+                  <p className="text-lg text-muted-foreground/70 mb-4">{exp.company}</p>
+                  <p className="text-muted-foreground/60 leading-relaxed">
+                    {exp.description}
+                  </p>
+                </div>
               </div>
-              <p className="text-muted-foreground/80 leading-relaxed">
-                {exp.description}
-              </p>
             </div>
           ))}
         </div>
