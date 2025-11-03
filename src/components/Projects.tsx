@@ -40,9 +40,6 @@ const Projects = () => {
               className={`stagger-item ${isVisible ? 'visible' : ''} group relative overflow-hidden card-hover`}
               style={{ transitionDelay: `${index * 200}ms` }}
             >
-              <div className="absolute top-0 left-0 text-[12rem] font-bold text-muted-foreground/5 leading-none -translate-y-8">
-                {String(index + 1).padStart(2, '0')}
-              </div>
               <a
                 href={project.link}
                 target="_blank"
