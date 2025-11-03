@@ -67,6 +67,114 @@ All colors MUST be HSL.
   .text-gradient {
     @apply bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent;
   }
+
+  .text-gradient-shift {
+    background: linear-gradient(90deg, hsl(var(--foreground)), hsl(var(--muted-foreground)), hsl(var(--foreground)));
+    background-size: 200% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: background-position 0.5s ease;
+  }
+
+  .text-gradient-shift:hover {
+    background-position: 100% 0;
+  }
+
+  .animated-underline {
+    @apply relative;
+  }
+
+  .animated-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-[1px] bg-foreground transition-all duration-300;
+  }
+
+  .animated-underline:hover::after {
+    @apply w-full;
+  }
+
+  .card-hover {
+    @apply transition-all duration-500 ease-out;
+  }
+
+  .card-hover:hover {
+    @apply -translate-y-2 scale-[1.02];
+    transform: translateY(-8px) scale(1.02) rotateX(2deg);
+  }
+
+  .magnetic-hover {
+    transition: transform 0.2s ease-out;
+  }
+
+  .section-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .section-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .stagger-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+
+  .stagger-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Custom cursor */
+  .custom-cursor {
+    @apply fixed w-2 h-2 bg-foreground rounded-full pointer-events-none z-[9999] mix-blend-difference;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease;
+  }
+
+  .custom-cursor.cursor-pointer {
+    @apply w-12 h-12 bg-transparent border-2 border-foreground;
+  }
+
+  .custom-cursor.cursor-hidden {
+    @apply opacity-0;
+  }
+
+  .custom-cursor-trail {
+    @apply fixed w-8 h-8 border border-foreground/30 rounded-full pointer-events-none z-[9998] mix-blend-difference;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+  }
+
+  .custom-cursor-trail.cursor-pointer {
+    @apply w-16 h-16;
+  }
+
+  .custom-cursor-trail.cursor-hidden {
+    @apply opacity-0;
+  }
+
+  @keyframes gradient-shift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .animated-gradient-bg {
+    background: linear-gradient(45deg, hsl(var(--background)), hsl(var(--muted)), hsl(var(--background)));
+    background-size: 200% 200%;
+    animation: gradient-shift 15s ease infinite;
+  }
 }
 
 @layer base {

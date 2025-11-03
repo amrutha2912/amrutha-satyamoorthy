@@ -1,10 +1,14 @@
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+
 const Hero = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
-    <section id="home" className="min-h-screen relative flex items-end px-6 pb-32">
-      <div className="container mx-auto max-w-6xl">
+    <section ref={ref} id="home" className="min-h-screen relative flex items-end px-6 pb-32 animated-gradient-bg">
+      <div className={`container mx-auto max-w-6xl section-reveal ${isVisible ? 'visible' : ''}`}>
         <div className="space-y-12 animate-fade-in">
           <div className="space-y-6">
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter leading-none">
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter leading-none text-gradient-shift">
               [Your Name]
             </h1>
           </div>

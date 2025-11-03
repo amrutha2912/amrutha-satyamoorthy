@@ -1,6 +1,9 @@
 import { ExternalLink } from "lucide-react";
 
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+
 const Projects = () => {
+  const { ref, isVisible } = useScrollAnimation();
   const projects = [
     {
       title: "E-Commerce Platform",
@@ -23,8 +26,8 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-32 px-6">
-      <div className="container mx-auto max-w-6xl">
+    <section ref={ref} id="projects" className="py-32 px-6">
+      <div className={`container mx-auto max-w-6xl section-reveal ${isVisible ? 'visible' : ''}`}>
         <div className="mb-20">
           <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground/60">Selected Work</span>
           <h2 className="text-5xl md:text-6xl font-bold tracking-tight mt-4">Projects</h2>
@@ -32,13 +35,20 @@ const Projects = () => {
 
         <div className="space-y-1">
           {projects.map((project, index) => (
-            <a
+            <div
               key={index}
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block border-t border-border/40 last:border-b py-8 hover:bg-accent/5 transition-all duration-500 px-6 -mx-6"
+              className={`stagger-item ${isVisible ? 'visible' : ''} group relative overflow-hidden card-hover`}
+              style={{ transitionDelay: `${index * 200}ms` }}
             >
+              <div className="absolute top-0 left-0 text-[12rem] font-bold text-muted-foreground/5 leading-none -translate-y-8">
+                {String(index + 1).padStart(2, '0')}
+              </div>
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block border-t border-border/40 last:border-b py-8 hover:bg-accent/5 transition-all duration-500 px-6 -mx-6"
+              >
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
                 <div className="flex-1">
                   <div className="flex items-center gap-4 mb-3">
@@ -66,7 +76,8 @@ const Projects = () => {
                 
                 <ExternalLink className="w-5 h-5 text-muted-foreground/40 group-hover:text-foreground group-hover:rotate-45 transition-all duration-300" />
               </div>
-            </a>
+              </a>
+            </div>
           ))}
         </div>
       </div>

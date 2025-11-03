@@ -1,4 +1,7 @@
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+
 const Experience = () => {
+  const { ref, isVisible } = useScrollAnimation();
   const experiences = [
     {
       company: "Tech Solutions Inc.",
@@ -24,8 +27,8 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-32 px-6">
-      <div className="container mx-auto max-w-6xl">
+    <section ref={ref} id="experience" className="py-20 px-6">
+      <div className={`container mx-auto max-w-6xl section-reveal ${isVisible ? 'visible' : ''}`}>
         <div className="mb-20">
           <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground/60">Career Path</span>
           <h2 className="text-5xl md:text-6xl font-bold tracking-tight mt-4">Experience</h2>
@@ -35,7 +38,8 @@ const Experience = () => {
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className="group border-t border-border/40 last:border-b py-10 hover:bg-accent/5 transition-all duration-500 px-6 -mx-6"
+              className={`stagger-item ${isVisible ? 'visible' : ''} group border-t border-border/40 last:border-b py-10 hover:bg-accent/5 transition-all duration-500 px-6 -mx-6 magnetic-hover`}
+              style={{ transitionDelay: `${index * 150}ms` }}
             >
               <div className="grid md:grid-cols-12 gap-8">
                 <div className="md:col-span-3">
