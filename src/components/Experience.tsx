@@ -34,7 +34,7 @@ const Experience = () => {
   ];
 
   return (
-    <section ref={ref} id="experience" className="py-20 px-6">
+    <section ref={ref} id="experience" className="py-12 px-6">
       <div className={`container mx-auto max-w-6xl section-reveal ${isVisible ? 'visible' : ''}`}>
         <div className="mb-20">
           <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground/60">Career Path</span>

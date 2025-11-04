@@ -5,7 +5,7 @@ const About = () => {
   const skills = ["SQL", "Python", "Data Analysis", "A/B Testing", "Machine Learning", "Streamlit", "Tableau", "Microsoft Excel", "Pandas", "NumPy", "Scikit-learn", "Matplotlib"];
 
   return (
-    <section ref={ref} id="about" className="py-20 px-6">
+    <section ref={ref} id="about" className="py-12 px-6">
       <div className={`container mx-auto max-w-6xl section-reveal ${isVisible ? 'visible' : ''}`}>
         <div className="grid md:grid-cols-12 gap-20 items-start">
           <div className="md:col-span-4">

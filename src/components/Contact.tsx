@@ -10,7 +10,7 @@ const Contact = () => {
   ];
 
   return (
-    <section ref={ref} id="contact" className="py-32 px-6">
+    <section ref={ref} id="contact" className="py-12 px-6">
       <div className={`container mx-auto max-w-6xl section-reveal ${isVisible ? 'visible' : ''}`}>
         <div className="grid md:grid-cols-12 gap-12">
           <div className="md:col-span-5">
