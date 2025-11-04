@@ -8,28 +8,28 @@ const Experience = () => {
       role: "Business Analyst",
       period: "Oct 2024 - Present",
       description:
-        "Engineered end-to-end analytical workflows using SQL, Python, and Streamlit. Designed real-time Fulfillment & Allocation Rate Dashboards and built an Experiment Monitoring System for A/B testing. Performed root-cause analysis contributing to a 7% uplift in fulfillment rate.",
+        "Engineered end-to-end analytical workflows using SQL, Python, and Streamlit to monitor key business metrics including fulfillment rate, allocation accuracy, cancellations, and driver utilization across multiple geographies. Designed and deployed real-time Fulfillment & Allocation Rate Dashboards with dynamic filters and cohort-level drill-downs, enhancing visibility for operations and product teams. Built a dedicated Experiment Monitoring System to evaluate A/B test rollouts of dispatch models through control–test analysis, cohort segmentation, and temporal trend comparisons. Implemented automated SQL pipelines and metric refresh scheduling to improve reporting efficiency, while introducing new goal-tracking KPIs such as Effective Fulfillment Rate and Allocation Efficiency, increasing experimental measurement coverage by 40%. Performed root-cause analysis using statistical validation and feature correlation to identify performance bottlenecks, contributing to a 7% uplift in fulfillment rate.",
     },
     {
       company: "Porter",
       role: "Data Science Intern",
       period: "Apr 2024 - Sep 2024",
       description:
-        "Performed correlation and causation experiments to assess performance metrics. Engineered new features and utilized clustering algorithms to enhance model accuracy. Developed a Streamlit dashboard for real-time monitoring and data-driven decision-making.",
+        "Performed correlation and causation experiments to assess the 'Completion Score' metric, revealing it as a poor performance indicator through statistical analysis. Engineered new features and utilized clustering algorithms to segment notification level data, enhancing model accuracy and generating actionable insights. Developed a Streamlit dashboard to visualize key organizational metrics, enabling real-time monitoring and data-driven decision-making across teams.",
     },
     {
       company: "ShePays Financial Services Pvt Ltd",
       role: "Junior Data Analyst",
       period: "Jun 2023 - Aug 2023",
       description:
-        "Utilized Moengage and AppsFlyer to create dashboards for user funnel activity. Developed a survey to understand financial behavior in women and created visualizations that informed significant application changes.",
+        "Utilized Moengage and AppsFlyer to create comprehensive dashboards for user funnel activity during the testing period. Developed a survey to understand financial behavior patterns in women and created visualizations to communicate findings effectively to stakeholders. Survey results informed significant changes in the application design and feature prioritization.",
     },
     {
       company: "Tiny Prism Labs Pvt Ltd",
       role: "Junior Data Scientist",
       period: "Jan 2023",
       description:
-        "Utilized librosa library with FFT and MFCC techniques for audio analysis. Achieved 91% accuracy in noise differentiation through visualization charts and collaborative model optimization.",
+        "Utilized librosa library and techniques like FFT and MFCC for audio signal processing and analysis. Employed visualization charts to distinguish noise from meaningful data patterns. Achieved 91% accuracy in noise differentiation and collaborated with the team to optimize model performance through iterative testing and refinement.",
     },
   ];
 

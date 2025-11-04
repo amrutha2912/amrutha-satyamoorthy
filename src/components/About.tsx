@@ -28,9 +28,10 @@ const About = () => {
               </p>
               
               <p>
+                When I'm not diving deep into data, you'll find me reading tech blogs to stay on top of the 
+                latest in AI and analytics, exploring fashion trends, or indulging my keen interest in biology. 
                 I'm passionate about turning complex data into actionable insights and building tools that 
-                empower teams to make better decisions. My work has contributed to significant performance 
-                improvements and enhanced experimental measurement coverage.
+                empower teams to make better decisions—always with curiosity driving me forward.
               </p>
             </div>
 

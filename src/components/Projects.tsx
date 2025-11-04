@@ -7,32 +7,38 @@ const Projects = () => {
   const projects = [
     {
       title: "Spotify Music Recommendation System",
-      description: "Hybrid recommendation engine combining collaborative filtering and content-based similarity. Implemented matrix factorization (SVD) and cosine similarity on audio features. Improved recommendation relevance by 18% over baseline models.",
+      description: "Developed a hybrid recommendation engine combining collaborative filtering and content-based similarity using the Spotify Tracks dataset. Implemented matrix factorization (SVD) to learn user–item embeddings and cosine similarity on audio features (danceability, valence, tempo). Designed and deployed an interactive Streamlit web app allowing users to input a song and receive personalized recommendations in real time. Improved recommendation relevance by 18% over baseline models, demonstrating end-to-end ML deployment skills.",
       tech: ["Python", "Scikit-learn", "Streamlit"],
       link: "#",
     },
     {
-      title: "Quick-Commerce Consumer Behavior Analysis",
-      description: "Analyzed 3M+ Instacart transactions to uncover purchase patterns. Identified 3 customer segments using K-Means clustering. Performed market basket analysis and simulated 9.4% increase in 14-day reorder rate.",
+      title: "Quick-Commerce Consumer Behavior Analysis (Blinkit & Zepto Case Study)",
+      description: "Analyzed 3M+ Instacart transactions to uncover user purchase patterns reflecting Blinkit-like quick-commerce behavior. Identified 3 distinct customer segments using K-Means clustering based on frequency, basket size, and diversity metrics. Performed market basket analysis revealing strong co-purchases (milk–bread lift = 3.1) and high-loyalty categories (snacks 65%). Simulated retention uplift from a free-delivery experiment, estimating 9.4% increase in 14-day reorder rate.",
       tech: ["Python", "SQL", "Seaborn", "Streamlit"],
       link: "#",
     },
     {
       title: "Airbnb Price Prediction",
-      description: "Built regression models to predict nightly listing prices based on location, amenities, and host ratings. Applied SHAP explainability to interpret feature importance and created visual dashboards for pricing insights.",
+      description: "Built regression models to predict nightly listing prices based on location, amenities, and host ratings using the Inside Airbnb dataset. Performed feature engineering, outlier handling, and cross-validation, achieving high R² and low RMSE across multiple models. Applied SHAP explainability to interpret feature importance, identifying location and room type as top price drivers. Created visual dashboards highlighting neighborhood-level pricing insights and optimal host pricing strategies.",
       tech: ["XGBoost", "RandomForest", "SHAP", "Pandas"],
       link: "#",
     },
     {
-      title: "A/B Testing Simulator",
-      description: "Interactive A/B testing analysis tool to evaluate experimental data for conversion rate improvements. Implemented hypothesis testing (Z-tests, t-tests) to calculate statistical significance and built a Streamlit dashboard.",
-      tech: ["Python", "Statsmodels", "Scipy", "Streamlit"],
+      title: "COVID-19 Infection Prediction",
+      description: "Developed multiple classification models (Logistic Regression, Decision Tree, Random Forest) to predict infection probability based on symptom data. Conducted feature selection and correlation analysis to identify key health indicators affecting infection likelihood. Achieved over 92% model accuracy, validating results using confusion matrices and ROC curves. Demonstrated the potential of ML-based early screening systems for real-world health applications.",
+      tech: ["Scikit-learn", "Pandas", "Seaborn"],
       link: "#",
     },
     {
-      title: "COVID-19 Infection Prediction",
-      description: "Developed multiple classification models (Logistic Regression, Decision Tree, Random Forest) to predict infection probability based on symptom data. Achieved over 92% model accuracy.",
-      tech: ["Scikit-learn", "Pandas", "Seaborn"],
+      title: "Eating Habits & Diet Quality Analysis",
+      description: "Collaborated with a professor at MIT, Manipal to analyze dietary patterns among adolescents aged 12–24 years. Performed data cleaning, normalization, and statistical analysis to study relationships between diet quality, sleep duration, and lifestyle. Visualized key dietary trends by demographic segment, supporting academic research on youth nutrition and well-being.",
+      tech: ["Pandas", "NumPy", "Matplotlib", "Seaborn"],
+      link: "#",
+    },
+    {
+      title: "A/B Testing Simulator",
+      description: "Developed an interactive A/B testing analysis tool to evaluate experimental data for conversion rate improvements. Implemented hypothesis testing (Z-tests, t-tests) to calculate statistical significance, confidence intervals, and lift. Built a Streamlit dashboard allowing users to upload experiment data and automatically generate significance reports and visual insights. Enabled data-driven decision-making by simulating test scenarios and quantifying variant performance differences.",
+      tech: ["Python", "Statsmodels", "Scipy", "Streamlit"],
       link: "#",
     },
   ];
