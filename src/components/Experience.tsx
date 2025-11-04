@@ -38,7 +38,7 @@ const Experience = () => {
       <div className={`container mx-auto max-w-6xl section-reveal ${isVisible ? 'visible' : ''}`}>
         <div className="mb-20">
           <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground/60">Career Path</span>
-          <h2 className="text-5xl md:text-6xl font-bold tracking-tight mt-4">Experience</h2>
+          <h2 className="text-5xl md:text-6xl font-display font-bold tracking-tight mt-4">Experience</h2>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">

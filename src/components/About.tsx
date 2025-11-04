@@ -10,7 +10,7 @@ const About = () => {
         <div className="grid md:grid-cols-12 gap-20 items-start">
           <div className="md:col-span-4">
             <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground/60">About Me</span>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight mt-4">Background</h2>
+            <h2 className="text-4xl md:text-5xl font-display font-bold tracking-tight mt-4">Background</h2>
           </div>
           
           <div className="md:col-span-8 space-y-8">

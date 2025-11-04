@@ -16,7 +16,7 @@ const Contact = () => {
         <div className="grid md:grid-cols-12 gap-12">
           <div className="md:col-span-5">
             <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground/60">Let's Talk</span>
-            <h2 className="text-5xl md:text-6xl font-bold tracking-tight mt-4 mb-8">Get in Touch</h2>
+            <h2 className="text-5xl md:text-6xl font-display font-bold tracking-tight mt-4 mb-8">Get in Touch</h2>
             <p className="text-lg text-muted-foreground/70 leading-relaxed">
               I'm always interested in hearing about new projects and opportunities. 
               Whether you have a question or just want to say hi, feel free to reach out!
