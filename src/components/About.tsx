@@ -31,19 +31,22 @@ const About = () => {
         </div>
       </div>
 
-      {/* Skills Section */}
-      <div className="container mx-auto max-w-6xl mt-16 pt-16 border-t border-border/40">
+      {/* Full-width Skills Section */}
+      <div className="container mx-auto max-w-6xl mt-20">
         <div className="mb-8">
-          <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground/60">Core Skills</span>
+          <div className="text-xs uppercase tracking-wider text-muted-foreground/60">Core Skills</div>
         </div>
-        <div className="flex flex-wrap gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {skills.map((skill, index) => (
             <div
               key={skill}
-              className={`stagger-item ${isVisible ? 'visible' : ''} px-4 py-2 text-sm border border-border/40 rounded-full hover:border-foreground/60 hover:bg-accent/5 transition-all duration-200`}
-              style={{ transitionDelay: `${index * 30}ms` }}
+              className={`stagger-item ${isVisible ? 'visible' : ''} group relative overflow-hidden bg-card/30 backdrop-blur-sm border border-border/40 rounded-lg p-6 hover:bg-accent/10 hover:border-primary/40 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-pointer`}
+              style={{ transitionDelay: `${index * 50}ms` }}
             >
-              {skill}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <span className="relative text-sm font-medium group-hover:text-foreground transition-colors">
+                {skill}
+              </span>
             </div>
           ))}
         </div>
