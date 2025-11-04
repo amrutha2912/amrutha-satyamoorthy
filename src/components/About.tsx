@@ -31,23 +31,25 @@ const About = () => {
         </div>
       </div>
 
-      {/* Static Grid Skills Section */}
-      <div className="mt-24 container mx-auto max-w-6xl">
-        <div className="mb-8">
+      {/* Single Flowing River Marquee */}
+      <div className="mt-24 overflow-hidden">
+        <div className="mb-12 container mx-auto max-w-6xl px-6">
           <div className="text-xs uppercase tracking-wider text-muted-foreground/60">Core Skills</div>
         </div>
         
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
-          {skills.map((skill, index) => (
-            <div
-              key={index}
-              className="group px-6 py-3 bg-card/30 backdrop-blur-sm border border-border/40 rounded-full hover:border-primary/40 hover:bg-accent/10 hover:scale-108 transition-all duration-300 cursor-default text-center"
-            >
-              <span className="text-sm font-medium whitespace-nowrap group-hover:text-foreground transition-colors">
-                {skill}
-              </span>
-            </div>
-          ))}
+        <div className="relative flex overflow-hidden py-2">
+          <div className="flex gap-6 animate-marquee-left" style={{ animationDuration: '28s' }}>
+            {[...skills, ...skills, ...skills].map((skill, index) => (
+              <div
+                key={`skill-${index}`}
+                className="flex-shrink-0 px-8 py-4 bg-card/20 backdrop-blur-sm border border-border/30 rounded-full hover:border-primary/30 transition-all duration-500 cursor-default"
+              >
+                <span className="text-sm font-medium whitespace-nowrap text-muted-foreground/90 hover:text-foreground transition-colors">
+                  {skill}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
