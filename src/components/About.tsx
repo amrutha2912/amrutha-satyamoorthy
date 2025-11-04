@@ -31,68 +31,23 @@ const About = () => {
         </div>
       </div>
 
-      {/* Dynamic Marquee Skills Section */}
-      <div className="mt-24 overflow-hidden">
-        <div className="mb-8 container mx-auto max-w-6xl px-6">
+      {/* Static Grid Skills Section */}
+      <div className="mt-24 container mx-auto max-w-6xl">
+        <div className="mb-8">
           <div className="text-xs uppercase tracking-wider text-muted-foreground/60">Core Skills</div>
         </div>
         
-        <div className="space-y-4">
-          {/* First Row - Scroll Left to Right */}
-          <div className="relative flex overflow-hidden">
-            <div className="flex gap-3 animate-marquee-left">
-              {[...skills, ...skills].map((skill, index) => (
-                <div
-                  key={`left-${index}`}
-                  className="group relative flex-shrink-0 px-6 py-3 bg-card/30 backdrop-blur-sm border border-border/40 rounded-full hover:border-primary/40 hover:bg-accent/10 hover:scale-105 transition-all duration-300 cursor-default"
-                >
-                  <span className="text-sm font-medium whitespace-nowrap group-hover:text-foreground transition-colors">
-                    {skill}
-                  </span>
-                </div>
-              ))}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
+          {skills.map((skill, index) => (
+            <div
+              key={index}
+              className="group px-6 py-3 bg-card/30 backdrop-blur-sm border border-border/40 rounded-full hover:border-primary/40 hover:bg-accent/10 hover:scale-108 transition-all duration-300 cursor-default text-center"
+            >
+              <span className="text-sm font-medium whitespace-nowrap group-hover:text-foreground transition-colors">
+                {skill}
+              </span>
             </div>
-            <div className="flex gap-3 animate-marquee-left absolute left-full">
-              {[...skills, ...skills].map((skill, index) => (
-                <div
-                  key={`left-duplicate-${index}`}
-                  className="group relative flex-shrink-0 px-6 py-3 bg-card/30 backdrop-blur-sm border border-border/40 rounded-full hover:border-primary/40 hover:bg-accent/10 hover:scale-105 transition-all duration-300 cursor-default"
-                >
-                  <span className="text-sm font-medium whitespace-nowrap group-hover:text-foreground transition-colors">
-                    {skill}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Second Row - Scroll Right to Left */}
-          <div className="relative flex overflow-hidden">
-            <div className="flex gap-3 animate-marquee-right">
-              {[...skills, ...skills].map((skill, index) => (
-                <div
-                  key={`right-${index}`}
-                  className="group relative flex-shrink-0 px-6 py-3 bg-card/30 backdrop-blur-sm border border-border/40 rounded-full hover:border-primary/40 hover:bg-accent/10 hover:scale-105 transition-all duration-300 cursor-default"
-                >
-                  <span className="text-sm font-medium whitespace-nowrap group-hover:text-foreground transition-colors">
-                    {skill}
-                  </span>
-                </div>
-              ))}
-            </div>
-            <div className="flex gap-3 animate-marquee-right absolute left-full">
-              {[...skills, ...skills].map((skill, index) => (
-                <div
-                  key={`right-duplicate-${index}`}
-                  className="group relative flex-shrink-0 px-6 py-3 bg-card/30 backdrop-blur-sm border border-border/40 rounded-full hover:border-primary/40 hover:bg-accent/10 hover:scale-105 transition-all duration-300 cursor-default"
-                >
-                  <span className="text-sm font-medium whitespace-nowrap group-hover:text-foreground transition-colors">
-                    {skill}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
