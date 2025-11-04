@@ -4,25 +4,32 @@ const Experience = () => {
   const { ref, isVisible } = useScrollAnimation();
   const experiences = [
     {
-      company: "Tech Solutions Inc.",
-      role: "Senior Software Engineer",
-      period: "Jan 2022 - Present",
+      company: "Porter",
+      role: "Business Analyst",
+      period: "Oct 2024 - Present",
       description:
-        "Leading development of scalable web applications and mentoring junior developers. Built features used by 100k+ users.",
+        "Engineered end-to-end analytical workflows using SQL, Python, and Streamlit. Designed real-time Fulfillment & Allocation Rate Dashboards and built an Experiment Monitoring System for A/B testing. Performed root-cause analysis contributing to a 7% uplift in fulfillment rate.",
     },
     {
-      company: "Digital Innovations",
-      role: "Full Stack Developer",
-      period: "Jun 2020 - Dec 2021",
+      company: "Porter",
+      role: "Data Science Intern",
+      period: "Apr 2024 - Sep 2024",
       description:
-        "Built and maintained multiple client-facing applications. Improved performance and implemented modern development practices.",
+        "Performed correlation and causation experiments to assess performance metrics. Engineered new features and utilized clustering algorithms to enhance model accuracy. Developed a Streamlit dashboard for real-time monitoring and data-driven decision-making.",
     },
     {
-      company: "StartUp Co.",
-      role: "Frontend Developer",
-      period: "Jan 2018 - May 2020",
+      company: "ShePays Financial Services Pvt Ltd",
+      role: "Junior Data Analyst",
+      period: "Jun 2023 - Aug 2023",
       description:
-        "Focused on creating responsive and accessible web applications. Gained experience with modern frameworks and best practices.",
+        "Utilized Moengage and AppsFlyer to create dashboards for user funnel activity. Developed a survey to understand financial behavior in women and created visualizations that informed significant application changes.",
+    },
+    {
+      company: "Tiny Prism Labs Pvt Ltd",
+      role: "Junior Data Scientist",
+      period: "Jan 2023",
+      description:
+        "Utilized librosa library with FFT and MFCC techniques for audio analysis. Achieved 91% accuracy in noise differentiation through visualization charts and collaborative model optimization.",
     },
   ];
 

@@ -6,21 +6,33 @@ const Projects = () => {
   const { ref, isVisible } = useScrollAnimation();
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: "Full-stack online shopping platform with real-time inventory management and payment processing.",
-      tech: ["React", "Node.js", "PostgreSQL"],
+      title: "Spotify Music Recommendation System",
+      description: "Hybrid recommendation engine combining collaborative filtering and content-based similarity. Implemented matrix factorization (SVD) and cosine similarity on audio features. Improved recommendation relevance by 18% over baseline models.",
+      tech: ["Python", "Scikit-learn", "Streamlit"],
       link: "#",
     },
     {
-      title: "Task Management System",
-      description: "Collaborative project management tool with real-time updates and analytics dashboard.",
-      tech: ["TypeScript", "React", "MongoDB"],
+      title: "Quick-Commerce Consumer Behavior Analysis",
+      description: "Analyzed 3M+ Instacart transactions to uncover purchase patterns. Identified 3 customer segments using K-Means clustering. Performed market basket analysis and simulated 9.4% increase in 14-day reorder rate.",
+      tech: ["Python", "SQL", "Seaborn", "Streamlit"],
       link: "#",
     },
     {
-      title: "Analytics Dashboard",
-      description: "Data visualization platform with interactive charts and real-time insights.",
-      tech: ["React", "D3.js", "Python"],
+      title: "Airbnb Price Prediction",
+      description: "Built regression models to predict nightly listing prices based on location, amenities, and host ratings. Applied SHAP explainability to interpret feature importance and created visual dashboards for pricing insights.",
+      tech: ["XGBoost", "RandomForest", "SHAP", "Pandas"],
+      link: "#",
+    },
+    {
+      title: "A/B Testing Simulator",
+      description: "Interactive A/B testing analysis tool to evaluate experimental data for conversion rate improvements. Implemented hypothesis testing (Z-tests, t-tests) to calculate statistical significance and built a Streamlit dashboard.",
+      tech: ["Python", "Statsmodels", "Scipy", "Streamlit"],
+      link: "#",
+    },
+    {
+      title: "COVID-19 Infection Prediction",
+      description: "Developed multiple classification models (Logistic Regression, Decision Tree, Random Forest) to predict infection probability based on symptom data. Achieved over 92% model accuracy.",
+      tech: ["Scikit-learn", "Pandas", "Seaborn"],
       link: "#",
     },
   ];

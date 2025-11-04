@@ -2,7 +2,7 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const About = () => {
   const { ref, isVisible } = useScrollAnimation();
-  const skills = ["React", "TypeScript", "Node.js", "Python", "PostgreSQL", "AWS", "Docker", "Git"];
+  const skills = ["SQL", "Python", "Data Analysis", "A/B Testing", "Machine Learning", "Streamlit", "Tableau", "Snowflake"];
 
   return (
     <section ref={ref} id="about" className="py-20 px-6">
@@ -16,18 +16,21 @@ const About = () => {
           <div className="md:col-span-8 space-y-8">
             <div className="space-y-6 text-lg text-muted-foreground/80 leading-relaxed">
               <p>
-                I'm a tech professional passionate about building products that solve real problems. 
-                I currently work at [Company], where I focus on creating scalable solutions and improving user experiences.
+                I'm a Business Analyst at Porter with a strong background in data science and analytics. 
+                I specialize in building end-to-end analytical workflows, designing real-time dashboards, 
+                and conducting A/B testing to drive data-driven decision-making.
               </p>
               
               <p>
-                Outside of work, I enjoy exploring new technologies, contributing to open source, 
-                and sharing knowledge through blog posts and mentoring.
+                I hold a B.Tech in Data Science Engineering from Manipal Institute of Technology with a 
+                minor in Finance. My expertise spans SQL, Python, machine learning, and data visualization 
+                tools like Tableau and Streamlit.
               </p>
               
               <p>
-                When I'm not coding, you can find me reading tech blogs, working on side projects, 
-                or collaborating with the developer community.
+                I'm passionate about turning complex data into actionable insights and building tools that 
+                empower teams to make better decisions. My work has contributed to significant performance 
+                improvements and enhanced experimental measurement coverage.
               </p>
             </div>
 
