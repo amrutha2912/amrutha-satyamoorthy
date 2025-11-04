@@ -50,7 +50,7 @@ const Experience = () => {
             >
               <div className="space-y-4">
                 <div className="flex flex-col gap-2">
-                  <span className="text-xs font-mono text-muted-foreground/70 tracking-wider">
+                  <span className="text-xs font-mono text-white tracking-wider">
                     {exp.period}
                   </span>
                   <h3 className="text-2xl font-bold group-hover:text-foreground transition-colors">
