@@ -27,22 +27,28 @@ const About = () => {
                 Curiosity drives my work; I enjoy exploring how data can simplify complex problems and enable smarter business outcomes. Outside of work, you'll often find me reading up on the latest in AI and analytics, keeping up with fashion trends, or exploring my long-time interest in biology.
               </p>
             </div>
-
-            <div className="pt-12 border-t border-border/40">
-              <div className="text-xs uppercase tracking-wider text-muted-foreground/60 mb-6">Core Skills</div>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {skills.map((skill, index) => (
-                  <div
-                    key={skill}
-                    className={`stagger-item ${isVisible ? 'visible' : ''} text-sm py-2 border-l-2 border-border/40 pl-4 hover:border-foreground hover:text-foreground transition-all duration-300 animated-underline`}
-                    style={{ transitionDelay: `${index * 100}ms` }}
-                  >
-                    {skill}
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
+        </div>
+      </div>
+
+      {/* Full-width Skills Section */}
+      <div className="container mx-auto max-w-6xl mt-20">
+        <div className="mb-8">
+          <div className="text-xs uppercase tracking-wider text-muted-foreground/60">Core Skills</div>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {skills.map((skill, index) => (
+            <div
+              key={skill}
+              className={`stagger-item ${isVisible ? 'visible' : ''} group relative overflow-hidden bg-card/30 backdrop-blur-sm border border-border/40 rounded-lg p-6 hover:bg-accent/10 hover:border-primary/40 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-pointer`}
+              style={{ transitionDelay: `${index * 50}ms` }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <span className="relative text-sm font-medium group-hover:text-foreground transition-colors">
+                {skill}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
     </section>
