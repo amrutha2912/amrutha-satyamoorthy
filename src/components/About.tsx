@@ -16,22 +16,15 @@ const About = () => {
           <div className="md:col-span-8 space-y-8">
             <div className="space-y-6 text-lg text-muted-foreground/80 leading-relaxed">
               <p>
-                I'm a Business Analyst at Porter with a strong background in data science and analytics. 
-                I specialize in building end-to-end analytical workflows, designing real-time dashboards, 
-                and conducting A/B testing to drive data-driven decision-making.
+                I'm a Business Analyst at Porter with a strong background in data science and analytics. I specialize in building end-to-end analytical workflows, creating real-time dashboards, and conducting A/B testing to drive data-backed decision-making.
               </p>
               
               <p>
-                I hold a B.Tech in Data Science Engineering from Manipal Institute of Technology with a 
-                minor in Finance. My expertise spans SQL, Python, machine learning, and data visualization 
-                tools like Tableau and Streamlit.
+                I hold a B.Tech in Data Science Engineering with a minor in Finance from Manipal Institute of Technology. My expertise spans SQL, Python, machine learning, and data visualization tools such as Tableau and Streamlit.
               </p>
               
               <p>
-                When I'm not diving deep into data, you'll find me reading tech blogs to stay on top of the 
-                latest in AI and analytics, exploring fashion trends, or indulging my keen interest in biology. 
-                I'm passionate about turning complex data into actionable insights and building tools that 
-                empower teams to make better decisions—always with curiosity driving me forward.
+                Curiosity drives my work; I enjoy exploring how data can simplify complex problems and enable smarter business outcomes. Outside of work, you'll often find me reading up on the latest in AI and analytics, keeping up with fashion trends, or exploring my long-time interest in biology.
               </p>
             </div>
 
