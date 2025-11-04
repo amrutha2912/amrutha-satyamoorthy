@@ -8,17 +8,9 @@ const Hero = () => {
       <div className={`container mx-auto max-w-6xl section-reveal ${isVisible ? 'visible' : ''}`}>
         <div className="space-y-8 animate-fade-in">
           <div className="space-y-4">
-            <div className="inline-block">
-              <span className="text-sm tracking-[0.3em] uppercase text-muted-foreground/80 animate-fade-in">
-                Welcome to my portfolio
-              </span>
-            </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight leading-tight">
               Amrutha Satyamoorthy
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground/80 max-w-2xl font-light">
-              Turning data into actionable insights
-            </p>
           </div>
           
           <div className="grid md:grid-cols-2 gap-8 pt-8 border-t border-border/40 max-w-3xl">

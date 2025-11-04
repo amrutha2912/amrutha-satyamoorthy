@@ -1,10 +1,9 @@
-import { Mail, Linkedin, Github, Twitter } from "lucide-react";
+import { Mail, Linkedin, Github } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const Contact = () => {
   const { ref, isVisible } = useScrollAnimation();
   const socialLinks = [
-    { icon: Twitter, label: "Twitter", href: "https://twitter.com" },
     { icon: Github, label: "GitHub", href: "https://github.com" },
     { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com" },
     { icon: Mail, label: "Email", href: "mailto:contact@example.com" },
