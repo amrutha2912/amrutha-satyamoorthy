@@ -6,28 +6,27 @@ const Hero = () => {
   return (
     <section ref={ref} id="home" className="min-h-screen relative flex items-center px-6 animated-gradient-bg">
       <div className={`container mx-auto max-w-6xl section-reveal ${isVisible ? 'visible' : ''}`}>
-        <div className="space-y-8 animate-fade-in">
-          <div className="space-y-4">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight leading-tight">
-              Amrutha Satyamoorthy
-            </h1>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-8 pt-8 border-t border-border/40 max-w-3xl">
-            <div>
-              <p className="text-base text-muted-foreground/90 leading-relaxed">
-                Detail oriented and versatile analyst with a proven background in data analysis, machine learning, and natural language processing.
+        <div className="grid md:grid-cols-2 gap-12 items-center animate-fade-in">
+          <div className="space-y-8">
+            <div className="space-y-2">
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight leading-none">
+                Amrutha
+              </h1>
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight leading-none">
+                Satyamoorthy
+              </h1>
+            </div>
+            
+            <div className="pt-8 border-t border-border/40">
+              <p className="text-lg text-muted-foreground/90 leading-relaxed">
+                Passionate about blending data, technology, and curiosity to make sense of complex problems.
               </p>
             </div>
-            <div className="flex items-start gap-8">
-              <div>
-                <div className="text-xs uppercase tracking-wider text-muted-foreground/60 mb-2">Based in</div>
-                <div className="text-sm">Bengaluru, India</div>
-              </div>
-              <div>
-                <div className="text-xs uppercase tracking-wider text-muted-foreground/60 mb-2">Contact</div>
-                <div className="text-sm">amrutha.satyamoorthy@gmail.com</div>
-              </div>
+          </div>
+          
+          <div className="hidden md:flex items-center justify-center">
+            <div className="w-full aspect-square max-w-md rounded-2xl bg-card/30 backdrop-blur-sm border border-border/40 flex items-center justify-center">
+              <span className="text-muted-foreground/40 text-sm">Photo placeholder</span>
             </div>
           </div>
         </div>
