@@ -9,7 +9,7 @@ const Hero = () => {
       <div className={`container mx-auto max-w-6xl section-reveal ${isVisible ? 'visible' : ''}`}>
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start animate-fade-in">
           <div className="flex items-center justify-center md:hidden mb-4">
-            <div className="w-32 h-32 rounded-2xl overflow-hidden border border-border/40">
+            <div className="w-40 h-40 rounded-2xl overflow-hidden border border-border/40">
               <img 
                 src={portfolioPhoto} 
                 alt="Amrutha Satyamoorthy" 
