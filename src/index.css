@@ -77,10 +77,18 @@ All colors MUST be HSL.
     --radius: 0.5rem;
 
     /* Custom tokens for portfolio */
-    --gradient-primary: linear-gradient(135deg, hsl(0 0% 7%) 0%, hsl(0 0% 12%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(0 0% 15%) 0%, hsl(0 0% 25%) 100%);
-    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 7%) 0%, hsl(0 0% 10%) 100%);
-    --gradient-overlay: linear-gradient(180deg, hsl(0 0% 0% / 0.8) 0%, hsl(0 0% 0% / 0.4) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(0 0% 7%) 0%, hsl(180 75% 15%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(180 75% 45%) 0%, hsl(180 75% 35%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 7%) 0%, hsl(180 75% 8%) 100%);
+    --gradient-overlay: linear-gradient(180deg, hsl(0 0% 0% / 0.8) 0%, hsl(180 75% 10% / 0.4) 100%);
+    --gradient-text: linear-gradient(135deg, hsl(180 75% 60%) 0%, hsl(180 75% 45%) 50%, hsl(0 0% 98%) 100%);
+    
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.3);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.4), 0 2px 4px -2px hsl(0 0% 0% / 0.3);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.5), 0 4px 6px -4px hsl(0 0% 0% / 0.4);
+    --shadow-xl: 0 20px 25px -5px hsl(0 0% 0% / 0.6), 0 8px 10px -6px hsl(0 0% 0% / 0.5);
+    --shadow-glow: 0 0 40px hsl(180 75% 45% / 0.15);
+    --shadow-accent: 0 0 30px hsl(180 75% 45% / 0.25);
     
     --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.3);
     --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.4), 0 2px 4px -2px hsl(0 0% 0% / 0.3);
@@ -103,11 +111,14 @@ All colors MUST be HSL.
   }
   
   .text-gradient {
-    @apply bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent;
+    background: linear-gradient(135deg, hsl(180 75% 60%), hsl(180 75% 45%), hsl(var(--foreground)));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .text-gradient-shift {
-    background: linear-gradient(90deg, hsl(var(--foreground)), hsl(var(--muted-foreground)), hsl(var(--foreground)));
+    background: linear-gradient(90deg, hsl(180 75% 60%), hsl(var(--foreground)), hsl(180 75% 45%));
     background-size: 200% 100%;
     background-clip: text;
     -webkit-background-clip: text;
@@ -125,7 +136,8 @@ All colors MUST be HSL.
 
   .animated-underline::after {
     content: '';
-    @apply absolute bottom-0 left-0 w-0 h-[1px] bg-foreground transition-all duration-300;
+    @apply absolute bottom-0 left-0 w-0 h-[2px] bg-accent transition-all duration-300;
+    box-shadow: 0 0 8px hsl(var(--accent) / 0.5);
   }
 
   .animated-underline:hover::after {
@@ -139,6 +151,7 @@ All colors MUST be HSL.
   .card-hover:hover {
     @apply -translate-y-2 scale-[1.02];
     transform: translateY(-8px) scale(1.02) rotateX(2deg);
+    box-shadow: 0 0 30px hsl(var(--accent) / 0.2), 0 10px 40px hsl(0 0% 0% / 0.5);
   }
 
   .magnetic-hover {
@@ -209,8 +222,8 @@ All colors MUST be HSL.
   }
 
   .animated-gradient-bg {
-    background: linear-gradient(45deg, hsl(var(--background)), hsl(var(--muted)), hsl(var(--background)));
-    background-size: 200% 200%;
+    background: linear-gradient(45deg, hsl(var(--background)), hsl(180 75% 10%), hsl(var(--accent) / 0.1), hsl(var(--background)));
+    background-size: 300% 300%;
     animation: gradient-shift 15s ease infinite;
   }
 }
