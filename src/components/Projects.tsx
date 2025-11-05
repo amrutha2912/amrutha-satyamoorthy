@@ -55,14 +55,14 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className={`stagger-item ${isVisible ? 'visible' : ''} group relative overflow-hidden card-hover border border-transparent hover:border-accent/20 rounded-lg transition-all duration-500`}
+              className={`stagger-item ${isVisible ? 'visible' : ''} group relative overflow-hidden card-hover`}
               style={{ transitionDelay: `${index * 200}ms` }}
             >
               <a
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block border-t border-border/40 last:border-b py-8 hover:bg-accent/5 hover:shadow-[0_0_30px_rgba(96,165,250,0.2)] hover:border-l-2 hover:border-l-accent transition-all duration-500 px-6 -mx-6"
+                className="block border-t border-border/40 last:border-b py-8 hover:bg-accent/5 transition-all duration-500 px-6 -mx-6"
               >
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
                 <div className="flex-1">
@@ -89,7 +89,7 @@ const Projects = () => {
                   </div>
                 </div>
                 
-                <ExternalLink className="w-5 h-5 text-muted-foreground/40 group-hover:text-accent group-hover:rotate-45 transition-all duration-300" />
+                <ExternalLink className="w-5 h-5 text-muted-foreground/40 group-hover:text-foreground group-hover:rotate-45 transition-all duration-300" />
               </div>
               </a>
             </div>
