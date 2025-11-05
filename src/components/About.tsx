@@ -1,8 +1,13 @@
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { useRef, useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const About = () => {
   const { ref, isVisible } = useScrollAnimation<HTMLElement>();
-  const { ref: skillsRef, isVisible: isSkillsVisible } = useScrollAnimation<HTMLDivElement>();
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
   
   const skillsWithSize = [
     { name: "SQL", size: "large" },
@@ -18,6 +23,38 @@ const About = () => {
     { name: "Scikit-learn", size: "small" },
     { name: "Matplotlib", size: "small" },
   ];
+
+  const checkScroll = () => {
+    if (scrollContainerRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+      setCanScrollLeft(scrollLeft > 0);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+    }
+  };
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = scrollContainerRef.current.offsetWidth * 0.8;
+      scrollContainerRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      checkScroll();
+      container.addEventListener('scroll', checkScroll);
+      window.addEventListener('resize', checkScroll);
+      
+      return () => {
+        container.removeEventListener('scroll', checkScroll);
+        window.removeEventListener('resize', checkScroll);
+      };
+    }
+  }, []);
 
   return (
     <section ref={ref} id="about" className="py-12 px-6">
@@ -46,35 +83,65 @@ const About = () => {
         </div>
       </div>
 
-      {/* Scroll-Triggered Stagger Animation */}
-      <div ref={skillsRef} className="mt-24 container mx-auto max-w-6xl px-6">
+      {/* Scroll Snap Carousel */}
+      <div className="mt-24 container mx-auto max-w-6xl px-6">
         <div className="mb-8">
           <div className="text-xs uppercase tracking-wider text-muted-foreground/60">Core Skills</div>
         </div>
         
-        <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-3 auto-rows-fr">
-          {skillsWithSize.map((skill, index) => (
-            <div
-              key={index}
-              className={`
-                stagger-item ${isSkillsVisible ? 'visible' : ''}
-                ${skill.size === 'large' ? 'col-span-2' : skill.size === 'medium' ? 'col-span-2 md:col-span-1' : 'col-span-1'}
-                flex items-center justify-center
-                ${skill.size === 'large' ? 'px-6 py-5 bg-card/40' : skill.size === 'medium' ? 'px-5 py-4 bg-card/30' : 'px-4 py-3 bg-card/20'}
-                backdrop-blur-sm border border-border/40 rounded-2xl
-                hover:border-primary/50 hover:scale-[1.02] hover:bg-accent/10
-                transition-all duration-300 cursor-default
-              `}
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              <span className={`
-                ${skill.size === 'large' ? 'text-base font-semibold' : skill.size === 'medium' ? 'text-sm font-medium' : 'text-sm font-medium'}
-                whitespace-nowrap text-center
-              `}>
-                {skill.name}
-              </span>
+        <div className="relative">
+          {/* Navigation Arrows */}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => scroll('left')}
+            disabled={!canScrollLeft}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 rounded-full bg-background/80 backdrop-blur-sm border border-border/40 disabled:opacity-30 hover:bg-accent/50"
+            aria-label="Scroll left"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </Button>
+
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => scroll('right')}
+            disabled={!canScrollRight}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 rounded-full bg-background/80 backdrop-blur-sm border border-border/40 disabled:opacity-30 hover:bg-accent/50"
+            aria-label="Scroll right"
+          >
+            <ChevronRight className="h-5 w-5" />
+          </Button>
+
+          {/* Scrollable Container */}
+          <div
+            ref={scrollContainerRef}
+            className="overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth"
+          >
+            <div className="flex gap-4 pb-4">
+              {skillsWithSize.map((skill, index) => (
+                <div
+                  key={index}
+                  className={`
+                    snap-start flex-shrink-0
+                    ${skill.size === 'large' ? 'w-64' : skill.size === 'medium' ? 'w-48' : 'w-40'}
+                    ${skill.size === 'large' ? 'h-32' : skill.size === 'medium' ? 'h-28' : 'h-24'}
+                    flex items-center justify-center
+                    bg-card/30 backdrop-blur-sm border border-border/40 rounded-2xl
+                    hover:border-primary/50 hover:scale-[1.02] hover:bg-accent/10
+                    transition-all duration-300 cursor-pointer
+                  `}
+                >
+                  <span className={`
+                    ${skill.size === 'large' ? 'text-lg font-semibold' : skill.size === 'medium' ? 'text-base font-medium' : 'text-sm font-medium'}
+                    text-center px-4
+                  `}>
+                    {skill.name}
+                  </span>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>
