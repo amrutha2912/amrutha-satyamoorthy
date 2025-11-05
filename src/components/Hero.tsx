@@ -1,4 +1,5 @@
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import portfolioPhoto from "@/assets/portfolio-photo.jpg";
 
 const Hero = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -25,8 +26,12 @@ const Hero = () => {
           </div>
           
           <div className="hidden md:flex items-center justify-center">
-            <div className="w-full aspect-square max-w-md rounded-2xl bg-card/30 backdrop-blur-sm border border-border/40 flex items-center justify-center">
-              <span className="text-muted-foreground/40 text-sm">Photo placeholder</span>
+            <div className="w-full aspect-square max-w-md rounded-2xl overflow-hidden border border-border/40">
+              <img 
+                src={portfolioPhoto} 
+                alt="Amrutha Satyamoorthy" 
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
