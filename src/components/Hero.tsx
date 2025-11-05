@@ -25,7 +25,7 @@ const Hero = () => {
             </div>
           </div>
           
-          <div className="hidden md:flex items-start justify-start">
+          <div className="hidden md:flex items-start justify-end">
             <div className="w-full aspect-square max-w-md rounded-2xl overflow-hidden border border-border/40 self-start md:-mt-2 lg:-mt-3">
               <img 
                 src={portfolioPhoto} 
