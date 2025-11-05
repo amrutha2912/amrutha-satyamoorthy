@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <section ref={ref} id="home" className="min-h-screen relative flex items-start pt-32 px-6 animated-gradient-bg">
       <div className={`container mx-auto max-w-6xl section-reveal ${isVisible ? 'visible' : ''}`}>
-        <div className="grid md:grid-cols-2 gap-12 items-center animate-fade-in">
+        <div className="grid md:grid-cols-2 gap-12 items-start animate-fade-in">
           <div className="space-y-8">
             <div className="space-y-2">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight leading-none">
