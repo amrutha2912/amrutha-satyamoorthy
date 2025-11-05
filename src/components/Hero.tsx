@@ -25,8 +25,8 @@ const Hero = () => {
             </div>
           </div>
           
-          <div className="hidden md:flex items-center justify-center">
-            <div className="w-full aspect-square max-w-md rounded-2xl overflow-hidden border border-border/40">
+          <div className="hidden md:flex items-start justify-start">
+            <div className="w-full aspect-square max-w-md rounded-2xl overflow-hidden border border-border/40 self-start md:-mt-2 lg:-mt-3">
               <img 
                 src={portfolioPhoto} 
                 alt="Amrutha Satyamoorthy" 
