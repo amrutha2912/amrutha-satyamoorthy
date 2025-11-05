@@ -77,6 +77,7 @@ const About = () => {
                 hover:-translate-y-1 hover:border-primary/40 hover:bg-card/50
                 transition-all duration-300
                 ${visibleCards[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}
+                ${index === 2 ? 'md:col-span-2 lg:col-span-2' : ''}
               `}
               style={{ 
                 transitionDelay: visibleCards[index] ? '0ms' : `${index * 100}ms`,
