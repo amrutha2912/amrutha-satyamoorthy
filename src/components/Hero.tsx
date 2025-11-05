@@ -10,10 +10,10 @@ const Hero = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center animate-fade-in">
           <div className="space-y-8">
             <div className="space-y-2">
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight leading-none">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight leading-none">
                 Amrutha
               </h1>
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight leading-none">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight leading-none">
                 Satyamoorthy
               </h1>
             </div>
