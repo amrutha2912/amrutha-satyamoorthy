@@ -18,6 +18,13 @@ const Experience = () => {
         "Performed correlation and causation experiments to assess the 'Completion Score' metric, revealing it as a poor performance indicator through statistical analysis. Engineered new features and utilized clustering algorithms to segment notification level data, enhancing model accuracy and generating actionable insights. Developed a Streamlit dashboard to visualize key organizational metrics, enabling real-time monitoring and data-driven decision-making across teams.",
     },
     {
+      company: "Porter",
+      role: "Data Analyst Intern",
+      period: "Jan 2024 - Mar 2024",
+      description:
+        "Developed multiple dashboards in Metabase using SQL queries to enhance cost-to-serve visibility across key business metrics. Conducted analysis of bucket thresholds in the Lead Score Model (LSM) during Phase 1.5, utilizing Python for data preprocessing and statistical analysis. Initiated Phase 2 by performing detailed analysis of initial customer calls to optimize the goal cost-to-convert, enabling data-driven decision-making and strategic planning.",
+    },
+    {
       company: "ShePays Financial Services Pvt Ltd",
       role: "Junior Data Analyst",
       period: "Jun 2023 - Aug 2023",
@@ -45,7 +52,7 @@ const Experience = () => {
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className={`stagger-item ${isVisible ? 'visible' : ''} group bg-card/50 backdrop-blur-sm border border-border/40 rounded-lg p-8 transition-all duration-500 hover:bg-muted/30 hover:border-border/80 hover:-translate-y-2 hover:shadow-xl cursor-pointer`}
+              className={`stagger-item ${isVisible ? 'visible' : ''} group bg-card/50 backdrop-blur-sm border border-border/40 rounded-lg p-8 transition-all duration-500 hover:bg-muted/30 hover:border-border/80 hover:-translate-y-2 hover:shadow-xl cursor-pointer ${index === 0 ? 'md:col-span-2' : ''}`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               <div className="space-y-4">
