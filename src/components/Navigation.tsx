@@ -88,7 +88,7 @@ const Navigation = () => {
               </button>
             ))}
             <a
-              href="https://drive.google.com/file/d/1Lvg2-hgaJKZ5Q49831ZhgRc6Igzw79I3/view?usp=sharing"
+              href="https://drive.google.com/file/d/1CWyckzAmzEiav92D5lQRp0A21sKuOHo8/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="px-4 py-2 text-sm font-medium transition-colors rounded-md text-muted-foreground hover:text-foreground"
@@ -123,7 +123,7 @@ const Navigation = () => {
                   </button>
                 ))}
                 <a
-                  href="https://drive.google.com/file/d/1Lvg2-hgaJKZ5Q49831ZhgRc6Igzw79I3/view?usp=sharing"
+                  href="https://drive.google.com/file/d/1CWyckzAmzEiav92D5lQRp0A21sKuOHo8/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-4 py-3 text-base font-medium transition-colors rounded-md text-left text-muted-foreground hover:text-foreground hover:bg-accent/50"
