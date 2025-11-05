@@ -1,7 +1,8 @@
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const About = () => {
-  const { ref, isVisible } = useScrollAnimation();
+  const { ref, isVisible } = useScrollAnimation<HTMLElement>();
+  const { ref: skillsRef, isVisible: isSkillsVisible } = useScrollAnimation<HTMLDivElement>();
   
   const skillsWithSize = [
     { name: "SQL", size: "large" },
@@ -45,40 +46,35 @@ const About = () => {
         </div>
       </div>
 
-      {/* Horizontal Scroll Gallery */}
-      <div className="mt-24">
-        <div className="mb-8 container mx-auto max-w-6xl px-6">
+      {/* Scroll-Triggered Stagger Animation */}
+      <div ref={skillsRef} className="mt-24 container mx-auto max-w-6xl px-6">
+        <div className="mb-8">
           <div className="text-xs uppercase tracking-wider text-muted-foreground/60">Core Skills</div>
         </div>
         
-        <div className="overflow-x-auto scrollbar-hide snap-x snap-mandatory px-6">
-          <div className="flex gap-4 pb-4 container mx-auto max-w-6xl">
-            {skillsWithSize.map((skill, index) => (
-              <div
-                key={index}
-                className={`
-                  snap-start flex-shrink-0
-                  ${skill.size === 'large' ? 'w-64' : skill.size === 'medium' ? 'w-48' : 'w-40'}
-                  ${skill.size === 'large' ? 'h-32' : skill.size === 'medium' ? 'h-28' : 'h-24'}
-                  flex items-center justify-center
-                  bg-card/30 backdrop-blur-sm border border-border/40 rounded-2xl
-                  hover:border-primary/50 hover:scale-[1.02] hover:bg-accent/10
-                  transition-all duration-300 cursor-pointer
-                `}
-              >
-                <span className={`
-                  ${skill.size === 'large' ? 'text-lg font-semibold' : skill.size === 'medium' ? 'text-base font-medium' : 'text-sm font-medium'}
-                  text-center px-4
-                `}>
-                  {skill.name}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-        
-        <div className="mt-4 text-center">
-          <p className="text-xs text-muted-foreground/60">← Scroll horizontally →</p>
+        <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-3 auto-rows-fr">
+          {skillsWithSize.map((skill, index) => (
+            <div
+              key={index}
+              className={`
+                stagger-item ${isSkillsVisible ? 'visible' : ''}
+                ${skill.size === 'large' ? 'col-span-2' : skill.size === 'medium' ? 'col-span-2 md:col-span-1' : 'col-span-1'}
+                flex items-center justify-center
+                ${skill.size === 'large' ? 'px-6 py-5 bg-card/40' : skill.size === 'medium' ? 'px-5 py-4 bg-card/30' : 'px-4 py-3 bg-card/20'}
+                backdrop-blur-sm border border-border/40 rounded-2xl
+                hover:border-primary/50 hover:scale-[1.02] hover:bg-accent/10
+                transition-all duration-300 cursor-default
+              `}
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
+              <span className={`
+                ${skill.size === 'large' ? 'text-base font-semibold' : skill.size === 'medium' ? 'text-sm font-medium' : 'text-sm font-medium'}
+                whitespace-nowrap text-center
+              `}>
+                {skill.name}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
     </section>
