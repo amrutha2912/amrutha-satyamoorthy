@@ -18,8 +18,11 @@ const Hero = () => {
   return (
     <section ref={ref} id="home" className="min-h-screen relative flex items-start pt-32 px-6 overflow-hidden">
       <div 
-        className="absolute inset-0 animated-gradient-bg"
+        className="absolute inset-0"
         style={{
+          background: 'linear-gradient(135deg, hsl(var(--background)) 0%, hsl(220 80% 15%) 50%, hsl(var(--background)) 100%)',
+          backgroundSize: '400% 400%',
+          animation: 'gradient-shift 15s ease infinite',
           transform: `translateY(${scrollY * 0.5}px)`,
           transition: 'transform 0.1s ease-out',
         }}
@@ -38,10 +41,10 @@ const Hero = () => {
           
           <div className="space-y-8">
             <div className="space-y-2">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight leading-none">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight leading-none text-gradient-shift">
                 Amrutha
               </h1>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight leading-none">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight leading-none text-gradient-shift">
                 Satyamoorthy
               </h1>
             </div>
