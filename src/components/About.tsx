@@ -1,60 +1,43 @@
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import { useRef, useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { useState, useEffect, useRef } from "react";
 
 const About = () => {
   const { ref, isVisible } = useScrollAnimation<HTMLElement>();
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
-  
-  const skillsWithSize = [
-    { name: "SQL", size: "large" },
-    { name: "Python", size: "large" },
-    { name: "Data Analysis", size: "large" },
-    { name: "Tableau", size: "medium" },
-    { name: "A/B Testing", size: "medium" },
-    { name: "Machine Learning", size: "large" },
-    { name: "Streamlit", size: "medium" },
-    { name: "Pandas", size: "small" },
-    { name: "NumPy", size: "small" },
-    { name: "Microsoft Excel", size: "medium" },
-    { name: "Scikit-learn", size: "small" },
-    { name: "Matplotlib", size: "small" },
+  const cardsRef = useRef<HTMLDivElement>(null);
+  const [visibleCards, setVisibleCards] = useState<boolean[]>([false, false, false, false]);
+
+  const skillCategories = [
+    {
+      category: "Technical Skills",
+      skills: ["SQL", "Python", "Microsoft Excel", "Data Analysis", "Data Visualization", "Google Sheets"]
+    },
+    {
+      category: "Libraries & Frameworks",
+      skills: ["Pandas", "NumPy", "Streamlit", "SciKit-Learn", "Matplotlib"]
+    },
+    {
+      category: "Data Analysis & Visualization",
+      skills: ["Data Analysis", "Data Visualization", "A/B Testing", "Statistical Modeling"]
+    },
+    {
+      category: "Tool/Software",
+      skills: ["Microsoft 365", "Jupyter Notebook", "Tableau", "Snowflake", "Metabase", "GitHub"]
+    }
   ];
 
-  const checkScroll = () => {
-    if (scrollContainerRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
-      setCanScrollLeft(scrollLeft > 0);
-      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
-    }
-  };
-
-  const scroll = (direction: 'left' | 'right') => {
-    if (scrollContainerRef.current) {
-      const scrollAmount = scrollContainerRef.current.offsetWidth * 0.8;
-      scrollContainerRef.current.scrollBy({
-        left: direction === 'left' ? -scrollAmount : scrollAmount,
-        behavior: 'smooth'
+  useEffect(() => {
+    if (isVisible) {
+      skillCategories.forEach((_, index) => {
+        setTimeout(() => {
+          setVisibleCards(prev => {
+            const newState = [...prev];
+            newState[index] = true;
+            return newState;
+          });
+        }, index * 100);
       });
     }
-  };
-
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (container) {
-      checkScroll();
-      container.addEventListener('scroll', checkScroll);
-      window.addEventListener('resize', checkScroll);
-      
-      return () => {
-        container.removeEventListener('scroll', checkScroll);
-        window.removeEventListener('resize', checkScroll);
-      };
-    }
-  }, []);
+  }, [isVisible]);
 
   return (
     <section ref={ref} id="about" className="py-12 px-6">
@@ -83,61 +66,71 @@ const About = () => {
         </div>
       </div>
 
-      {/* Scroll Snap Carousel */}
-      <div className="mt-24 container mx-auto max-w-6xl px-6">
+      {/* Categorized Skills Grid */}
+      <div ref={cardsRef} className="mt-24 container mx-auto max-w-6xl">
         <div className="mb-8">
           <div className="text-xs uppercase tracking-wider text-muted-foreground/60">Core Skills</div>
         </div>
         
-        <div className="relative">
-          {/* Navigation Arrows */}
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => scroll('left')}
-            disabled={!canScrollLeft}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 rounded-full bg-background/80 backdrop-blur-sm border border-border/40 disabled:opacity-30 hover:bg-accent/50"
-            aria-label="Scroll left"
-          >
-            <ChevronLeft className="h-5 w-5" />
-          </Button>
+        {/* Top 3 Cards - Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {skillCategories.slice(0, 3).map((category, index) => (
+            <div
+              key={index}
+              className={`
+                bg-card/40 backdrop-blur-sm border border-border/20 rounded-2xl p-8
+                hover:-translate-y-1 hover:border-primary/40 hover:bg-card/50
+                transition-all duration-300
+                ${visibleCards[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}
+              `}
+              style={{ 
+                transitionDelay: visibleCards[index] ? '0ms' : `${index * 100}ms`,
+                transitionProperty: 'opacity, transform, border-color, background-color'
+              }}
+            >
+              <h3 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+                {category.category}.
+              </h3>
+              <ul className="space-y-3">
+                {category.skills.map((skill, skillIndex) => (
+                  <li 
+                    key={skillIndex} 
+                    className="text-base md:text-lg text-muted-foreground leading-relaxed
+                              hover:text-foreground hover:translate-x-1 transition-all duration-200"
+                  >
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
 
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => scroll('right')}
-            disabled={!canScrollRight}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 rounded-full bg-background/80 backdrop-blur-sm border border-border/40 disabled:opacity-30 hover:bg-accent/50"
-            aria-label="Scroll right"
-          >
-            <ChevronRight className="h-5 w-5" />
-          </Button>
-
-          {/* Scrollable Container */}
+        {/* Last Card - Full Width */}
+        <div className="mt-6">
           <div
-            ref={scrollContainerRef}
-            className="overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth"
+            className={`
+              bg-card/40 backdrop-blur-sm border border-border/20 rounded-2xl p-8
+              hover:-translate-y-1 hover:border-primary/40 hover:bg-card/50
+              transition-all duration-300
+              ${visibleCards[3] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}
+            `}
+            style={{ 
+              transitionDelay: visibleCards[3] ? '0ms' : '300ms',
+              transitionProperty: 'opacity, transform, border-color, background-color'
+            }}
           >
-            <div className="flex gap-4 pb-4">
-              {skillsWithSize.map((skill, index) => (
-                <div
-                  key={index}
-                  className={`
-                    snap-start flex-shrink-0
-                    ${skill.size === 'large' ? 'w-64' : skill.size === 'medium' ? 'w-48' : 'w-40'}
-                    ${skill.size === 'large' ? 'h-32' : skill.size === 'medium' ? 'h-28' : 'h-24'}
-                    flex items-center justify-center
-                    bg-card/30 backdrop-blur-sm border border-border/40 rounded-2xl
-                    hover:border-primary/50 hover:scale-[1.02] hover:bg-accent/10
-                    transition-all duration-300 cursor-pointer
-                  `}
+            <h3 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+              {skillCategories[3].category}.
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-3">
+              {skillCategories[3].skills.map((skill, skillIndex) => (
+                <div 
+                  key={skillIndex} 
+                  className="text-base md:text-lg text-muted-foreground leading-relaxed
+                            hover:text-foreground hover:translate-x-1 transition-all duration-200"
                 >
-                  <span className={`
-                    ${skill.size === 'large' ? 'text-lg font-semibold' : skill.size === 'medium' ? 'text-base font-medium' : 'text-sm font-medium'}
-                    text-center px-4
-                  `}>
-                    {skill.name}
-                  </span>
+                  {skill}
                 </div>
               ))}
             </div>
