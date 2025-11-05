@@ -67,7 +67,7 @@ const Projects = () => {
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
                 <div className="flex-1">
                   <div className="flex items-center gap-4 mb-3">
-                    <span className="text-xs text-muted-foreground/50 font-mono">0{index + 1}</span>
+                    <span className="text-xs text-muted-foreground/50 font-mono">•</span>
                     <h3 className="text-2xl md:text-3xl font-bold group-hover:translate-x-2 transition-transform duration-300">
                       {project.title}
                     </h3>
