@@ -5,7 +5,7 @@ const Hero = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section ref={ref} id="home" className="min-h-screen relative flex items-center px-6 animated-gradient-bg">
+    <section ref={ref} id="home" className="min-h-screen relative flex items-start pt-32 px-6 animated-gradient-bg">
       <div className={`container mx-auto max-w-6xl section-reveal ${isVisible ? 'visible' : ''}`}>
         <div className="grid md:grid-cols-2 gap-12 items-center animate-fade-in">
           <div className="space-y-8">
