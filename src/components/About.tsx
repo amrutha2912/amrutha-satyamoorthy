@@ -2,7 +2,21 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const About = () => {
   const { ref, isVisible } = useScrollAnimation();
-  const skills = ["SQL", "Python", "Data Analysis", "A/B Testing", "Machine Learning", "Streamlit", "Tableau", "Microsoft Excel", "Pandas", "NumPy", "Scikit-learn", "Matplotlib"];
+  
+  const skillsWithSize = [
+    { name: "SQL", size: "large" },
+    { name: "Python", size: "large" },
+    { name: "Data Analysis", size: "large" },
+    { name: "Tableau", size: "medium" },
+    { name: "A/B Testing", size: "medium" },
+    { name: "Machine Learning", size: "large" },
+    { name: "Streamlit", size: "medium" },
+    { name: "Pandas", size: "small" },
+    { name: "NumPy", size: "small" },
+    { name: "Microsoft Excel", size: "medium" },
+    { name: "Scikit-learn", size: "small" },
+    { name: "Matplotlib", size: "small" },
+  ];
 
   return (
     <section ref={ref} id="about" className="py-12 px-6">
@@ -31,25 +45,33 @@ const About = () => {
         </div>
       </div>
 
-      {/* Single Flowing River Marquee */}
-      <div className="mt-24 overflow-hidden">
-        <div className="mb-12 container mx-auto max-w-6xl px-6">
+      {/* Bento Grid Skills Section */}
+      <div className="mt-24 container mx-auto max-w-6xl px-6">
+        <div className="mb-8">
           <div className="text-xs uppercase tracking-wider text-muted-foreground/60">Core Skills</div>
         </div>
         
-        <div className="relative flex overflow-hidden py-2">
-          <div className="flex gap-6 animate-marquee-left" style={{ animationDuration: '28s' }}>
-            {[...skills, ...skills, ...skills].map((skill, index) => (
-              <div
-                key={`skill-${index}`}
-                className="flex-shrink-0 px-8 py-4 bg-card/20 backdrop-blur-sm border border-border/30 rounded-full hover:border-primary/30 transition-all duration-500 cursor-default"
-              >
-                <span className="text-sm font-medium whitespace-nowrap text-muted-foreground/90 hover:text-foreground transition-colors">
-                  {skill}
-                </span>
-              </div>
-            ))}
-          </div>
+        <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-3 auto-rows-fr">
+          {skillsWithSize.map((skill, index) => (
+            <div
+              key={index}
+              className={`
+                ${skill.size === 'large' ? 'col-span-2' : skill.size === 'medium' ? 'col-span-2 md:col-span-1' : 'col-span-1'}
+                flex items-center justify-center
+                ${skill.size === 'large' ? 'px-6 py-5 bg-card/40' : skill.size === 'medium' ? 'px-5 py-4 bg-card/30' : 'px-4 py-3 bg-card/20'}
+                backdrop-blur-sm border border-border/40 rounded-2xl
+                hover:border-primary/50 hover:scale-[1.02] hover:bg-accent/10
+                transition-all duration-300 cursor-default
+              `}
+            >
+              <span className={`
+                ${skill.size === 'large' ? 'text-base font-semibold' : skill.size === 'medium' ? 'text-sm font-medium' : 'text-sm font-medium'}
+                whitespace-nowrap text-center
+              `}>
+                {skill.name}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
     </section>
