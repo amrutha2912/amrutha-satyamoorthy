@@ -4,24 +4,20 @@ import { useState, useEffect, useRef } from "react";
 const About = () => {
   const { ref, isVisible } = useScrollAnimation<HTMLElement>();
   const cardsRef = useRef<HTMLDivElement>(null);
-  const [visibleCards, setVisibleCards] = useState<boolean[]>([false, false, false, false]);
+  const [visibleCards, setVisibleCards] = useState<boolean[]>([false, false, false]);
 
   const skillCategories = [
     {
       category: "Technical Skills",
-      skills: ["SQL", "Python", "Microsoft Excel", "Data Analysis", "Data Visualization", "Google Sheets"]
+      skills: ["SQL", "Python", "Microsoft Excel", "Data Analysis", "Data Visualization", "A/B Testing", "Statistical Modeling"]
     },
     {
       category: "Libraries & Frameworks",
       skills: ["Pandas", "NumPy", "Streamlit", "SciKit-Learn", "Matplotlib"]
     },
     {
-      category: "Data Analysis & Visualization",
-      skills: ["Data Analysis", "Data Visualization", "A/B Testing", "Statistical Modeling"]
-    },
-    {
       category: "Tool/Software",
-      skills: ["Microsoft 365", "Jupyter Notebook", "Tableau", "Snowflake", "Metabase", "GitHub"]
+      skills: ["Jupyter Notebook", "Tableau", "Snowflake", "Metabase", "GitHub"]
     }
   ];
 
@@ -72,9 +68,8 @@ const About = () => {
           <div className="text-xs uppercase tracking-wider text-muted-foreground/60">Core Skills</div>
         </div>
         
-        {/* Top 3 Cards - Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillCategories.slice(0, 3).map((category, index) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {skillCategories.map((category, index) => (
             <div
               key={index}
               className={`
@@ -104,37 +99,6 @@ const About = () => {
               </ul>
             </div>
           ))}
-        </div>
-
-        {/* Last Card - Full Width */}
-        <div className="mt-6">
-          <div
-            className={`
-              bg-card/40 backdrop-blur-sm border border-border/20 rounded-2xl p-8
-              hover:-translate-y-1 hover:border-primary/40 hover:bg-card/50
-              transition-all duration-300
-              ${visibleCards[3] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}
-            `}
-            style={{ 
-              transitionDelay: visibleCards[3] ? '0ms' : '300ms',
-              transitionProperty: 'opacity, transform, border-color, background-color'
-            }}
-          >
-            <h3 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-              {skillCategories[3].category}.
-            </h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-3">
-              {skillCategories[3].skills.map((skill, skillIndex) => (
-                <div 
-                  key={skillIndex} 
-                  className="text-base md:text-lg text-muted-foreground leading-relaxed
-                            hover:text-foreground hover:translate-x-1 transition-all duration-200"
-                >
-                  {skill}
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </section>
