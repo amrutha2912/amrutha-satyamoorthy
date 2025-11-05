@@ -9,7 +9,7 @@ const Projects = () => {
       title: "Spotify Music Recommendation System",
       description: "Developed a hybrid recommendation engine combining collaborative filtering and content-based similarity using the Spotify Tracks dataset. Implemented matrix factorization (SVD) to learn user–item embeddings and cosine similarity on audio features (danceability, valence, tempo). Designed and deployed an interactive Streamlit web app allowing users to input a song and receive personalized recommendations in real time. Improved recommendation relevance by 18% over baseline models, demonstrating end-to-end ML deployment skills.",
       tech: ["Python", "Scikit-learn", "Streamlit"],
-      link: "#",
+      link: "https://spotify-hybrid-music-recommender.streamlit.app/",
     },
     {
       title: "Quick-Commerce Consumer Behavior Analysis (Blinkit & Zepto Case Study)",
@@ -21,7 +21,7 @@ const Projects = () => {
       title: "Airbnb Price Prediction",
       description: "Built regression models to predict nightly listing prices based on location, amenities, and host ratings using the Inside Airbnb dataset. Performed feature engineering, outlier handling, and cross-validation, achieving high R² and low RMSE across multiple models. Applied SHAP explainability to interpret feature importance, identifying location and room type as top price drivers. Created visual dashboards highlighting neighborhood-level pricing insights and optimal host pricing strategies.",
       tech: ["XGBoost", "RandomForest", "SHAP", "Pandas"],
-      link: "#",
+      link: "https://airbnb-price-predictor-dev.streamlit.app/",
     },
     {
       title: "COVID-19 Infection Prediction",
