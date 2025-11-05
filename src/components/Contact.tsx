@@ -4,9 +4,9 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 const Contact = () => {
   const { ref, isVisible } = useScrollAnimation();
   const socialLinks = [
-    { icon: Github, label: "GitHub", href: "https://github.com" },
-    { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com" },
-    { icon: Mail, label: "Email", href: "mailto:contact@example.com" },
+    { icon: Github, label: "GitHub", href: "https://github.com/amrutha2912" },
+    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/amrutha-satyamoorthy-92b995232" },
+    { icon: Mail, label: "Email", href: "mailto:amrutha.satyamoorthy@gmail.com" },
   ];
 
   return (
