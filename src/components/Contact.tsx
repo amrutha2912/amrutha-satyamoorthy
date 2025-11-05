@@ -15,7 +15,7 @@ const Contact = () => {
         <div className="grid md:grid-cols-12 gap-12">
           <div className="md:col-span-5">
             <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground/60">Let's Talk</span>
-            <h2 className="text-5xl md:text-6xl font-display font-bold tracking-tight mt-4 mb-8">Get in Touch</h2>
+            <h2 className="text-5xl md:text-6xl font-display font-bold tracking-tight mt-4 mb-8 text-gradient">Get in Touch</h2>
             <p className="text-lg text-muted-foreground/70 leading-relaxed">
               I'm always interested in hearing about new projects and opportunities. 
               Whether you have a question or just want to say hi, feel free to reach out!
@@ -30,14 +30,14 @@ const Contact = () => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`stagger-item ${isVisible ? 'visible' : ''} group flex items-center justify-between py-4 border-b border-border/40 hover:border-foreground transition-all duration-300 magnetic-hover animated-underline`}
+                  className={`stagger-item ${isVisible ? 'visible' : ''} group flex items-center justify-between py-4 border-b border-border/40 hover:border-accent transition-all duration-300 magnetic-hover animated-underline`}
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
                   <div className="flex items-center gap-4">
-                    <link.icon className="w-5 h-5 text-muted-foreground/60 group-hover:text-foreground transition-all group-hover:scale-110" />
+                    <link.icon className="w-5 h-5 text-muted-foreground/60 group-hover:text-accent transition-all group-hover:scale-110" />
                     <span className="text-lg group-hover:translate-x-2 transition-transform duration-300">{link.label}</span>
                   </div>
-                  <span className="text-xs text-muted-foreground/40 group-hover:text-foreground transition-colors">→</span>
+                  <span className="text-xs text-muted-foreground/40 group-hover:text-accent transition-colors">→</span>
                 </a>
               ))}
             </div>
