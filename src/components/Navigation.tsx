@@ -1,5 +1,13 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { Menu } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 const Navigation = () => {
   const [activeSection, setActiveSection] = useState("home");
@@ -57,7 +65,8 @@ const Navigation = () => {
             ~
           </button>
 
-          <div className="flex items-center gap-1">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-1">
             {navItems.map((item) => (
               <button
                 key={item.id}
@@ -80,6 +89,43 @@ const Navigation = () => {
               Resume
             </a>
           </div>
+
+          {/* Mobile Navigation */}
+          <Sheet>
+            <SheetTrigger asChild className="md:hidden">
+              <Button variant="ghost" size="icon">
+                <Menu className="h-5 w-5" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent>
+              <SheetHeader>
+                <SheetTitle>Menu</SheetTitle>
+              </SheetHeader>
+              <div className="flex flex-col gap-4 mt-8">
+                {navItems.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className={`px-4 py-3 text-base font-medium transition-colors rounded-md text-left ${
+                      activeSection === item.id
+                        ? "bg-accent text-foreground"
+                        : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+                <a
+                  href="https://drive.google.com/file/d/1Lvg2-hgaJKZ5Q49831ZhgRc6Igzw79I3/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-3 text-base font-medium transition-colors rounded-md text-left text-muted-foreground hover:text-foreground hover:bg-accent/50"
+                >
+                  Resume
+                </a>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </nav>
