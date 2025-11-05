@@ -74,7 +74,7 @@ const About = () => {
               key={index}
               className={`
                 bg-card/40 backdrop-blur-sm border border-border/20 rounded-2xl p-8
-                hover:-translate-y-1 hover:border-primary/40 hover:bg-card/50
+                hover:-translate-y-1 hover:border-accent/60 hover:bg-card/50
                 transition-all duration-300
                 ${visibleCards[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}
                 ${index === 2 ? 'md:col-span-2 lg:col-span-2' : ''}
