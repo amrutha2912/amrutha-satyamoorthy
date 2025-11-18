@@ -1,10 +1,16 @@
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import { ChevronDown } from "lucide-react";
 
 const About = () => {
   const { ref, isVisible } = useScrollAnimation<HTMLElement>();
-  const cardsRef = useRef<HTMLDivElement>(null);
   const [visibleCards, setVisibleCards] = useState<boolean[]>([false, false, false]);
+  const [openCategories, setOpenCategories] = useState<number[]>([]);
 
   const skillCategories = [
     {
@@ -35,6 +41,14 @@ const About = () => {
     }
   }, [isVisible]);
 
+  const toggleCategory = (index: number) => {
+    setOpenCategories(prev => 
+      prev.includes(index) 
+        ? prev.filter(i => i !== index)
+        : [...prev, index]
+    );
+  };
+
   return (
     <section ref={ref} id="about" className="py-12 px-6">
       <div className={`container mx-auto max-w-6xl section-reveal ${isVisible ? 'visible' : ''}`}>
@@ -62,8 +76,8 @@ const About = () => {
         </div>
       </div>
 
-      {/* Categorized Skills Grid */}
-      <div ref={cardsRef} className="mt-24 container mx-auto max-w-6xl">
+      {/* Categorized Skills Grid - Desktop */}
+      <div className="mt-24 container mx-auto max-w-6xl hidden md:block">
         <div className="mb-8">
           <div className="text-xs uppercase tracking-wider text-muted-foreground/60">Core Skills</div>
         </div>
@@ -99,6 +113,50 @@ const About = () => {
                 ))}
               </ul>
             </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Collapsible Skills - Mobile */}
+      <div className="mt-16 container mx-auto max-w-6xl md:hidden">
+        <div className="mb-6">
+          <div className="text-xs uppercase tracking-wider text-muted-foreground/60">Core Skills</div>
+          <p className="text-sm text-muted-foreground/50 mt-2">Tap to expand</p>
+        </div>
+        
+        <div className="space-y-3">
+          {skillCategories.map((category, index) => (
+            <Collapsible
+              key={index}
+              open={openCategories.includes(index)}
+              onOpenChange={() => toggleCategory(index)}
+            >
+              <div className="bg-card/40 backdrop-blur-sm border border-border/20 rounded-lg overflow-hidden">
+                <CollapsibleTrigger className="w-full p-5 flex items-center justify-between active:bg-muted/20 transition-colors">
+                  <h3 className="text-xl font-bold tracking-tight text-left">
+                    {category.category}
+                  </h3>
+                  <ChevronDown 
+                    className={`h-5 w-5 text-muted-foreground/60 transition-transform duration-300 ${
+                      openCategories.includes(index) ? 'rotate-180' : ''
+                    }`}
+                  />
+                </CollapsibleTrigger>
+                
+                <CollapsibleContent className="px-5 pb-5">
+                  <ul className="space-y-2 pt-2">
+                    {category.skills.map((skill, skillIndex) => (
+                      <li 
+                        key={skillIndex} 
+                        className="text-base text-muted-foreground leading-relaxed pl-3 border-l-2 border-accent/30"
+                      >
+                        {skill}
+                      </li>
+                    ))}
+                  </ul>
+                </CollapsibleContent>
+              </div>
+            </Collapsible>
           ))}
         </div>
       </div>
