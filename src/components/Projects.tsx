@@ -87,7 +87,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className={`stagger-item ${isVisible ? 'visible' : ''} group relative overflow-hidden card-hover`}
+              className={`stagger-item ${isVisible ? 'visible' : ''} group relative overflow-hidden card-hover tap-effect`}
               style={{ transitionDelay: `${index * 200}ms` }}
             >
               <a
@@ -141,7 +141,7 @@ const Projects = () => {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block bg-card/50 backdrop-blur-sm border border-border/40 rounded-lg p-6 h-full active:scale-[0.98] transition-transform"
+                    className="block bg-card/50 backdrop-blur-sm border border-border/40 rounded-lg p-6 h-full tap-effect"
                   >
                     <div className="flex flex-col gap-4">
                       <div className="flex items-start justify-between gap-3">

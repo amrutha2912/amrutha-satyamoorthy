@@ -95,7 +95,7 @@ const About = () => {
               className={`
                 bg-card/40 backdrop-blur-sm border border-border/20 rounded-2xl p-8
                 hover:-translate-y-1 hover:border-accent/60 hover:bg-card/50
-                transition-all duration-300
+                transition-all duration-300 tap-effect
                 ${visibleCards[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}
                 ${index === 2 ? 'md:col-span-2 lg:col-span-2' : ''}
               `}
@@ -137,7 +137,7 @@ const About = () => {
               open={openCategories.includes(index)}
               onOpenChange={() => toggleCategory(index)}
             >
-              <div className="bg-card/40 backdrop-blur-sm border border-border/20 rounded-lg overflow-hidden">
+              <div className="bg-card/40 backdrop-blur-sm border border-border/20 rounded-lg overflow-hidden tap-effect">
                 <CollapsibleTrigger className="w-full p-5 flex items-center justify-between active:bg-muted/20 transition-colors">
                   <h3 className="text-xl font-bold tracking-tight text-left">
                     {category.category}

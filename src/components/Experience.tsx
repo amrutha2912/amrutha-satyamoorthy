@@ -85,7 +85,7 @@ const Experience = () => {
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className={`stagger-item ${isVisible ? 'visible' : ''} group bg-card/50 backdrop-blur-sm border border-border/40 rounded-lg p-8 transition-all duration-500 hover:bg-muted/30 hover:border-accent/60 hover:-translate-y-2 hover:shadow-xl cursor-pointer ${index === 0 ? 'md:col-span-2' : ''}`}
+              className={`stagger-item ${isVisible ? 'visible' : ''} group bg-card/50 backdrop-blur-sm border border-border/40 rounded-lg p-8 transition-all duration-500 hover:bg-muted/30 hover:border-accent/60 hover:-translate-y-2 hover:shadow-xl cursor-pointer tap-effect ${index === 0 ? 'md:col-span-2' : ''}`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               <div className="space-y-4">
@@ -116,7 +116,7 @@ const Experience = () => {
                   key={index}
                   className="flex-[0_0_85%] min-w-0"
                 >
-                  <div className="bg-card/50 backdrop-blur-sm border border-border/40 rounded-lg p-6 h-full">
+                  <div className="bg-card/50 backdrop-blur-sm border border-border/40 rounded-lg p-6 h-full tap-effect">
                     <div className="space-y-4">
                       <div className="flex flex-col gap-2">
                         <span className="text-xs font-mono text-accent tracking-wider">
