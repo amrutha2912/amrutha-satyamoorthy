@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { User, Briefcase, FolderOpen, Mail } from "lucide-react";
+import { useSectionNavigation } from "@/hooks/use-section-navigation";
 
 const BottomNavigation = () => {
   const [activeSection, setActiveSection] = useState("home");
+  const { navigateToSection } = useSectionNavigation();
 
   const navItems = [
     { id: "about", icon: User, label: "About" },
@@ -33,13 +35,6 @@ const BottomNavigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-t border-border/40">
       <div className="flex items-center justify-around px-2 py-3">
@@ -50,7 +45,7 @@ const BottomNavigation = () => {
           return (
             <button
               key={item.id}
-              onClick={() => scrollToSection(item.id)}
+              onClick={() => navigateToSection(item.id)}
               className={`flex flex-col items-center gap-1 px-4 py-2 rounded-lg transition-all duration-300 tap-effect ${
                 isActive 
                   ? "text-accent bg-accent/10" 
