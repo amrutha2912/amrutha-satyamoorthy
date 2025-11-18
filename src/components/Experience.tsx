@@ -1,7 +1,17 @@
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import useEmblaCarousel from "embla-carousel-react";
+import { useEffect, useState } from "react";
 
 const Experience = () => {
   const { ref, isVisible } = useScrollAnimation();
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    loop: false,
+    align: "start",
+    containScroll: "trimSnaps"
+  });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+
   const experiences = [
     {
       company: "Porter",
@@ -40,6 +50,22 @@ const Experience = () => {
     },
   ];
 
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    const onSelect = () => {
+      setSelectedIndex(emblaApi.selectedScrollSnap());
+    };
+
+    setScrollSnaps(emblaApi.scrollSnapList());
+    emblaApi.on("select", onSelect);
+    onSelect();
+
+    return () => {
+      emblaApi.off("select", onSelect);
+    };
+  }, [emblaApi]);
+
   return (
     <section ref={ref} id="experience" className="py-12 px-6">
       <div className={`container mx-auto max-w-6xl section-reveal ${isVisible ? 'visible' : ''}`}>
@@ -48,7 +74,8 @@ const Experience = () => {
           <h2 className="text-5xl md:text-6xl font-display font-bold tracking-tight mt-4">Experience</h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        {/* Desktop Grid */}
+        <div className="hidden md:grid md:grid-cols-2 gap-6">
           {experiences.map((exp, index) => (
             <div
               key={index}
@@ -72,6 +99,54 @@ const Experience = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Mobile Carousel */}
+        <div className="md:hidden">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex gap-4">
+              {experiences.map((exp, index) => (
+                <div
+                  key={index}
+                  className="flex-[0_0_85%] min-w-0"
+                >
+                  <div className="bg-card/50 backdrop-blur-sm border border-border/40 rounded-lg p-6 h-full">
+                    <div className="space-y-4">
+                      <div className="flex flex-col gap-2">
+                        <span className="text-xs font-mono text-accent tracking-wider">
+                          {exp.period}
+                        </span>
+                        <h3 className="text-xl font-bold">
+                          {exp.role}
+                        </h3>
+                        <p className="text-base text-muted-foreground/80">{exp.company}</p>
+                      </div>
+                      
+                      <p className="text-muted-foreground/70 leading-relaxed text-sm">
+                        {exp.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Pagination Dots */}
+          <div className="flex justify-center gap-2 mt-6">
+            {scrollSnaps.map((_, index) => (
+              <button
+                key={index}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  index === selectedIndex 
+                    ? 'w-8 bg-accent' 
+                    : 'w-2 bg-border/40 hover:bg-border/60'
+                }`}
+                onClick={() => emblaApi?.scrollTo(index)}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -1,9 +1,18 @@
 import { ExternalLink } from "lucide-react";
-
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import useEmblaCarousel from "embla-carousel-react";
+import { useEffect, useState } from "react";
 
 const Projects = () => {
   const { ref, isVisible } = useScrollAnimation();
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    loop: false,
+    align: "start",
+    containScroll: "trimSnaps"
+  });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+
   const projects = [
     {
       title: "Spotify Music Recommendation System",
@@ -43,6 +52,22 @@ const Projects = () => {
     },
   ];
 
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    const onSelect = () => {
+      setSelectedIndex(emblaApi.selectedScrollSnap());
+    };
+
+    setScrollSnaps(emblaApi.scrollSnapList());
+    emblaApi.on("select", onSelect);
+    onSelect();
+
+    return () => {
+      emblaApi.off("select", onSelect);
+    };
+  }, [emblaApi]);
+
   return (
     <section ref={ref} id="projects" className="py-12 px-6">
       <div className={`container mx-auto max-w-6xl section-reveal ${isVisible ? 'visible' : ''}`}>
@@ -51,7 +76,8 @@ const Projects = () => {
           <h2 className="text-5xl md:text-6xl font-display font-bold tracking-tight mt-4">Projects</h2>
         </div>
 
-        <div className="space-y-1">
+        {/* Desktop List */}
+        <div className="hidden md:block space-y-1">
           {projects.map((project, index) => (
             <div
               key={index}
@@ -94,6 +120,67 @@ const Projects = () => {
               </a>
             </div>
           ))}
+        </div>
+
+        {/* Mobile Carousel */}
+        <div className="md:hidden">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex gap-4">
+              {projects.map((project, index) => (
+                <div
+                  key={index}
+                  className="flex-[0_0_90%] min-w-0"
+                >
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block bg-card/50 backdrop-blur-sm border border-border/40 rounded-lg p-6 h-full active:scale-[0.98] transition-transform"
+                  >
+                    <div className="flex flex-col gap-4">
+                      <div className="flex items-start justify-between gap-3">
+                        <h3 className="text-xl font-bold leading-tight flex-1">
+                          {project.title}
+                        </h3>
+                        <ExternalLink className="w-5 h-5 text-muted-foreground/40 flex-shrink-0 mt-1" />
+                      </div>
+                      
+                      <p className="text-muted-foreground/70 leading-relaxed text-sm">
+                        {project.description}
+                      </p>
+                      
+                      <div className="flex flex-wrap gap-2 mt-2">
+                        {project.tech.map((tech, idx) => (
+                          <span
+                            key={idx}
+                            className="text-xs tracking-wider uppercase text-muted-foreground/60 bg-muted/30 px-2 py-1 rounded"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Pagination Dots */}
+          <div className="flex justify-center gap-2 mt-6">
+            {scrollSnaps.map((_, index) => (
+              <button
+                key={index}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  index === selectedIndex 
+                    ? 'w-8 bg-accent' 
+                    : 'w-2 bg-border/40 hover:bg-border/60'
+                }`}
+                onClick={() => emblaApi?.scrollTo(index)}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
