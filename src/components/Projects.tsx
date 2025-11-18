@@ -2,6 +2,7 @@ import { ExternalLink, ChevronRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import useEmblaCarousel from "embla-carousel-react";
 import { useEffect, useState } from "react";
+import CarouselSkeleton from "@/components/CarouselSkeleton";
 
 const Projects = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -13,6 +14,7 @@ const Projects = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
   const [showSwipeHint, setShowSwipeHint] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   const projects = [
     {
@@ -77,6 +79,14 @@ const Projects = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    // Simulate content loading
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section ref={ref} id="projects" className="py-12 px-6">
       {/* Sticky Header - Mobile */}
@@ -138,7 +148,10 @@ const Projects = () => {
         </div>
 
         {/* Mobile Carousel */}
-        <div className="md:hidden">
+        {isLoading ? (
+          <CarouselSkeleton type="projects" count={6} />
+        ) : (
+          <div className="md:hidden">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex gap-4">
               {projects.map((project, index) => (
@@ -197,6 +210,7 @@ const Projects = () => {
             ))}
           </div>
         </div>
+        )}
       </div>
     </section>
   );

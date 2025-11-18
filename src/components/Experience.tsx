@@ -2,6 +2,7 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import useEmblaCarousel from "embla-carousel-react";
 import { useEffect, useState } from "react";
 import { ChevronRight } from "lucide-react";
+import CarouselSkeleton from "@/components/CarouselSkeleton";
 
 const Experience = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -13,6 +14,7 @@ const Experience = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
   const [showSwipeHint, setShowSwipeHint] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   const experiences = [
     {
@@ -76,6 +78,14 @@ const Experience = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    // Simulate content loading
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 800);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section ref={ref} id="experience" className="py-12 px-6">
       {/* Sticky Header - Mobile */}
@@ -118,7 +128,10 @@ const Experience = () => {
         </div>
 
         {/* Mobile Carousel */}
-        <div className="md:hidden">
+        {isLoading ? (
+          <CarouselSkeleton type="experience" count={5} />
+        ) : (
+          <div className="md:hidden">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex gap-4">
               {experiences.map((exp, index) => (
@@ -164,6 +177,7 @@ const Experience = () => {
             ))}
           </div>
         </div>
+        )}
       </div>
     </section>
   );
