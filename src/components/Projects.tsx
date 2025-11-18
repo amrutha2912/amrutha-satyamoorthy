@@ -1,4 +1,4 @@
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, ChevronRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import useEmblaCarousel from "embla-carousel-react";
 import { useEffect, useState } from "react";
@@ -12,6 +12,7 @@ const Projects = () => {
   });
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+  const [showSwipeHint, setShowSwipeHint] = useState(true);
 
   const projects = [
     {
@@ -67,6 +68,14 @@ const Projects = () => {
       emblaApi.off("select", onSelect);
     };
   }, [emblaApi]);
+
+  useEffect(() => {
+    // Hide swipe hint after 3 seconds
+    const timer = setTimeout(() => {
+      setShowSwipeHint(false);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <section ref={ref} id="projects" className="py-12 px-6">
