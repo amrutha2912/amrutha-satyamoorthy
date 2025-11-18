@@ -1,6 +1,7 @@
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import useEmblaCarousel from "embla-carousel-react";
 import { useEffect, useState } from "react";
+import { ChevronRight } from "lucide-react";
 
 const Experience = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -11,6 +12,7 @@ const Experience = () => {
   });
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+  const [showSwipeHint, setShowSwipeHint] = useState(true);
 
   const experiences = [
     {
@@ -65,6 +67,14 @@ const Experience = () => {
       emblaApi.off("select", onSelect);
     };
   }, [emblaApi]);
+
+  useEffect(() => {
+    // Hide swipe hint after 3 seconds
+    const timer = setTimeout(() => {
+      setShowSwipeHint(false);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <section ref={ref} id="experience" className="py-12 px-6">

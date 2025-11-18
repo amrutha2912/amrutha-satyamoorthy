@@ -6,10 +6,11 @@ import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import ScrollProgress from "@/components/ScrollProgress";
 import BackToTop from "@/components/BackToTop";
+import BottomNavigation from "@/components/BottomNavigation";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pb-20 md:pb-0">
       <ScrollProgress />
       <Navigation />
       <Hero />
@@ -18,6 +19,7 @@ const Index = () => {
       <Projects />
       <Contact />
       <BackToTop />
+      <BottomNavigation />
     </div>
   );
 };
