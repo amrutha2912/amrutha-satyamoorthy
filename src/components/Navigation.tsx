@@ -8,10 +8,12 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { useSectionNavigation } from "@/hooks/use-section-navigation";
 
 const Navigation = () => {
   const [activeSection, setActiveSection] = useState("home");
   const [isScrolled, setIsScrolled] = useState(false);
+  const { navigateToSection } = useSectionNavigation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,20 +35,6 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const offset = 80; // Account for fixed nav height
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-      
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
-    }
-  };
-
   const navItems = [
     { id: "home", label: "Home" },
     { id: "about", label: "About" },
@@ -66,7 +54,7 @@ const Navigation = () => {
       <div className="container mx-auto px-6 py-5">
         <div className="flex items-center justify-between max-w-6xl mx-auto">
           <button
-            onClick={() => scrollToSection("home")}
+            onClick={() => navigateToSection("home")}
             className="text-lg font-semibold hover:text-muted-foreground transition-colors"
           >
             ~
@@ -77,7 +65,7 @@ const Navigation = () => {
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => navigateToSection(item.id)}
                 className={`px-4 py-2 text-sm font-medium transition-colors rounded-md ${
                   activeSection === item.id
                     ? "text-foreground"
@@ -112,7 +100,7 @@ const Navigation = () => {
                 {navItems.map((item) => (
                   <button
                     key={item.id}
-                    onClick={() => scrollToSection(item.id)}
+                    onClick={() => navigateToSection(item.id)}
                     className={`px-4 py-3 text-base font-medium transition-colors rounded-md text-left ${
                       activeSection === item.id
                         ? "bg-accent text-foreground"
