@@ -51,9 +51,15 @@ const About = () => {
 
   return (
     <section ref={ref} id="about" className="py-12 px-6">
+      {/* Sticky Header - Mobile */}
+      <div className="md:hidden sticky top-0 z-10 bg-background/95 backdrop-blur-sm border-b border-border/20 px-6 py-4 -mx-6 mb-8">
+        <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground/60">About Me</span>
+        <h2 className="text-3xl font-display font-bold tracking-tight mt-1">Background</h2>
+      </div>
+
       <div className={`container mx-auto max-w-6xl section-reveal ${isVisible ? 'visible' : ''}`}>
         <div className="grid md:grid-cols-12 gap-20 items-start">
-          <div className="md:col-span-4">
+          <div className="md:col-span-4 hidden md:block">
             <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground/60">About Me</span>
             <h2 className="text-4xl md:text-5xl font-display font-bold tracking-tight mt-4">Background</h2>
           </div>

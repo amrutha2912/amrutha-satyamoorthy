@@ -11,9 +11,15 @@ const Contact = () => {
 
   return (
     <section ref={ref} id="contact" className="py-12 px-6">
+      {/* Sticky Header - Mobile */}
+      <div className="md:hidden sticky top-0 z-10 bg-background/95 backdrop-blur-sm border-b border-border/20 px-6 py-4 -mx-6 mb-8">
+        <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground/60">Let's Talk</span>
+        <h2 className="text-3xl font-display font-bold tracking-tight mt-1 text-gradient">Get in Touch</h2>
+      </div>
+
       <div className={`container mx-auto max-w-6xl section-reveal ${isVisible ? 'visible' : ''}`}>
         <div className="grid md:grid-cols-12 gap-12">
-          <div className="md:col-span-5">
+          <div className="md:col-span-5 hidden md:block">
             <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground/60">Let's Talk</span>
             <h2 className="text-5xl md:text-6xl font-display font-bold tracking-tight mt-4 mb-8 text-gradient">Get in Touch</h2>
             <p className="text-lg text-muted-foreground/70 leading-relaxed">
