@@ -36,7 +36,7 @@ const Contact = () => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`stagger-item ${isVisible ? 'visible' : ''} group flex items-center justify-between py-4 border-b border-border/40 hover:border-accent transition-all duration-300 magnetic-hover animated-underline`}
+                  className={`stagger-item ${isVisible ? 'visible' : ''} group flex items-center justify-between py-4 border-b border-border/40 hover:border-accent transition-all duration-300 magnetic-hover animated-underline tap-effect`}
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
                   <div className="flex items-center gap-4">
