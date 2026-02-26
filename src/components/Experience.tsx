@@ -18,9 +18,16 @@ const Experience = () => {
 
   const experiences = [
     {
+      company: "Werize",
+      role: "Data Analyst - Data Science",
+      period: "Jan 2026 - Present",
+      description:
+        "",
+    },
+    {
       company: "Porter",
-      role: "Business Analyst",
-      period: "Oct 2024 - Present",
+      role: "Business Analyst - Decision Systems",
+      period: "Oct 2024 - Dec 2025",
       description:
         "Engineered end-to-end analytical workflows using SQL, Python, and Streamlit to monitor key business metrics including fulfillment rate, allocation accuracy, cancellations, and driver utilization across multiple geographies. Designed and deployed real-time Fulfillment & Allocation Rate Dashboards with dynamic filters and cohort-level drill-downs, enhancing visibility for operations and product teams. Built a dedicated Experiment Monitoring System to evaluate A/B test rollouts of dispatch models through control–test analysis, cohort segmentation, and temporal trend comparisons. Implemented automated SQL pipelines and metric refresh scheduling to improve reporting efficiency, while introducing new goal-tracking KPIs such as Effective Fulfillment Rate and Allocation Efficiency, increasing experimental measurement coverage by 40%. Performed root-cause analysis using statistical validation and feature correlation to identify performance bottlenecks, contributing to a 7% uplift in fulfillment rate.",
     },
