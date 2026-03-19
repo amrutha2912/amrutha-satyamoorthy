@@ -6,7 +6,7 @@ const publications = [
     title: "Explanatory Analysis of Habits and Associated Factors Influencing Adolescent Food Habits and Health",
     authors: "Dr Veeraj Hegde, Mrs Nisha P Shetty, Mitul Ganguly, Adithi Bhat, Amrutha Satyamoorthy, Jinit Jain",
     journal: "Zenodo",
-    year: "2025",
+    year: "2022",
     description:
       "A comprehensive cross-sectional study on health trends among 740 Indian adolescents (aged 12–24) across 20+ states, examining how snacking habits, sedentary lifestyles, sleep deprivation, peer pressure, and academic stress contribute to unhealthy behaviours and rising non-communicable diseases. Identified gender-differentiated effects of obesity and the dietary impact of leaving home for education.",
     doi: "10.5281/zenodo.19118017",
@@ -17,7 +17,7 @@ const publications = [
     title: "EEG Motor Imagery Classification using Frequency-Domain and Spatial Filtering Methods: A Comparative Study",
     authors: "Amrutha Satyamoorthy",
     journal: "Zenodo",
-    year: "2025",
+    year: "2023",
     description:
       "A comparative study of two EEG feature-extraction pipelines — bandpower estimation and Common Spatial Patterns (CSP) — for classifying left- vs. right-hand motor imagery using the PhysioNet EEGBCI dataset. Bandpower features achieved 67.4% accuracy vs. 61.5% for CSP in a multi-subject setting, demonstrating greater robustness to inter-subject variability as a reproducible classical ML baseline for brain-computer interfaces.",
     doi: "10.5281/zenodo.19118709",

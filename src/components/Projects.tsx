@@ -42,12 +42,6 @@ const Projects = () => {
       link: "#",
     },
     {
-      title: "Eating Habits & Diet Quality Analysis",
-      description: "Collaborated with a professor at MIT, Manipal to analyze dietary patterns among adolescents aged 12–24 years. Performed data cleaning, normalization, and statistical analysis to study relationships between diet quality, sleep duration, and lifestyle. Visualized key dietary trends by demographic segment, supporting academic research on youth nutrition and well-being.",
-      tech: ["Pandas", "NumPy", "Matplotlib", "Seaborn"],
-      link: "#",
-    },
-    {
       title: "A/B Testing Simulator",
       description: "Developed an interactive A/B testing analysis tool to evaluate experimental data for conversion rate improvements. Implemented hypothesis testing (Z-tests, t-tests) to calculate statistical significance, confidence intervals, and lift. Built a Streamlit dashboard allowing users to upload experiment data and automatically generate significance reports and visual insights. Enabled data-driven decision-making by simulating test scenarios and quantifying variant performance differences.",
       tech: ["Python", "Statsmodels", "Scipy", "Streamlit"],
