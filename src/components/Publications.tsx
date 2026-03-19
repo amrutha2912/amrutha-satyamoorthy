@@ -17,7 +17,7 @@ const publications = [
     title: "EEG Motor Imagery Classification using Frequency-Domain and Spatial Filtering Methods: A Comparative Study",
     authors: "Amrutha Satyamoorthy",
     journal: "Zenodo",
-    year: "2025",
+    year: "2023",
     description:
       "A comparative study of two EEG feature-extraction pipelines — bandpower estimation and Common Spatial Patterns (CSP) — for classifying left- vs. right-hand motor imagery using the PhysioNet EEGBCI dataset. Bandpower features achieved 67.4% accuracy vs. 61.5% for CSP in a multi-subject setting, demonstrating greater robustness to inter-subject variability as a reproducible classical ML baseline for brain-computer interfaces.",
     doi: "10.5281/zenodo.19118709",
