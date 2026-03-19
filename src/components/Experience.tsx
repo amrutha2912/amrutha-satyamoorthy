@@ -22,7 +22,7 @@ const Experience = () => {
       role: "Data Analyst - Data Science",
       period: "Jan 2026 - Present",
       description:
-        "",
+        "Designed and developed the NSC Early Indicator system to identify non-successful-connect (NSC) customers in the loan collections pipeline by analysing calling attempt patterns, connection-rate curves, and lead/loan-level behavioural signals — reducing wasted calling attempts by 30% and cutting per-customer contact attempts from 30+ down to 7–8 for identified cohorts. Building a Bounce Charges Collection Prioritisation system using classification and regression models to predict payment likelihood and expected recovery amount across three loan segments (1+ DPD, 0 DPD, and closed loans), integrating payment history, credit bureau data, field visit history, and calling data. Perform exploratory data analysis and feature engineering on large-scale loan datasets to support model development and operational decision-making within the data science team.",
     },
     {
       company: "Porter",
