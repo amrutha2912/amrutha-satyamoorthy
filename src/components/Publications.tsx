@@ -6,7 +6,7 @@ const publications = [
     title: "Explanatory Analysis of Habits and Associated Factors Influencing Adolescent Food Habits and Health",
     authors: "Dr Veeraj Hegde, Mrs Nisha P Shetty, Mitul Ganguly, Adithi Bhat, Amrutha Satyamoorthy, Jinit Jain",
     journal: "Zenodo",
-    year: "2025",
+    year: "2022",
     description:
       "A comprehensive cross-sectional study on health trends among 740 Indian adolescents (aged 12–24) across 20+ states, examining how snacking habits, sedentary lifestyles, sleep deprivation, peer pressure, and academic stress contribute to unhealthy behaviours and rising non-communicable diseases. Identified gender-differentiated effects of obesity and the dietary impact of leaving home for education.",
     doi: "10.5281/zenodo.19118017",
