@@ -16,7 +16,7 @@ const BottomNavigation = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "experience", "projects", "contact"];
+      const sections = ["home", "about", "experience", "projects", "publications", "contact"];
       const scrollPosition = window.scrollY + window.innerHeight / 2;
 
       for (const sectionId of sections) {

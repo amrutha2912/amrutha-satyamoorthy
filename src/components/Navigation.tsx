@@ -19,7 +19,7 @@ const Navigation = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
-      const sections = ["home", "about", "experience", "projects", "contact"];
+      const sections = ["home", "about", "experience", "projects", "publications", "contact"];
       const current = sections.find((section) => {
         const element = document.getElementById(section);
         if (element) {
