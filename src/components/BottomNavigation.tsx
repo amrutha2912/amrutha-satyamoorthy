@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { User, Briefcase, FolderOpen, Mail } from "lucide-react";
+import { User, Briefcase, FolderOpen, FileText, Mail } from "lucide-react";
 import { useSectionNavigation } from "@/hooks/use-section-navigation";
 
 const BottomNavigation = () => {
@@ -8,14 +8,15 @@ const BottomNavigation = () => {
 
   const navItems = [
     { id: "about", icon: User, label: "About" },
-    { id: "experience", icon: Briefcase, label: "Experience" },
+    { id: "experience", icon: Briefcase, label: "Work" },
     { id: "projects", icon: FolderOpen, label: "Projects" },
+    { id: "publications", icon: FileText, label: "Papers" },
     { id: "contact", icon: Mail, label: "Contact" },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "experience", "projects", "contact"];
+      const sections = ["home", "about", "experience", "projects", "publications", "contact"];
       const scrollPosition = window.scrollY + window.innerHeight / 2;
 
       for (const sectionId of sections) {
