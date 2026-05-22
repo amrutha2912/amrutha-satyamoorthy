@@ -1,24 +1,22 @@
-import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
-import BrandTeardowns from "@/components/BrandTeardowns";
-import DataProjects from "@/components/DataProjects";
-import Experience from "@/components/Experience";
 import About from "@/components/About";
-import Currently from "@/components/Currently";
+import TheWork from "@/components/TheWork";
+import Experience from "@/components/Experience";
+import Publications from "@/components/Publications";
 import Contact from "@/components/Contact";
 import BackToTop from "@/components/BackToTop";
+import CustomCursor from "@/components/CustomCursor";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-warm text-ink">
-      <Navigation />
+      <CustomCursor />
       <main>
         <Hero />
-        <BrandTeardowns />
-        <DataProjects />
-        <Experience />
         <About />
-        <Currently />
+        <TheWork />
+        <Experience />
+        <Publications />
         <Contact />
       </main>
       <BackToTop />
