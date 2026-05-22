@@ -4,13 +4,12 @@
 
 @layer base {
   :root {
-    --bg: 44 33% 97%;           /* #faf9f6 warm off-white */
-    --ink: 0 0% 10%;            /* #1a1a1a near black */
-    --ink-muted: 220 9% 46%;    /* #6b7280 muted gray */
-    --accent: 152 41% 30%;      /* #2d6a4f deep green */
-    --line: 30 15% 88%;         /* subtle warm border */
+    --bg: 44 33% 97%;
+    --ink: 0 0% 10%;
+    --ink-muted: 220 9% 46%;
+    --accent: 152 41% 30%;
+    --line: 30 15% 88%;
 
-    /* shadcn carryover (kept so existing ui/* components don't break) */
     --background: var(--bg);
     --foreground: var(--ink);
     --card: var(--bg);
@@ -32,29 +31,31 @@
     --radius: 0.25rem;
   }
 
-  * {
-    @apply border-border;
-  }
+  * { @apply border-border; }
 
-  html {
-    scroll-behavior: smooth;
-  }
+  html { scroll-behavior: smooth; }
 
   body {
     background: hsl(var(--bg));
     color: hsl(var(--ink));
-    font-family: 'DM Sans', system-ui, sans-serif;
-    font-feature-settings: 'ss01', 'cv11';
+    font-family: 'Inter', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     line-height: 1.65;
   }
 
+  @media (hover: hover) and (pointer: fine) {
+    body.custom-cursor-active,
+    body.custom-cursor-active * {
+      cursor: none !important;
+    }
+  }
+
   h1, h2, h3, h4 {
-    font-family: 'DM Serif Display', Georgia, serif;
-    font-weight: 400;
-    letter-spacing: -0.01em;
-    line-height: 1.15;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
   }
 
   ::selection {
@@ -64,32 +65,18 @@
 }
 
 @layer utilities {
-  .font-serif {
-    font-family: 'DM Serif Display', Georgia, serif;
-  }
-  .font-sans {
-    font-family: 'DM Sans', system-ui, sans-serif;
-  }
-  .text-ink {
-    color: hsl(var(--ink));
-  }
-  .text-muted {
-    color: hsl(var(--ink-muted));
-  }
-  .text-accent {
-    color: hsl(var(--accent));
-  }
-  .bg-warm {
-    background: hsl(var(--bg));
-  }
-  .border-line {
-    border-color: hsl(var(--line));
-  }
+  .text-ink { color: hsl(var(--ink)); }
+  .text-muted { color: hsl(var(--ink-muted)); }
+  .text-accent { color: hsl(var(--accent)); }
+  .bg-warm { background: hsl(var(--bg)); }
+  .border-line { border-color: hsl(var(--line)); }
   .container-narrow {
-    max-width: 900px;
+    max-width: 1040px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
+  .font-serif { font-family: 'Playfair Display', Georgia, serif; }
+  .font-sans { font-family: 'Inter', system-ui, sans-serif; }
 }
