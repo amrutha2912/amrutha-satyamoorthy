@@ -1,44 +1,28 @@
-import { useState, useEffect } from "react";
-import { ArrowUp } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
 
 const BackToTop = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.scrollY > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
+    const onScroll = () => setVisible(window.scrollY > 800);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
   return (
-    <Button
-      variant="outline"
-      size="icon"
-      onClick={scrollToTop}
-      className={`fixed bottom-8 right-8 z-50 rounded-full shadow-lg transition-all duration-300 ${
-        isVisible
-          ? "opacity-100 translate-y-0"
-          : "opacity-0 translate-y-10 pointer-events-none"
-      }`}
+    <button
+      type="button"
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       aria-label="Back to top"
+      className={`fixed bottom-6 right-6 z-30 w-11 h-11 rounded-full border border-line bg-warm text-ink hover:text-accent hover:border-accent transition-all duration-300 flex items-center justify-center text-sm ${
+        visible
+          ? "opacity-100 translate-y-0"
+          : "opacity-0 translate-y-2 pointer-events-none"
+      }`}
     >
-      <ArrowUp className="h-5 w-5" />
-    </Button>
+      ↑
+    </button>
   );
 };
 

@@ -1,60 +1,68 @@
-import { Mail, Linkedin, Github } from "lucide-react";
-import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-
 const Contact = () => {
-  const { ref, isVisible } = useScrollAnimation();
-  const socialLinks = [
-    { icon: Github, label: "GitHub", href: "https://github.com/amrutha2912" },
-    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/amrutha-satyamoorthy-92b995232" },
-    { icon: Mail, label: "Email", href: "mailto:amrutha.satyamoorthy@gmail.com" },
-  ];
-
   return (
-    <section ref={ref} id="contact" className="py-12 px-6">
-      {/* Sticky Header - Mobile */}
-      <div className="md:hidden sticky top-0 z-10 bg-background/95 backdrop-blur-sm border-b border-border/20 px-6 py-4 -mx-6 mb-8">
-        <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground/60">Let's Talk</span>
-        <h2 className="text-3xl font-display font-bold tracking-tight mt-1 text-gradient">Get in Touch</h2>
-      </div>
+    <section id="contact" className="py-24 md:py-32 border-t border-line">
+      <div className="container-narrow">
+        <p className="text-sm uppercase tracking-[0.22em] text-muted mb-6">
+          ✺  say hello
+        </p>
+        <h2 className="font-serif text-4xl md:text-6xl mb-10 leading-[1.05]">
+          If any of this resonates,{" "}
+          <em className="italic text-accent">let&rsquo;s talk.</em>
+        </h2>
 
-      <div className={`container mx-auto max-w-6xl section-reveal ${isVisible ? 'visible' : ''}`}>
-        <div className="grid md:grid-cols-12 gap-12">
-          <div className="md:col-span-5 hidden md:block">
-            <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground/60">Let's Talk</span>
-            <h2 className="text-5xl md:text-6xl font-display font-bold tracking-tight mt-4 mb-8 text-gradient">Get in Touch</h2>
-            <p className="text-lg text-muted-foreground/70 leading-relaxed">
-              I'm always interested in hearing about new projects and opportunities. 
-              Whether you have a question or just want to say hi, feel free to reach out!
-            </p>
+        <p className="text-ink text-lg md:text-xl leading-relaxed max-w-2xl mb-12">
+          Whether you&rsquo;re a consumer brand wondering why your retention
+          curve flattens at month three, a team hiring for growth or product
+          analytics, or just someone who reads Lenny on the weekends — I&rsquo;d
+          love to hear from you.
+        </p>
+
+        <div className="space-y-3 text-base">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
+            <span className="text-muted uppercase tracking-wider text-xs w-20">
+              email
+            </span>
+            <a
+              href="mailto:amrutha.satyamoorthy@gmail.com"
+              className="text-ink hover:text-accent transition-colors border-b border-line hover:border-accent w-fit"
+            >
+              amrutha.satyamoorthy@gmail.com
+            </a>
           </div>
-          
-          <div className="md:col-span-7 flex flex-col justify-between">
-            <div className="space-y-6">
-              {socialLinks.map((link, index) => (
-                <a
-                  key={index}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`stagger-item ${isVisible ? 'visible' : ''} group flex items-center justify-between py-4 border-b border-border/40 hover:border-accent transition-all duration-300 magnetic-hover animated-underline tap-effect`}
-                  style={{ transitionDelay: `${index * 100}ms` }}
-                >
-                  <div className="flex items-center gap-4">
-                    <link.icon className="w-5 h-5 text-muted-foreground/60 group-hover:text-accent transition-all group-hover:scale-110" />
-                    <span className="text-lg group-hover:translate-x-2 transition-transform duration-300">{link.label}</span>
-                  </div>
-                  <span className="text-xs text-muted-foreground/40 group-hover:text-accent transition-colors">→</span>
-                </a>
-              ))}
-            </div>
-
-            <div className="pt-16 mt-auto">
-              <p className="text-xs text-muted-foreground/40 tracking-wider">
-                © {new Date().getFullYear()} • Built with React & TypeScript
-              </p>
-            </div>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
+            <span className="text-muted uppercase tracking-wider text-xs w-20">
+              github
+            </span>
+            <a
+              href="https://github.com/amrutha2912/amrutha-satyamoorthy"
+              target="_blank"
+              rel="noreferrer"
+              className="text-ink hover:text-accent transition-colors border-b border-line hover:border-accent w-fit"
+            >
+              github.com/amrutha2912
+            </a>
+          </div>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
+            <span className="text-muted uppercase tracking-wider text-xs w-20">
+              linkedin
+            </span>
+            <a
+              href="https://www.linkedin.com/in/amrutha-satyamoorthy/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-ink hover:text-accent transition-colors border-b border-line hover:border-accent w-fit"
+            >
+              linkedin.com/in/amrutha-satyamoorthy
+            </a>
           </div>
         </div>
+
+        <footer className="mt-24 pt-8 border-t border-line flex flex-col sm:flex-row justify-between gap-3 text-xs text-muted">
+          <p>© 2026 Amrutha Satyamoorthy</p>
+          <p className="italic">
+            Built with intention. Hosted on Vercel.
+          </p>
+        </footer>
       </div>
     </section>
   );

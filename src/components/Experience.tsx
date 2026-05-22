@@ -1,190 +1,76 @@
-import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import useEmblaCarousel from "embla-carousel-react";
-import { useEffect, useState } from "react";
-import { ChevronRight } from "lucide-react";
-import CarouselSkeleton from "@/components/CarouselSkeleton";
+type Role = {
+  company: string;
+  role: string;
+  dates: string;
+  location: string;
+  bullets: string[];
+};
+
+const roles: Role[] = [
+  {
+    company: "weRize",
+    role: "Data Analyst",
+    dates: "2023 — Present",
+    location: "Bangalore",
+    bullets: [
+      "Built a cohort-based collections model that segments customers by repayment behaviour, turning a downstream recovery problem into an upstream retention one.",
+      "Designed Snowflake/SQL pipelines and cohort views that the lending and product teams now use to track decay, activation, and churn.",
+      "Partnered with product on experimentation design — defining metrics, sample sizes, and what would count as evidence — for collections workflow tests.",
+    ],
+  },
+  {
+    company: "Porter",
+    role: "Data Analyst",
+    dates: "2021 — 2023",
+    location: "Bangalore",
+    bullets: [
+      "Owned analytics for the driver-partner side of the marketplace, treating supply onboarding as a product funnel — from sign-up through to first trip, retention, and lifetime contribution.",
+      "Identified the activation moment for new drivers (the trip-count threshold beyond which retention stabilised) and built dashboards the ops team used to course-correct in week one.",
+      "Surfaced unit-economic insights that reframed how the business thought about driver acquisition cost versus contribution margin.",
+    ],
+  },
+];
 
 const Experience = () => {
-  const { ref, isVisible } = useScrollAnimation();
-  const [emblaRef, emblaApi] = useEmblaCarousel({ 
-    loop: false,
-    align: "start",
-    containScroll: "trimSnaps"
-  });
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
-  const [showSwipeHint, setShowSwipeHint] = useState(true);
-  const [isLoading, setIsLoading] = useState(true);
-
-  const experiences = [
-    {
-      company: "Werize",
-      role: "Data Analyst - Data Science",
-      period: "Jan 2026 - Present",
-      description:
-        "Designed and developed the NSC Early Indicator system to identify non-successful-connect (NSC) customers in the loan collections pipeline by analysing calling attempt patterns, connection-rate curves, and lead/loan-level behavioural signals — reducing wasted calling attempts by 30% and cutting per-customer contact attempts from 30+ down to 7–8 for identified cohorts. Building a Bounce Charges Collection Prioritisation system using classification and regression models to predict payment likelihood and expected recovery amount across three loan segments (1+ DPD, 0 DPD, and closed loans), integrating payment history, credit bureau data, field visit history, and calling data. Perform exploratory data analysis and feature engineering on large-scale loan datasets to support model development and operational decision-making within the data science team.",
-    },
-    {
-      company: "Porter",
-      role: "Business Analyst - Decision Systems",
-      period: "Oct 2024 - Dec 2025",
-      description:
-        "Engineered end-to-end analytical workflows using SQL, Python, and Streamlit to monitor key business metrics including fulfillment rate, allocation accuracy, cancellations, and driver utilization across multiple geographies. Designed and deployed real-time Fulfillment & Allocation Rate Dashboards with dynamic filters and cohort-level drill-downs, enhancing visibility for operations and product teams. Built a dedicated Experiment Monitoring System to evaluate A/B test rollouts of dispatch models through control–test analysis, cohort segmentation, and temporal trend comparisons. Implemented automated SQL pipelines and metric refresh scheduling to improve reporting efficiency, while introducing new goal-tracking KPIs such as Effective Fulfillment Rate and Allocation Efficiency, increasing experimental measurement coverage by 40%. Performed root-cause analysis using statistical validation and feature correlation to identify performance bottlenecks, contributing to a 7% uplift in fulfillment rate.",
-    },
-    {
-      company: "Porter",
-      role: "Data Science Intern",
-      period: "Apr 2024 - Sep 2024",
-      description:
-        "Performed correlation and causation experiments to assess the 'Completion Score' metric, revealing it as a poor performance indicator through statistical analysis. Engineered new features and utilized clustering algorithms to segment notification level data, enhancing model accuracy and generating actionable insights. Developed a Streamlit dashboard to visualize key organizational metrics, enabling real-time monitoring and data-driven decision-making across teams.",
-    },
-    {
-      company: "Porter",
-      role: "Data Analyst Intern",
-      period: "Jan 2024 - Mar 2024",
-      description:
-        "Developed multiple dashboards in Metabase using SQL queries to enhance cost-to-serve visibility across key business metrics. Conducted analysis of bucket thresholds in the Lead Score Model (LSM) during Phase 1.5, utilizing Python for data preprocessing and statistical analysis. Initiated Phase 2 by performing detailed analysis of initial customer calls to optimize the goal cost-to-convert, enabling data-driven decision-making and strategic planning.",
-    },
-    {
-      company: "ShePays Financial Services Pvt Ltd",
-      role: "Junior Data Analyst",
-      period: "Jun 2023 - Aug 2023",
-      description:
-        "Utilized Moengage and AppsFlyer to create comprehensive dashboards for user funnel activity during the testing period. Developed a survey to understand financial behavior patterns in women and created visualizations to communicate findings effectively to stakeholders. Survey results informed significant changes in the application design and feature prioritization.",
-    },
-    {
-      company: "Tiny Prism Labs Pvt Ltd",
-      role: "Junior Data Scientist",
-      period: "Jan 2023",
-      description:
-        "Utilized librosa library and techniques like FFT and MFCC for audio signal processing and analysis. Employed visualization charts to distinguish noise from meaningful data patterns. Achieved 91% accuracy in noise differentiation and collaborated with the team to optimize model performance through iterative testing and refinement.",
-    },
-  ];
-
-  useEffect(() => {
-    if (!emblaApi) return;
-
-    const onSelect = () => {
-      setSelectedIndex(emblaApi.selectedScrollSnap());
-    };
-
-    setScrollSnaps(emblaApi.scrollSnapList());
-    emblaApi.on("select", onSelect);
-    onSelect();
-
-    return () => {
-      emblaApi.off("select", onSelect);
-    };
-  }, [emblaApi]);
-
-  useEffect(() => {
-    // Hide swipe hint after 3 seconds
-    const timer = setTimeout(() => {
-      setShowSwipeHint(false);
-    }, 3000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    // Simulate content loading
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 800);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <section ref={ref} id="experience" className="py-12 px-6">
-      {/* Sticky Header - Mobile */}
-      <div className="md:hidden sticky top-0 z-10 bg-background/95 backdrop-blur-sm border-b border-border/20 px-6 py-4 -mx-6 mb-8">
-        <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground/60">Career Path</span>
-        <h2 className="text-3xl font-display font-bold tracking-tight mt-1">Experience</h2>
-      </div>
+    <section
+      id="experience"
+      className="py-24 md:py-32 border-t border-line"
+    >
+      <div className="container-narrow">
+        <p className="text-sm uppercase tracking-[0.22em] text-muted mb-6">
+          ✺  experience
+        </p>
+        <h2 className="font-serif text-3xl md:text-5xl mb-16">
+          Where the thinking gets stress-tested.
+        </h2>
 
-      <div className={`container mx-auto max-w-6xl section-reveal ${isVisible ? 'visible' : ''}`}>
-        <div className="mb-20 hidden md:block">
-          <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground/60">Career Path</span>
-          <h2 className="text-5xl md:text-6xl font-display font-bold tracking-tight mt-4">Experience</h2>
-        </div>
-
-        {/* Desktop Grid */}
-        <div className="hidden md:grid md:grid-cols-2 gap-6">
-          {experiences.map((exp, index) => (
-            <div
-              key={index}
-              className={`stagger-item ${isVisible ? 'visible' : ''} group bg-card/50 backdrop-blur-sm border border-border/40 rounded-lg p-8 transition-all duration-500 hover:bg-muted/30 hover:border-accent/60 hover:-translate-y-2 hover:shadow-xl cursor-pointer tap-effect ${index === 0 ? 'md:col-span-2' : ''}`}
-              style={{ transitionDelay: `${index * 150}ms` }}
+        <div className="space-y-14">
+          {roles.map((r) => (
+            <article
+              key={r.company}
+              className="grid md:grid-cols-[1fr_2fr] gap-6 md:gap-10"
             >
-              <div className="space-y-4">
-                <div className="flex flex-col gap-2">
-                  <span className="text-xs font-mono text-accent tracking-wider">
-                    {exp.period}
-                  </span>
-                  <h3 className="text-2xl font-bold group-hover:text-accent transition-colors">
-                    {exp.role}
-                  </h3>
-                  <p className="text-lg text-muted-foreground/80">{exp.company}</p>
-                </div>
-                
-                <p className="text-muted-foreground/70 leading-relaxed text-sm">
-                  {exp.description}
+              <div>
+                <h3 className="font-serif text-2xl md:text-3xl text-ink">
+                  {r.company}
+                </h3>
+                <p className="text-ink mt-1">{r.role}</p>
+                <p className="text-sm text-muted mt-1">
+                  {r.dates} · {r.location}
                 </p>
               </div>
-            </div>
+              <ul className="space-y-3 text-ink leading-relaxed">
+                {r.bullets.map((b, i) => (
+                  <li key={i} className="flex gap-3">
+                    <span className="text-accent shrink-0 mt-1.5">—</span>
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
           ))}
         </div>
-
-        {/* Mobile Carousel */}
-        {isLoading ? (
-          <CarouselSkeleton type="experience" count={5} />
-        ) : (
-          <div className="md:hidden">
-          <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex gap-4">
-              {experiences.map((exp, index) => (
-                <div
-                  key={index}
-                  className="flex-[0_0_85%] min-w-0"
-                >
-                  <div className="bg-card/50 backdrop-blur-sm border border-border/40 rounded-lg p-6 h-full tap-effect">
-                    <div className="space-y-4">
-                      <div className="flex flex-col gap-2">
-                        <span className="text-xs font-mono text-accent tracking-wider">
-                          {exp.period}
-                        </span>
-                        <h3 className="text-xl font-bold">
-                          {exp.role}
-                        </h3>
-                        <p className="text-base text-muted-foreground/80">{exp.company}</p>
-                      </div>
-                      
-                      <p className="text-muted-foreground/70 leading-relaxed text-sm">
-                        {exp.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Pagination Dots */}
-          <div className="flex justify-center gap-2 mt-6">
-            {scrollSnaps.map((_, index) => (
-              <button
-                key={index}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  index === selectedIndex 
-                    ? 'w-8 bg-accent' 
-                    : 'w-2 bg-border/40 hover:bg-border/60'
-                }`}
-                onClick={() => emblaApi?.scrollTo(index)}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
-        </div>
-        )}
       </div>
     </section>
   );
