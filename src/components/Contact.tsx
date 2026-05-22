@@ -3,18 +3,15 @@ const Contact = () => {
     <section id="contact" className="py-24 md:py-32 border-t border-line">
       <div className="container-narrow">
         <p className="text-sm uppercase tracking-[0.22em] text-muted mb-6">
-          ✺  say hello
+          ✺  contact
         </p>
         <h2 className="font-serif text-4xl md:text-6xl mb-10 leading-[1.05]">
-          If any of this resonates,{" "}
-          <em className="italic text-accent">let&rsquo;s talk.</em>
+          let's talk.
         </h2>
 
-        <p className="text-ink text-lg md:text-xl leading-relaxed max-w-2xl mb-12">
-          Whether you&rsquo;re a consumer brand wondering why your retention
-          curve flattens at month three, a team hiring for growth or product
-          analytics, or just someone who reads Lenny on the weekends — I&rsquo;d
-          love to hear from you.
+        <p className="text-ink text-lg md:text-xl leading-relaxed max-w-2xl mb-12 italic">
+          i don't bite. i do, however, ask a lot of questions about your
+          retention curve.
         </p>
 
         <div className="space-y-3 text-base">
@@ -34,7 +31,7 @@ const Contact = () => {
               github
             </span>
             <a
-              href="https://github.com/amrutha2912/amrutha-satyamoorthy"
+              href="https://github.com/amrutha2912"
               target="_blank"
               rel="noreferrer"
               className="text-ink hover:text-accent transition-colors border-b border-line hover:border-accent w-fit"
@@ -47,7 +44,7 @@ const Contact = () => {
               linkedin
             </span>
             <a
-              href="https://www.linkedin.com/in/amrutha-satyamoorthy/"
+              href="https://www.linkedin.com/in/amrutha-satyamoorthy-92b995232/"
               target="_blank"
               rel="noreferrer"
               className="text-ink hover:text-accent transition-colors border-b border-line hover:border-accent w-fit"
@@ -58,10 +55,8 @@ const Contact = () => {
         </div>
 
         <footer className="mt-24 pt-8 border-t border-line flex flex-col sm:flex-row justify-between gap-3 text-xs text-muted">
-          <p>© 2026 Amrutha Satyamoorthy</p>
-          <p className="italic">
-            Built with intention. Hosted on Vercel.
-          </p>
+          <p>© 2026 amrutha satyamoorthy</p>
+          <p className="italic">built with intention.</p>
         </footer>
       </div>
     </section>
