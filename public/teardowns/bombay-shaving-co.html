@@ -1,188 +1,211 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Bombay Shaving Company — Brand Growth Teardown · Amrutha Satyamoorthy</title>
-<meta name="description" content="The premium brand that went mass — and lost its moat." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bombay Shaving Company, Brand Growth Teardown</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --g1: #0f172a;
-    --g2: #1e3a5f;
-    --g3: #334155;
-    --accent: #1e3a5f;
-    --ink-on-brand: #eaeff5;
-    --bg: #faf9f6;
-    --ink: #1a1a1a;
-    --muted: #6b7280;
-    --line: #e6e2d6;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: var(--bg);
-    color: var(--ink);
-    font-family: 'DM Sans', system-ui, sans-serif;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-  }
-  h1, h2, h3 {
-    font-family: 'DM Serif Display', Georgia, serif;
-    font-weight: 400;
-    line-height: 1.15;
-    letter-spacing: -0.01em;
-  }
-  .header {
-    background: linear-gradient(135deg, var(--g1), var(--g2), var(--g3));
-    color: var(--ink-on-brand);
-    padding: 6rem 1.5rem 5rem;
-  }
-  .container {
-    max-width: 860px;
-    margin: 0 auto;
-  }
-  .back {
-    display: inline-block;
-    font-size: 0.85rem;
-    color: var(--ink-on-brand);
-    opacity: 0.85;
-    text-decoration: none;
-    margin-bottom: 2.5rem;
-    letter-spacing: 0.02em;
-  }
-  .back:hover { opacity: 1; }
-  .eyebrow {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.22em;
-    opacity: 0.85;
-    margin-bottom: 1.25rem;
-  }
-  .header h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    margin-bottom: 1.5rem;
-  }
-  .header .tagline {
-    font-size: 1.2rem;
-    max-width: 640px;
-    font-style: italic;
-    opacity: 0.95;
-  }
-  .body {
-    padding: 5rem 1.5rem 6rem;
-  }
-  .body h2 {
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    margin: 3rem 0 1.25rem;
-  }
-  .body h2:first-child { margin-top: 0; }
-  .body p {
-    margin-bottom: 1.1rem;
-    font-size: 1.05rem;
-  }
-  .metric-card {
-    background: var(--bg);
-    border: 1px solid var(--line);
-    border-left: 4px solid var(--accent);
-    padding: 1.75rem 2rem;
-    margin: 2.5rem 0;
-    border-radius: 2px;
-  }
-  .metric-card .v {
-    font-family: 'DM Serif Display', Georgia, serif;
-    font-size: 1.75rem;
-    color: var(--accent);
-    margin-bottom: 0.35rem;
-  }
-  .metric-card .l {
-    color: var(--muted);
-    font-size: 0.95rem;
-  }
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 2rem;
-  }
-  .tag {
-    font-size: 0.75rem;
-    padding: 0.35rem 0.7rem;
-    border: 1px solid var(--line);
-    border-radius: 2px;
-    color: var(--muted);
-  }
-  .placeholder-note {
-    background: rgba(0,0,0,0.04);
-    border: 1px dashed var(--line);
-    padding: 1.25rem 1.5rem;
-    margin: 3rem 0;
-    border-radius: 2px;
-    font-size: 0.9rem;
-    color: var(--muted);
-    font-style: italic;
-  }
-  footer {
-    border-top: 1px solid var(--line);
-    padding: 2rem 1.5rem;
-    text-align: center;
-    color: var(--muted);
-    font-size: 0.85rem;
-  }
-  footer a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line); }
-  footer a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--ink:#1a1a1a;--paper:#faf9f6;--accent:#1e3a5f;--accent-light:#dbeaf3;--coral:#e07a5f;--coral-light:#fce4db;--green:#059669;--green-light:#d1fae5;--gray:#6b7280;--light-gray:#f3f4f6;--border:#e5e7eb}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);line-height:1.7;max-width:860px;margin:0 auto}
+.hero{background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#334155 100%);padding:60px 48px 50px}
+.hero .label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#93c5fd;margin-bottom:16px;font-weight:700}
+.hero h1{font-family:'DM Serif Display',serif;font-size:36px;color:#fff;line-height:1.2;margin-bottom:12px}
+.hero .subtitle{font-size:16px;color:#bfdbfe;line-height:1.6;max-width:580px}
+.meta-bar{display:flex;gap:24px;margin-top:24px;flex-wrap:wrap}
+.meta-item{font-size:12px;color:#93c5fd;padding:6px 14px;border:1px solid rgba(255,255,255,0.15);border-radius:20px}
+.content{padding:48px}
+.section{margin-bottom:48px}
+.section-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.section-label::before{content:'';width:20px;height:2px;background:var(--accent)}
+h2{font-family:'DM Serif Display',serif;font-size:26px;margin-bottom:16px;color:var(--ink);line-height:1.3}
+h3{font-size:16px;font-weight:700;margin-bottom:10px}
+p{font-size:15px;color:#374151;margin-bottom:14px}
+.highlight-box{background:var(--accent-light);border-left:4px solid var(--accent);padding:20px 24px;border-radius:0 10px 10px 0;margin:20px 0}
+.highlight-box p{margin:0;color:#0f172a;font-size:14px}
+.warning-box{background:var(--coral-light);border-left:4px solid var(--coral);padding:20px 24px;border-radius:0 10px 10px 0;margin:20px 0}
+.warning-box p{margin:0;color:#6b2a1a;font-size:14px}
+.insight-box{background:var(--green-light);border-left:4px solid var(--green);padding:20px 24px;border-radius:0 10px 10px 0;margin:20px 0}
+.insight-box p{margin:0;color:#064e3b;font-size:14px}
+.five-forces{margin:24px 0;display:grid;grid-template-columns:1fr;gap:10px}
+.force{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 20px;display:flex;align-items:flex-start;gap:14px}
+.force-level{width:60px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0}
+.force-level.high{background:var(--coral)}
+.force-level.med{background:#f59e0b}
+.force-level.low{background:var(--green)}
+.force-body h3{font-size:14px;margin-bottom:4px}
+.force-body p{font-size:13px;margin:0;color:var(--gray);line-height:1.5}
+.timeline{margin:24px 0;padding-left:20px;border-left:2px solid var(--accent-light)}
+.timeline-item{margin-bottom:20px;position:relative;padding-left:20px}
+.timeline-item::before{content:'';width:10px;height:10px;border-radius:50%;background:var(--accent);position:absolute;left:-26px;top:6px}
+.timeline-item .date{font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.timeline-item p{font-size:14px;margin:4px 0 0;color:#374151}
+.issue-tree{margin:24px 0}
+.tree-root{background:var(--accent);color:#fff;padding:12px 20px;border-radius:8px;font-size:14px;font-weight:700;text-align:center;margin-bottom:12px}
+.tree-branches{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.tree-branch{background:#fff;border:1px solid var(--border);border-radius:8px;padding:14px;font-size:13px;text-align:center}
+.tree-branch h3{font-size:13px;margin-bottom:6px;color:var(--accent)}
+.tree-branch p{font-size:12px;color:var(--gray);margin:0;line-height:1.5}
+.tree-branch.primary{border-color:var(--coral);background:var(--coral-light)}
+.tree-branch.primary h3{color:#6b2a1a}
+.tree-branch.primary p{color:#92400e}
+.comp-table{width:100%;border-collapse:separate;border-spacing:0;margin:20px 0;border-radius:10px;overflow:hidden;border:1px solid var(--border)}
+.comp-table thead th{background:#f8f9fa;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:12px 16px;text-align:left;color:var(--gray);border-bottom:1px solid var(--border)}
+.comp-table tbody td{padding:12px 16px;font-size:14px;border-bottom:1px solid var(--border);color:#374151}
+.comp-table tbody tr:last-child td{border-bottom:none}
+.verdict{background:linear-gradient(135deg,#0f172a,#1e3a5f);padding:32px;border-radius:12px;margin:32px 0}
+.verdict h3{color:#fff;font-family:'DM Serif Display',serif;font-size:20px;margin-bottom:12px}
+.verdict p{color:#bfdbfe;font-size:14px;margin:0}
+.verdict .measure{background:rgba(255,255,255,0.1);border-radius:8px;padding:14px 18px;margin-top:16px}
+.verdict .measure p{color:#dbeaf3;font-size:13px}
+.footer{padding:32px 48px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.footer .author{font-size:13px;color:var(--gray)}
+.footer .series{font-size:11px;color:var(--accent);font-weight:700;letter-spacing:1px;text-transform:uppercase}
 </style>
 </head>
 <body>
-  <section class="header">
-    <div class="container">
-      <a class="back" href="/#work">← back to all teardowns</a>
-      <p class="eyebrow">✺  brand growth teardown</p>
-      <h1>Bombay Shaving Company</h1>
-      <p class="tagline">&ldquo;The premium brand that went mass — and lost its moat.&rdquo;</p>
+
+<div class="hero">
+  <div class="label">Brand Growth Teardown · 06</div>
+  <h1>Bombay Shaving Company: The premium brand that went mass and lost its moat</h1>
+  <div class="subtitle">What happens when a D2C brand with a clear positioning decides to compete with Gillette on their terms, and why SKU proliferation is the quiet killer of brand identity.</div>
+  <div class="meta-bar">
+    <span class="meta-item">Men's Grooming</span>
+    <span class="meta-item">Premium → Mass Pivot</span>
+    <span class="meta-item">D2C + Retail Expansion</span>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="section">
+    <div class="section-label">Brand Snapshot</div>
+    <h2>India's Dollar Shave Club moment, and the pivot that diluted it</h2>
+    <p>Founded in 2016 by Shantanu Deshpande, Bombay Shaving Company (BSC) launched with a compelling thesis: Indian men deserve a better shaving experience than mass-market disposables, and they'll pay a premium for it. The early brand was sharp, razors, shaving cream, aftershave. Clean design. D2C subscription model. A clear alternative to Gillette for the urban, image-conscious Indian man.</p>
+    <p>It worked. BSC raised over ₹200Cr in funding, built a strong D2C customer base, and became the reference point for Indian D2C men's grooming. Then came the pivot: BSC expanded into body wash, face wash, beard care, hair removal cream, deodorants, and skincare. The product line ballooned from ~10 SKUs to 50+. Distribution shifted from D2C to mass retail.</p>
+    <p>This raises a big question: the oldest one in brand strategy: can you go mass without losing the premium? BSC's trajectory suggests the answer is complicated.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Strategic Evolution</div>
+    <h2>The three eras of BSC</h2>
+
+    <div class="timeline">
+      <div class="timeline-item"><div class="date">2016–2019: The Razor Era</div><p>Clear positioning: premium shaving. D2C subscription model. 10–12 SKUs, all shaving-adjacent. Brand identity was tight, you knew exactly what BSC was. Comparable to Dollar Shave Club or Harry's in the US. Strong founder narrative (IIM-L grad challenging Gillette).</p></div>
+      <div class="timeline-item"><div class="date">2019–2022: The Expansion Era</div><p>SKU explosion into face care, body care, hair removal, beard grooming. Raised ₹45Cr Series A, then ₹160Cr. Entered offline retail aggressively. Positioning shifted from "premium shaving" to "men's grooming." The category got broader. The brand got blurrier.</p></div>
+      <div class="timeline-item"><div class="date">2022–Present: The Identity Crisis Era</div><p>Competing simultaneously against Gillette (mass razors), Beardo (beard/grooming), Man Matters (wellness), and Nivea Men (body care). No single category owned. The subscription model that defined early BSC is no longer the primary growth driver. Offline retail and marketplace sales dominate.</p></div>
     </div>
-  </section>
+  </div>
 
-  <section class="body">
-    <div class="container">
+  <div class="section">
+    <div class="section-label">Strategic Analysis</div>
+    <h2>Porter's Five Forces: why the mass pivot makes BSC vulnerable</h2>
 
-      <div class="metric-card">
-        <p class="v">50+ SKUs across 6 categories</p>
-        <p class="l">no single category owned.</p>
+    <div class="five-forces">
+      <div class="force">
+        <div class="force-level high">HIGH</div>
+        <div class="force-body"><h3>Competitive Rivalry</h3><p>BSC now competes in 5+ subcategories simultaneously. In razors: Gillette (80%+ market share). In beard care: Beardo, Ustraa. In skincare: Man Matters, Nivea Men, Garnier. In body care: every FMCG brand. They face a dominant incumbent in every category they've entered.</p></div>
       </div>
-
-      <h2>Brand snapshot</h2>
-      <p>Replace this section with the snapshot from your existing teardown HTML for Bombay Shaving Company — category, revenue, founding context, current scale.</p>
-
-      <h2>The growth diagnosis</h2>
-      <p>Replace this section with the AARRR funnel walkthrough and the NSM analysis you've already written for Bombay Shaving Company.</p>
-
-      <h2>The one thing they&rsquo;re doing wrong</h2>
-      <p>Drop in your single-conviction diagnosis here.</p>
-
-      <h2>The recommendation</h2>
-      <p>Specific, measurable, and bounded. The kind of thing you could put on a quarterly roadmap.</p>
-
-      <h2>What I&rsquo;d measure in 30 days</h2>
-      <p>The data analyst's edge: the leading indicator you'd track to know whether the recommendation is working before the lagging metrics show it.</p>
-
-      <div class="placeholder-note">
-        <strong>Note to self:</strong> This is a styled placeholder. Replace the body content with your finalised bombay-shaving-co.html teardown. The header, palette, and metric card will continue to match the rest of the site automatically.
+      <div class="force">
+        <div class="force-level high">HIGH</div>
+        <div class="force-body"><h3>Threat of Substitutes</h3><p>Every BSC product except razors has dozens of substitutes at lower price points. A ₹200 BSC face wash competes with ₹99 Nivea and ₹149 Garnier. The switching cost is zero, men's grooming products have almost no lock-in effect.</p></div>
       </div>
-
-      <div class="tags">
-        <span class="tag">Porter's Five Forces</span>
-        <span class="tag">MECE</span>
-        <span class="tag">Competitive Strategy</span>
+      <div class="force">
+        <div class="force-level med">MED</div>
+        <div class="force-body"><h3>Buyer Power</h3><p>Men's grooming is a low-involvement category for most Indian men. Brand loyalty is weak. Purchase decisions are often price-driven or availability-driven. The buyer has significant power because they can switch with zero friction.</p></div>
+      </div>
+      <div class="force">
+        <div class="force-level med">MED</div>
+        <div class="force-body"><h3>Supplier Power</h3><p>Contract manufacturing is commoditised in Indian personal care. BSC doesn't own manufacturing, they outsource. This means margins are squeezed from both sides: retail demands discounts, manufacturers have limited flexibility.</p></div>
+      </div>
+      <div class="force">
+        <div class="force-level high">HIGH</div>
+        <div class="force-body"><h3>Threat of New Entrants</h3><p>The D2C personal care space has almost no barriers to entry. A new men's grooming brand can launch on Amazon with contract-manufactured products, Instagram marketing, and ₹50L in capital. BSC's early-mover advantage has eroded as the space filled with competitors.</p></div>
       </div>
     </div>
-  </section>
 
-  <footer>
-    <div class="container">
-      <p>Part of a series by Amrutha Satyamoorthy. <a href="/#work">See all teardowns</a> · <a href="mailto:amrutha.satyamoorthy@gmail.com">get in touch</a></p>
+    <div class="warning-box">
+      <p><strong>The Five Forces verdict:</strong> BSC faces high competitive pressure in every category it operates in, with low switching costs and weak category ownership. The mass pivot turned a defensible niche position (premium shaving) into an indefensible broad position (everything for men). They moved from a focused differentiation strategy to a stuck-in-the-middle position.</p>
     </div>
-  </footer>
+  </div>
+
+  <div class="section">
+    <div class="section-label">The One Thing They're Doing Wrong</div>
+    <h2>SKU proliferation killed the brand's moat</h2>
+
+    <h3>Issue tree: why is brand recall weakening?</h3>
+    <div class="issue-tree">
+      <div class="tree-root">Why is BSC losing competitive differentiation?</div>
+      <div class="tree-branches">
+        <div class="tree-branch primary">
+          <h3>Positioning dilution</h3>
+          <p>50+ SKUs across 6 categories. No single category owned. "Men's grooming" is a shelf label, not a positioning.</p>
+        </div>
+        <div class="tree-branch">
+          <h3>Channel shift</h3>
+          <p>D2C → retail/marketplace. Subscription model abandoned. No recurring revenue anchor.</p>
+        </div>
+        <div class="tree-branch">
+          <h3>Price compression</h3>
+          <p>Mass retail demands lower price points. Premium margins erode. Competing on price against Gillette and Nivea.</p>
+        </div>
+      </div>
+    </div>
+
+    <p>The MECE breakdown is clear: BSC's differentiation problem has three non-overlapping root causes, positioning dilution, channel shift, and price compression, all of which stem from the same strategic decision to go mass. The primary driver (positioning dilution) is the one most within the team's control to fix.</p>
+
+    <div class="highlight-box">
+      <p><strong>The brand recall test:</strong> Ask 10 urban Indian men "what is Bombay Shaving Company?" In 2018, the answer would be "razors" or "shaving." In 2025, the answer is likely "men's grooming" or "that brand I've seen on Amazon." The shift from a specific association to a generic one is the clearest signal that the moat has eroded.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">The Recommendation</div>
+    <h2>Pick a lane: re-anchor around shaving or commit to the grooming platform</h2>
+    <p>BSC has two viable paths. The current middle path, being everything for every man, is not one of them.</p>
+
+    <table class="comp-table">
+      <thead><tr><th></th><th>Path A: Re-anchor on shaving</th><th>Path B: Commit to grooming platform</th></tr></thead>
+      <tbody>
+        <tr><td><strong>What it means</strong></td><td>Sunset underperforming SKUs (body wash, hair removal). Rebuild subscription model around razor + cream refills. Own "premium shaving" again.</td><td>Accept the broad positioning. Build a loyalty/membership tier that bundles products. Compete on convenience + bundle economics.</td></tr>
+        <tr><td><strong>The bet</strong></td><td>A focused brand with loyal subscribers beats a broad brand with low repeat rates.</td><td>Men's grooming is a platform play, whoever owns the first purchase owns the shelf.</td></tr>
+        <tr><td><strong>The risk</strong></td><td>The premium shaving market may be too small to justify ₹200Cr+ in funding.</td><td>Competing against Gillette, Nivea, and Beardo simultaneously requires massive marketing spend.</td></tr>
+        <tr><td><strong>Who wins</strong></td><td>Dollar Shave Club model. Harry's model. Clear precedent in the US.</td><td>Dr. Squatch model. Manscaped model. Requires scale.</td></tr>
+      </tbody>
+    </table>
+
+    <p>My recommendation is Path A. The subscription razor model has proven economics globally. BSC has the brand equity to reclaim it. And it's the path that most directly rebuilds a retention loop, the one thing they lost in the mass pivot.</p>
+
+    <div class="verdict">
+      <h3>What I'd measure in 30 days</h3>
+      <div class="measure">
+        <p><strong>Unaided brand recall in "premium shaving" vs "men's grooming", surveyed across 500 urban Indian men aged 22–35.</strong></p>
+        <p>If BSC still has stronger recall in "premium shaving" than in "men's grooming," the original positioning is recoverable. If recall is equally weak in both, the brand has been fully commoditised and the rebuild is harder. This single data point determines which strategic path is viable.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Frameworks Applied</div>
+    <table class="comp-table">
+      <thead><tr><th>Framework</th><th>How it was used</th></tr></thead>
+      <tbody>
+        <tr><td>Porter's Five Forces</td><td>Full competitive analysis revealing high pressure in every force, characteristic of a stuck-in-the-middle position</td></tr>
+        <tr><td>Competitive Moats</td><td>Diagnosed that the original moat (premium shaving focus) was deliberately abandoned during the mass pivot</td></tr>
+        <tr><td>MECE / Issue Trees</td><td>Decomposed the brand differentiation problem into three non-overlapping root causes</td></tr>
+        <tr><td>North Star Metric</td><td>Argued that the NSM should shift from revenue/GMV back to subscriber retention rate</td></tr>
+        <tr><td>Brand Positioning</td><td>Mapped the "focused differentiation → stuck in the middle" strategic drift</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="author">Amrutha Satyamoorthy · Growth Analyst & Brand Strategist</div>
+  <div class="series">Teardown 06 of 06</div>
+</div>
+
 </body>
 </html>
