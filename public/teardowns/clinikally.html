@@ -3,70 +3,536 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">💄</text></svg>'>
 <title>Clinikally, Brand Growth Teardown</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--ink:#1a1a1a;--paper:#faf9f6;--accent:#0891b2;--accent-light:#e0f7fa;--coral:#e07a5f;--coral-light:#fce4db;--green:#059669;--green-light:#d1fae5;--gray:#6b7280;--light-gray:#f3f4f6;--border:#e5e7eb}
-body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);line-height:1.7;max-width:860px;margin:0 auto}
-.hero{background:linear-gradient(135deg,#164e63 0%,#0891b2 50%,#22d3ee 100%);padding:60px 48px 50px}
-.hero .label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#a5f3fc;margin-bottom:16px;font-weight:700}
-.hero h1{font-family:'DM Serif Display',serif;font-size:36px;color:#fff;line-height:1.2;margin-bottom:12px}
-.hero .subtitle{font-size:16px;color:#cffafe;line-height:1.6;max-width:560px}
-.meta-bar{display:flex;gap:24px;margin-top:24px;flex-wrap:wrap}
-.meta-item{font-size:12px;color:#a5f3fc;padding:6px 14px;border:1px solid rgba(255,255,255,0.15);border-radius:20px}
-.content{padding:48px}
-.section{margin-bottom:48px}
-.section-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
-.section-label::before{content:'';width:20px;height:2px;background:var(--accent)}
-h2{font-family:'DM Serif Display',serif;font-size:26px;margin-bottom:16px;color:var(--ink);line-height:1.3}
-h3{font-size:16px;font-weight:700;margin-bottom:10px}
-p{font-size:15px;color:#374151;margin-bottom:14px}
-.highlight-box{background:var(--accent-light);border-left:4px solid var(--accent);padding:20px 24px;border-radius:0 10px 10px 0;margin:20px 0}
-.highlight-box p{margin:0;color:#164e63;font-size:14px}
-.warning-box{background:var(--coral-light);border-left:4px solid var(--coral);padding:20px 24px;border-radius:0 10px 10px 0;margin:20px 0}
-.warning-box p{margin:0;color:#6b2a1a;font-size:14px}
-.insight-box{background:var(--green-light);border-left:4px solid var(--green);padding:20px 24px;border-radius:0 10px 10px 0;margin:20px 0}
-.insight-box p{margin:0;color:#064e3b;font-size:14px}
-.funnel{margin:28px 0}
-.funnel-stage{display:flex;align-items:center;gap:16px;margin-bottom:8px}
-.funnel-bar{height:38px;border-radius:6px;display:flex;align-items:center;padding:0 14px;color:#fff;font-size:13px;font-weight:700}
-.funnel-label{font-size:13px;color:var(--gray);min-width:120px;text-align:right}
-.pos-map{margin:24px 0}
-.pos-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;position:relative;height:320px;background:var(--border);border-radius:10px;overflow:hidden}
-.pos-quad{background:#fff;padding:20px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative}
-.pos-quad .quad-label{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--gray);margin-bottom:8px}
-.pos-brand{font-size:12px;font-weight:700;padding:4px 10px;border-radius:20px;display:inline-block;margin:2px}
-.pos-y-label{position:absolute;left:-2px;top:50%;transform:rotate(-90deg) translateX(-50%);font-size:10px;color:var(--gray);letter-spacing:1px;text-transform:uppercase;transform-origin:0 0;white-space:nowrap}
-.pos-x-label{position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);font-size:10px;color:var(--gray);letter-spacing:1px;text-transform:uppercase}
-.comp-table{width:100%;border-collapse:separate;border-spacing:0;margin:20px 0;border-radius:10px;overflow:hidden;border:1px solid var(--border)}
-.comp-table thead th{background:#f8f9fa;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:12px 16px;text-align:left;color:var(--gray);border-bottom:1px solid var(--border)}
-.comp-table tbody td{padding:12px 16px;font-size:14px;border-bottom:1px solid var(--border);color:#374151}
-.comp-table tbody tr:last-child td{border-bottom:none}
-.verdict{background:linear-gradient(135deg,#164e63,#0891b2);padding:32px;border-radius:12px;margin:32px 0}
-.verdict h3{color:#fff;font-family:'DM Serif Display',serif;font-size:20px;margin-bottom:12px}
-.verdict p{color:#cffafe;font-size:14px;margin:0}
-.verdict .measure{background:rgba(255,255,255,0.1);border-radius:8px;padding:14px 18px;margin-top:16px}
-.verdict .measure p{color:#e0f7fa;font-size:13px}
-.footer{padding:32px 48px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
-.footer .author{font-size:13px;color:var(--gray)}
-.footer .series{font-size:11px;color:var(--accent);font-weight:700;letter-spacing:1px;text-transform:uppercase}
-.flow-diagram{margin:24px 0;display:flex;flex-direction:column;gap:8px}
-.flow-row{display:flex;align-items:center;gap:12px}
-.flow-box{background:#fff;border:1px solid var(--border);border-radius:8px;padding:12px 16px;font-size:13px;flex:1;text-align:center}
-.flow-box.problem{background:var(--coral-light);border-color:var(--coral)}
-.flow-box.fix{background:var(--green-light);border-color:var(--green)}
-.flow-arrow{font-size:18px;color:var(--gray)}
-.flow-drop{font-size:11px;color:var(--coral);font-weight:700;text-align:center}
-.flow-keep{font-size:11px;color:var(--green);font-weight:700;text-align:center}
+/* ============================================================
+   MINIMAL TEARDOWN STYLESHEET — shared across all 6 reports.
+   Black + white + warm paper + single green accent.
+   Editorial newspaper / long-read essay feel.
+   ============================================================ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ink: #1a1a1a;
+  --paper: #faf9f6;
+  --accent: #2d6a4f;
+  --muted: #6b7280;
+  --line: #d8d4c5;
+  --rule: #e6e2d6;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.7;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { color: var(--accent); }
+a:hover { text-decoration: underline; }
+
+/* ============== HERO ============== */
+.hero {
+  padding: 80px 0 56px;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 56px;
+}
+.hero .label {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 32px;
+}
+.hero h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 800;
+  font-size: clamp(32px, 4.5vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  color: var(--ink);
+}
+.hero .subtitle {
+  font-size: 17px;
+  color: var(--ink);
+  line-height: 1.6;
+  max-width: 600px;
+  font-style: italic;
+  margin-bottom: 32px;
+}
+.meta-bar {
+  display: flex;
+  gap: 0;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--rule);
+  padding-top: 20px;
+}
+.meta-item {
+  font-size: 12px;
+  color: var(--muted);
+  padding-right: 16px;
+  margin-right: 16px;
+  border-right: 1px solid var(--line);
+}
+.meta-item:last-child { border-right: none; }
+
+/* ============== SECTIONS ============== */
+.content { padding: 0 0 56px; }
+.section { margin-bottom: 56px; }
+.section-label {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 800;
+  font-size: clamp(22px, 3vw, 28px);
+  margin-bottom: 20px;
+  color: var(--ink);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 28px;
+  margin-bottom: 12px;
+  color: var(--ink);
+  letter-spacing: 0;
+}
+p {
+  font-size: 16px;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+strong { font-weight: 600; color: var(--ink); }
+em { font-style: italic; }
+
+/* ============== CALLOUT BOXES (all 3 styles converge) ============== */
+.highlight-box,
+.warning-box,
+.insight-box {
+  background: transparent;
+  border: none;
+  border-left: 2px solid var(--accent);
+  padding: 8px 0 8px 20px;
+  margin: 24px 0;
+  border-radius: 0;
+}
+.highlight-box p,
+.warning-box p,
+.insight-box p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 15px;
+}
+
+/* ============== FUNNEL ============== */
+.funnel { margin: 28px 0; }
+.funnel-stage {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 6px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.funnel-stage:last-child { border-bottom: none; }
+.funnel-label {
+  font-size: 13px;
+  color: var(--ink);
+  min-width: 100px;
+  font-weight: 500;
+}
+.funnel-bar {
+  height: 8px !important;
+  background: var(--ink) !important;
+  border-radius: 1px;
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 !important;
+  color: var(--ink) !important;
+  font-size: 0 !important;
+  position: relative;
+  flex-shrink: 0;
+}
+.funnel-bar .bar-val {
+  position: absolute;
+  left: calc(100% + 12px);
+  font-size: 12px !important;
+  color: var(--muted) !important;
+  font-weight: 400 !important;
+  white-space: nowrap;
+}
+
+/* ============== BAR CHART ============== */
+.bar-chart { margin: 28px 0; }
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 4px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.bar-row:last-child { border-bottom: none; }
+.bar-name {
+  font-size: 13px;
+  color: var(--ink);
+  min-width: 130px;
+  font-weight: 500;
+}
+.bar-track {
+  flex: 1;
+  background: transparent !important;
+  border-radius: 0 !important;
+  height: auto !important;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.bar-fill {
+  height: 6px !important;
+  background: var(--ink) !important;
+  border-radius: 1px !important;
+  display: block !important;
+  padding: 0 !important;
+  flex-shrink: 0;
+}
+.bar-fill .bar-val {
+  display: none !important;
+}
+.bar-val-out {
+  font-size: 12px;
+  color: var(--muted);
+  margin-left: 12px;
+  min-width: 100px;
+  font-weight: 500;
+}
+
+/* ============== TABLES ============== */
+.comp-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  border: none;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  border-radius: 0 !important;
+  overflow: visible !important;
+}
+.comp-table thead th {
+  background: transparent !important;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 12px 12px 12px 0;
+  text-align: left;
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+.comp-table tbody td {
+  padding: 12px 12px 12px 0;
+  font-size: 14px;
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink);
+  vertical-align: top;
+}
+.comp-table tbody tr:last-child td { border-bottom: none; }
+.comp-table .brand-highlight {
+  background: transparent !important;
+  font-weight: 600;
+}
+
+/* ============== METRIC CARDS ============== */
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0;
+  margin: 28px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.metric-card {
+  background: transparent !important;
+  border: none !important;
+  border-right: 1px solid var(--rule) !important;
+  border-radius: 0 !important;
+  padding: 18px 16px !important;
+  text-align: left !important;
+}
+.metric-card:last-child { border-right: none !important; }
+.metric-card .num {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+.metric-card .label {
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+}
+
+/* ============== TIMELINE ============== */
+.timeline {
+  margin: 24px 0;
+  padding-left: 20px;
+  border-left: 1px solid var(--rule);
+}
+.timeline-item {
+  margin-bottom: 20px;
+  position: relative;
+  padding-left: 16px;
+}
+.timeline-item::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ink);
+  position: absolute;
+  left: -23px;
+  top: 8px;
+}
+.timeline-item .date {
+  font-size: 11px;
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.timeline-item p {
+  font-size: 14px;
+  margin: 4px 0 0;
+  color: var(--ink);
+}
+
+/* ============== VERDICT (the "what i'd measure" callout) ============== */
+.verdict {
+  background: var(--ink) !important;
+  padding: 28px !important;
+  border-radius: 2px !important;
+  margin: 32px 0;
+  color: var(--paper);
+}
+.verdict h3 {
+  color: var(--paper) !important;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 20px;
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+.verdict p {
+  color: var(--paper) !important;
+  font-size: 14px;
+  margin: 0 0 12px;
+}
+.verdict .measure {
+  background: rgba(255,255,255,0.08) !important;
+  border-radius: 2px !important;
+  padding: 14px 16px !important;
+  margin-top: 16px;
+  border-left: 2px solid var(--paper);
+}
+.verdict .measure p {
+  color: var(--paper) !important;
+  font-size: 14px;
+}
+.verdict .measure strong { color: var(--paper); }
+
+/* ============== PIE-LIKE LIST ============== */
+.pie-container {
+  margin: 24px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 16px 0;
+}
+.pie-container svg { display: none; }   /* hide the actual pie graphic */
+.pie-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.pie-legend-item {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--ink);
+  padding-left: 0;
+}
+.pie-dot {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 0 !important;
+  background: var(--ink) !important;
+  flex-shrink: 0;
+}
+
+/* ============== CHANNEL STACK (used by Fae Beauty) ============== */
+.channel-stack { margin: 24px 0; }
+.channel-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  padding: 6px 0;
+}
+.channel-label {
+  font-size: 13px;
+  min-width: 60px;
+  text-align: right;
+  color: var(--muted);
+  font-weight: 500;
+}
+.channel-bar {
+  height: 8px !important;
+  display: flex;
+  border-radius: 1px;
+  overflow: hidden;
+  flex: 1;
+  background: var(--rule);
+}
+.channel-seg {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 0 !important;     /* hide the inline labels */
+  color: transparent !important;
+  height: 100% !important;
+}
+.channel-seg:nth-child(1) { background: var(--ink) !important; }
+.channel-seg:nth-child(2) { background: #555 !important; }
+.channel-seg:nth-child(3) { background: #888 !important; }
+.channel-seg:nth-child(4) { background: var(--accent) !important; }
+.channel-seg:nth-child(5) { background: #aaa !important; }
+.channel-legend {
+  display: flex;
+  gap: 18px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+  font-size: 11px;
+  color: var(--muted);
+}
+.channel-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.channel-legend .dot {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 0 !important;
+}
+.channel-legend span:nth-child(1) .dot { background: var(--ink) !important; }
+.channel-legend span:nth-child(2) .dot { background: #555 !important; }
+.channel-legend span:nth-child(3) .dot { background: #888 !important; }
+.channel-legend span:nth-child(4) .dot { background: var(--accent) !important; }
+.channel-legend span:nth-child(5) .dot { background: #aaa !important; }
+
+/* ============== REVENUE BAR CHART (Fae Beauty etc.) ============== */
+.rev-chart { margin: 28px 0; }
+.rev-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  height: 200px;
+  padding: 0 0 20px;
+  border-bottom: 1px solid var(--rule);
+}
+.rev-bar-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.rev-bar {
+  width: 100%;
+  border-radius: 1px 1px 0 0 !important;
+  background: var(--ink) !important;
+  color: var(--paper) !important;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 6px !important;
+  padding-bottom: 0 !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  min-height: 4px;
+}
+.rev-label {
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+  font-weight: 500;
+}
+.rev-note {
+  font-size: 10px;
+  color: var(--accent) !important;
+  text-align: center;
+  font-weight: 500;
+  max-width: 72px;
+  line-height: 1.3;
+  margin-top: 0;
+}
+
+/* ============== FOOTER ============== */
+.footer {
+  padding: 28px 0 56px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer .author {
+  font-size: 13px;
+  color: var(--muted);
+}
+.footer .series {
+  font-size: 11px;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* ============== SCROLLBAR + MOBILE ============== */
+@media (max-width: 700px) {
+  body { padding: 0 1rem; }
+  .hero { padding: 56px 0 40px; }
+  .hero h1 { font-size: 32px; }
+  .metrics { grid-template-columns: repeat(2, 1fr); }
+  .metric-card { border-right: none !important; border-bottom: 1px solid var(--rule) !important; }
+}
+
 </style>
 </head>
 <body>
 
 <div class="hero">
-  <div class="label">Brand Growth Teardown · 04</div>
-  <h1>Clinikally: The activation problem hiding inside a category creation opportunity</h1>
-  <div class="subtitle">Dermatologist-backed skincare for Indian skin is the right product for the right market. But if users can't figure out which product to buy first, the funnel breaks before it begins.</div>
+  <div class="label">brand growth teardown · 04</div>
+  <h1>clinikally: the activation problem hiding inside a category-creation opportunity</h1>
   <div class="meta-bar">
     <span class="meta-item">Skintech / Derma Beauty</span>
     <span class="meta-item">New Category Creation</span>
@@ -77,15 +543,15 @@ p{font-size:15px;color:#374151;margin-bottom:14px}
 <div class="content">
 
   <div class="section">
-    <div class="section-label">Brand Snapshot</div>
-    <h2>The hardest growth problem in consumer: creating a category</h2>
-    <p>Clinikally occupies the gap between two extremes in Indian skincare: pharmacy generics prescribed by dermatologists (cheap, clinical, zero brand appeal) and Instagram-famous beauty brands (aesthetic, aspirational, questionable efficacy claims). Their bet is that an emerging segment of informed Indian consumers wants both, clinical credibility AND brand experience.</p>
-    <p>The positioning is strong. The problem is execution at the funnel level. Category creation requires educating the customer before converting them, and education creates friction in the funnel. The more you explain, the more decisions the customer has to make. The more decisions, the more drop-off.</p>
+    <div class="section-label">brand snapshot</div>
+    <h2>the hardest growth problem in consumer is creating a category from scratch</h2>
+    <p>clinikally sits in the gap between two extremes in indian skincare. on one side, pharmacy generics that dermatologists actually prescribe (cheap, clinical, zero brand appeal). on the other, instagram-famous beauty brands (gorgeous, aspirational, efficacy claims you'd be wise to question). their bet is that a growing segment of informed indian consumers wants both at once. clinical credibility AND brand experience.</p>
+    <p>the positioning is solid. the problem is execution at the funnel level. category creation is a special kind of growth problem. you have to educate the customer before you can convert them. but education adds steps. and every added step in the funnel is a drop-off opportunity. the more you explain, the fewer people you actually convert.</p>
   </div>
 
   <div class="section">
-    <div class="section-label">Growth Diagnosis</div>
-    <h2>The current activation flow, and where it breaks</h2>
+    <div class="section-label">growth diagnosis</div>
+    <h2>the current activation flow, and where it breaks</h2>
 
     <div class="flow-diagram">
       <div class="flow-row">
@@ -113,61 +579,61 @@ p{font-size:15px;color:#374151;margin-bottom:14px}
       </div>
     </div>
 
-    <p>The funnel above is typical for clinical skincare brands. But the drop-off at "30+ SKUs" and "which formulation" is entirely preventable. The user came with intent (they have a skin concern) but the product experience converts that intent into confusion instead of action.</p>
+    <p>the funnel above is what almost every clinical skincare brand looks like. but the drop-off at "30+ skus" and "which formulation" is entirely avoidable. the user showed up with intent. they have a real skin concern they're trying to solve. the product experience takes that intent and converts it into confusion instead of action. that's a failure of activation, not interest.</p>
 
     <div class="warning-box">
-      <p><strong>The Aha Moment never arrives.</strong> For Clinikally, the Aha Moment should be: "I used a product recommended for MY specific concern and it visibly worked within 2 weeks." But most users never reach that moment because they either (a) don't buy at all due to choice paralysis, or (b) buy the wrong product and don't see results. Both outcomes are activation failures.</p>
+      <p><strong>the aha moment never arrives.</strong> for clinikally, it should be: "i used something recommended for MY specific skin concern, and it visibly worked in 2 weeks." but most users never get there. either they don't buy anything because the choice is overwhelming, or they buy something close enough but slightly wrong and don't see results. both outcomes look like activation failures, and they kill retention before it even starts.</p>
     </div>
   </div>
 
   <div class="section">
-    <div class="section-label">Data Analysis</div>
-    <h2>Category positioning: where Clinikally sits in the market</h2>
+    <div class="section-label">data analysis</div>
+    <h2>category positioning: where clinikally sits</h2>
 
     <div class="pos-grid">
       <div class="pos-quad">
         <div class="quad-label">High credibility · High price</div>
-        <span class="pos-brand" style="background:#e0f7fa;color:#164e63">Clinikally (target)</span>
-        <span class="pos-brand" style="background:var(--light-gray);color:var(--gray)">La Roche-Posay</span>
-        <span class="pos-brand" style="background:var(--light-gray);color:var(--gray)">CeraVe</span>
+        <span class="pos-brand" >Clinikally (target)</span>
+        <span class="pos-brand" >La Roche-Posay</span>
+        <span class="pos-brand" >CeraVe</span>
       </div>
       <div class="pos-quad">
         <div class="quad-label">Low credibility · High price</div>
-        <span class="pos-brand" style="background:var(--light-gray);color:var(--gray)">Forest Essentials</span>
-        <span class="pos-brand" style="background:var(--light-gray);color:var(--gray)">Kama Ayurveda</span>
+        <span class="pos-brand" >Forest Essentials</span>
+        <span class="pos-brand" >Kama Ayurveda</span>
       </div>
       <div class="pos-quad">
         <div class="quad-label">High credibility · Low price</div>
-        <span class="pos-brand" style="background:var(--light-gray);color:var(--gray)">Minimalist</span>
-        <span class="pos-brand" style="background:var(--light-gray);color:var(--gray)">The Ordinary</span>
-        <span class="pos-brand" style="background:var(--light-gray);color:var(--gray)">Pharmacy generics</span>
+        <span class="pos-brand" >Minimalist</span>
+        <span class="pos-brand" >The Ordinary</span>
+        <span class="pos-brand" >Pharmacy generics</span>
       </div>
       <div class="pos-quad">
         <div class="quad-label">Low credibility · Low price</div>
-        <span class="pos-brand" style="background:var(--light-gray);color:var(--gray)">Mamaearth</span>
-        <span class="pos-brand" style="background:var(--light-gray);color:var(--gray)">WOW</span>
-        <span class="pos-brand" style="background:var(--light-gray);color:var(--gray)">Plum</span>
+        <span class="pos-brand" >Mamaearth</span>
+        <span class="pos-brand" >WOW</span>
+        <span class="pos-brand" >Plum</span>
       </div>
     </div>
-    <p style="font-size:12px;color:var(--gray);margin-top:24px;text-align:center">X-axis: Price point (left = high, right = low) · Y-axis: Clinical credibility (top = high, bottom = low)</p>
+    <p style="font-size:12px;margin-top:24px;text-align:center">x-axis: price (left = high, right = low) · y-axis: clinical credibility (top = high, bottom = low)</p>
 
     <div class="insight-box">
-      <p><strong>The strategic gap:</strong> Clinikally's target quadrant (high credibility, premium price) is occupied by Western imports (La Roche-Posay, CeraVe) but has no strong Indian-born brand. Minimalist comes closest but positions on ingredient transparency, not clinical backing. The opportunity is real, but only if activation converts the "interested but confused" shopper into a buyer.</p>
+      <p><strong>the strategic gap:</strong> clinikally's target quadrant (high credibility, premium price) is currently held by western imports like la roche-posay and cerave. no strong indian-born brand owns this space. minimalist comes closest, but they're positioned on ingredient transparency, not clinical backing. the opportunity is real. but it's only an opportunity if activation actually converts the "interested but confused" shopper into a paying one.</p>
     </div>
   </div>
 
   <div class="section">
-    <div class="section-label">The One Thing They're Doing Wrong</div>
-    <h2>Selling a catalog when they should be selling a diagnosis</h2>
-    <p>Clinikally's website and marketplace listings present products as a catalog: browse by category, compare ingredients, read descriptions. This is how a pharmacy works. It's not how a consumer brand grows.</p>
-    <p>The user doesn't want to choose between 30 products. The user wants to be told: "Based on your skin type and concern, START HERE." That's what a dermatologist does in a consultation, they don't hand you a menu. Clinikally has the clinical credibility to make that recommendation. They're just not using it at the point of purchase.</p>
+    <div class="section-label">the one thing they're doing wrong</div>
+    <h2>they're selling a catalog. they should be selling a diagnosis.</h2>
+    <p>clinikally's website and marketplace listings present products as a catalog. browse by category, compare ingredients, read descriptions. that's how a pharmacy works. it isn't how a consumer brand grows. pharmacies don't compound. brands do.</p>
+    <p>the user doesn't want to pick between 30 products. they want to be told: "based on your skin type and what you described, START HERE." that's what a dermatologist actually does in a real consultation. they don't hand you a menu. clinikally has the clinical credibility to make that exact kind of recommendation. they just aren't using it at the point of purchase, which is the one moment it would actually matter.</p>
   </div>
 
   <div class="section">
-    <div class="section-label">The Recommendation</div>
-    <h2>Replace the catalog with a diagnosis → starter product flow</h2>
+    <div class="section-label">the recommendation</div>
+    <h2>replace the catalog with: diagnosis → starter product.</h2>
 
-    <h3>The fix in 3 steps:</h3>
+    <h3>what i'd actually do:</h3>
     <div class="flow-diagram">
       <div class="flow-row">
         <div class="flow-box fix">3-question skin quiz (skin type, primary concern, current routine)</div>
@@ -179,37 +645,25 @@ p{font-size:15px;color:#374151;margin-bottom:14px}
       <div class="flow-keep">▲ Reduce activation from 8 decisions to 3</div>
     </div>
 
-    <p><strong>Why one product, not a regime:</strong> A "complete skincare routine" recommendation (cleanser + serum + moisturizer + sunscreen) costs ₹2,000–4,000 and creates sticker shock. A single starter product at ₹500–800 is an easy first purchase. Once the Aha Moment hits (visible improvement in 2 weeks), the user is pre-sold on the rest of the regime. The bundle comes later, after trust is built, not before.</p>
-    <p><strong>Why "dermatologist-recommended" matters:</strong> It's Clinikally's only defensible moat in a market where every brand claims "clean" and "science-backed." The quiz output should feel like a prescription, not a product page. The language shifts from "you might like this" to "our dermatologists recommend this for your skin type." That's the credibility premium that justifies the price premium.</p>
+    <p><strong>why one product, not a regime:</strong> a "complete skincare routine" (cleanser, serum, moisturiser, sunscreen) is ₹2,000 to 4,000 in one go, which creates sticker shock at exactly the wrong moment. a single starter product at ₹500 to 800 is an easy first yes. then the aha moment hits (visible improvement in 2 weeks) and the user is already pre-sold on the rest. the bundle gets sold later, after trust exists. not before.</p>
+    <p><strong>why "dermatologist-recommended" matters:</strong> it's clinikally's only defensible moat in a market where every brand claims to be "clean" and "science-backed." the quiz output should feel like a prescription, not a product page. the wording shifts from "you might like this" to "our dermatologists recommend this for your skin type." that's the credibility premium that justifies the price premium.</p>
 
     <div class="verdict">
-      <h3>What I'd measure in 30 days</h3>
+      <h3>what i'd measure in 30 days</h3>
       <div class="measure">
-        <p><strong>Quiz completion rate → first purchase conversion within 48 hours.</strong></p>
-        <p>The quiz is the new activation gate. If quiz completion is above 60% but purchase conversion is below 10%, the recommendation isn't compelling enough. If quiz completion itself is below 30%, the quiz is too long or too intimidating. The product is: if 100 people start the quiz, how many buy something within 2 days? That number IS the activation rate.</p>
+        <p><strong><strong>quiz completion rate → first purchase conversion within 48 hours.</strong></strong></p>
+        <p>the quiz is the new activation gate. if quiz completion is above 60% but purchase conversion is below 10%, the recommendation at the end isn't compelling enough. if quiz completion itself is below 30%, the quiz is too long or too intimidating to start. the actual metric: of 100 people who start the quiz, how many buy something within 2 days? that single number IS the activation rate. everything else is noise.</p>
       </div>
     </div>
   </div>
 
-  <div class="section">
-    <div class="section-label">Frameworks Applied</div>
-    <table class="comp-table">
-      <thead><tr><th>Framework</th><th>How it was used</th></tr></thead>
-      <tbody>
-        <tr><td>Aha Moment</td><td>Identified "visible results in 2 weeks from a personalised recommendation" as the target Aha Moment that predicts retention</td></tr>
-        <tr><td>AARRR / Activation</td><td>Mapped the full activation funnel; identified choice paralysis at the catalog stage as the primary drop-off</td></tr>
-        <tr><td>Jobs to be Done (JTBD)</td><td>The user's job isn't "browse skincare", it's "fix this specific skin problem." The catalog serves the wrong job.</td></tr>
-        <tr><td>Experiment Design</td><td>Proposed quiz-to-purchase flow as an A/B testable activation intervention with clear success metrics</td></tr>
-        <tr><td>TAM / SAM / SOM</td><td>Mapped the competitive positioning to identify an unoccupied quadrant (Indian + clinical + premium)</td></tr>
-      </tbody>
-    </table>
-  </div>
+  
 
 </div>
 
 <div class="footer">
-  <div class="author">Amrutha Satyamoorthy · Growth Analyst & Brand Strategist</div>
-  <div class="series">Teardown 04 of 06</div>
+  <div class="author">amrutha satyamoorthy · data analyst, storyteller, & metric obsessive</div>
+  <div class="series">teardown 04 of 06</div>
 </div>
 
 </body>
