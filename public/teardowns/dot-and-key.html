@@ -3,71 +3,536 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">💄</text></svg>'>
 <title>Dot & Key, Brand Growth Teardown</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--ink:#1a1a1a;--paper:#faf9f6;--accent:#e85d04;--accent-light:#fff3e6;--coral:#e07a5f;--coral-light:#fce4db;--blue:#457b9d;--blue-light:#dbeaf3;--green:#059669;--green-light:#d1fae5;--gray:#6b7280;--light-gray:#f3f4f6;--border:#e5e7eb}
-body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);line-height:1.7;max-width:860px;margin:0 auto}
-.hero{background:linear-gradient(135deg,#9a3412 0%,#e85d04 50%,#fb923c 100%);padding:60px 48px 50px}
-.hero .label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#fed7aa;margin-bottom:16px;font-weight:700}
-.hero h1{font-family:'DM Serif Display',serif;font-size:36px;color:#fff;line-height:1.2;margin-bottom:12px}
-.hero .subtitle{font-size:16px;color:#fde0c8;line-height:1.6;max-width:580px}
-.meta-bar{display:flex;gap:24px;margin-top:24px;flex-wrap:wrap}
-.meta-item{font-size:12px;color:#fed7aa;padding:6px 14px;border:1px solid rgba(255,255,255,0.15);border-radius:20px}
-.content{padding:48px}
-.section{margin-bottom:48px}
-.section-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
-.section-label::before{content:'';width:20px;height:2px;background:var(--accent)}
-h2{font-family:'DM Serif Display',serif;font-size:26px;margin-bottom:16px;color:var(--ink);line-height:1.3}
-h3{font-size:16px;font-weight:700;margin-bottom:10px;color:var(--ink)}
-p{font-size:15px;color:#374151;margin-bottom:14px}
-.highlight-box{background:var(--accent-light);border-left:4px solid var(--accent);padding:20px 24px;border-radius:0 10px 10px 0;margin:20px 0}
-.highlight-box p{margin:0;color:#9a3412;font-size:14px}
-.warning-box{background:var(--coral-light);border-left:4px solid var(--coral);padding:20px 24px;border-radius:0 10px 10px 0;margin:20px 0}
-.warning-box p{margin:0;color:#6b2a1a;font-size:14px}
-.insight-box{background:var(--green-light);border-left:4px solid var(--green);padding:20px 24px;border-radius:0 10px 10px 0;margin:20px 0}
-.insight-box p{margin:0;color:#064e3b;font-size:14px}
-.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0}
-.metric-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
-.metric-card .num{font-family:'DM Serif Display',serif;font-size:24px;color:var(--accent);margin-bottom:4px}
-.metric-card .label{font-size:11px;color:var(--gray);text-transform:uppercase;letter-spacing:.5px}
-.rev-row{display:flex;align-items:flex-end;gap:6px;height:240px;padding:0 0 30px;border-bottom:1px solid var(--border)}
-.rev-bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px}
-.rev-bar{width:100%;border-radius:6px 6px 0 0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:6px;color:#fff;font-size:10px;font-weight:700;min-height:4px}
-.rev-label{font-size:10px;color:var(--gray);text-align:center}
-.bar-chart{margin:28px 0}
-.bar-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
-.bar-name{font-size:13px;color:var(--ink);min-width:120px;text-align:right}
-.bar-track{flex:1;background:var(--light-gray);border-radius:4px;height:28px;overflow:hidden}
-.bar-fill{height:100%;border-radius:4px;display:flex;align-items:center;padding:0 10px}
-.bar-val{font-size:11px;font-weight:700;color:#fff;white-space:nowrap}
-.bar-val-out{font-size:12px;color:var(--gray);margin-left:8px;min-width:80px}
-.comp-table{width:100%;border-collapse:separate;border-spacing:0;margin:20px 0;border-radius:10px;overflow:hidden;border:1px solid var(--border)}
-.comp-table thead th{background:#f8f9fa;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:12px 16px;text-align:left;color:var(--gray);border-bottom:1px solid var(--border)}
-.comp-table tbody td{padding:12px 16px;font-size:14px;border-bottom:1px solid var(--border);color:#374151}
-.comp-table tbody tr:last-child td{border-bottom:none}
-.comp-table .hl{background:var(--accent-light);font-weight:600}
-.verdict{background:linear-gradient(135deg,#9a3412,#e85d04);padding:32px;border-radius:12px;margin:32px 0}
-.verdict h3{color:#fff;font-family:'DM Serif Display',serif;font-size:20px;margin-bottom:12px}
-.verdict p{color:#fde0c8;font-size:14px;margin:0}
-.verdict .measure{background:rgba(255,255,255,0.1);border-radius:8px;padding:14px 18px;margin-top:16px}
-.verdict .measure p{color:#fed7aa;font-size:13px}
-.footer{padding:32px 48px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
-.footer .author{font-size:13px;color:var(--gray)}
-.footer .series{font-size:11px;color:var(--accent);font-weight:700;letter-spacing:1px;text-transform:uppercase}
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:20px 0}
-.col-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:20px}
-.col-card h3{font-size:14px;margin-bottom:8px}
-.col-card p{font-size:13px;margin:0}
+/* ============================================================
+   MINIMAL TEARDOWN STYLESHEET — shared across all 6 reports.
+   Black + white + warm paper + single green accent.
+   Editorial newspaper / long-read essay feel.
+   ============================================================ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ink: #1a1a1a;
+  --paper: #faf9f6;
+  --accent: #2d6a4f;
+  --muted: #6b7280;
+  --line: #d8d4c5;
+  --rule: #e6e2d6;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.7;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { color: var(--accent); }
+a:hover { text-decoration: underline; }
+
+/* ============== HERO ============== */
+.hero {
+  padding: 80px 0 56px;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 56px;
+}
+.hero .label {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 32px;
+}
+.hero h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 800;
+  font-size: clamp(32px, 4.5vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  color: var(--ink);
+}
+.hero .subtitle {
+  font-size: 17px;
+  color: var(--ink);
+  line-height: 1.6;
+  max-width: 600px;
+  font-style: italic;
+  margin-bottom: 32px;
+}
+.meta-bar {
+  display: flex;
+  gap: 0;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--rule);
+  padding-top: 20px;
+}
+.meta-item {
+  font-size: 12px;
+  color: var(--muted);
+  padding-right: 16px;
+  margin-right: 16px;
+  border-right: 1px solid var(--line);
+}
+.meta-item:last-child { border-right: none; }
+
+/* ============== SECTIONS ============== */
+.content { padding: 0 0 56px; }
+.section { margin-bottom: 56px; }
+.section-label {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 800;
+  font-size: clamp(22px, 3vw, 28px);
+  margin-bottom: 20px;
+  color: var(--ink);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 28px;
+  margin-bottom: 12px;
+  color: var(--ink);
+  letter-spacing: 0;
+}
+p {
+  font-size: 16px;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+strong { font-weight: 600; color: var(--ink); }
+em { font-style: italic; }
+
+/* ============== CALLOUT BOXES (all 3 styles converge) ============== */
+.highlight-box,
+.warning-box,
+.insight-box {
+  background: transparent;
+  border: none;
+  border-left: 2px solid var(--accent);
+  padding: 8px 0 8px 20px;
+  margin: 24px 0;
+  border-radius: 0;
+}
+.highlight-box p,
+.warning-box p,
+.insight-box p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 15px;
+}
+
+/* ============== FUNNEL ============== */
+.funnel { margin: 28px 0; }
+.funnel-stage {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 6px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.funnel-stage:last-child { border-bottom: none; }
+.funnel-label {
+  font-size: 13px;
+  color: var(--ink);
+  min-width: 100px;
+  font-weight: 500;
+}
+.funnel-bar {
+  height: 8px !important;
+  background: var(--ink) !important;
+  border-radius: 1px;
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 !important;
+  color: var(--ink) !important;
+  font-size: 0 !important;
+  position: relative;
+  flex-shrink: 0;
+}
+.funnel-bar .bar-val {
+  position: absolute;
+  left: calc(100% + 12px);
+  font-size: 12px !important;
+  color: var(--muted) !important;
+  font-weight: 400 !important;
+  white-space: nowrap;
+}
+
+/* ============== BAR CHART ============== */
+.bar-chart { margin: 28px 0; }
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 4px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.bar-row:last-child { border-bottom: none; }
+.bar-name {
+  font-size: 13px;
+  color: var(--ink);
+  min-width: 130px;
+  font-weight: 500;
+}
+.bar-track {
+  flex: 1;
+  background: transparent !important;
+  border-radius: 0 !important;
+  height: auto !important;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.bar-fill {
+  height: 6px !important;
+  background: var(--ink) !important;
+  border-radius: 1px !important;
+  display: block !important;
+  padding: 0 !important;
+  flex-shrink: 0;
+}
+.bar-fill .bar-val {
+  display: none !important;
+}
+.bar-val-out {
+  font-size: 12px;
+  color: var(--muted);
+  margin-left: 12px;
+  min-width: 100px;
+  font-weight: 500;
+}
+
+/* ============== TABLES ============== */
+.comp-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  border: none;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  border-radius: 0 !important;
+  overflow: visible !important;
+}
+.comp-table thead th {
+  background: transparent !important;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 12px 12px 12px 0;
+  text-align: left;
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+.comp-table tbody td {
+  padding: 12px 12px 12px 0;
+  font-size: 14px;
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink);
+  vertical-align: top;
+}
+.comp-table tbody tr:last-child td { border-bottom: none; }
+.comp-table .brand-highlight {
+  background: transparent !important;
+  font-weight: 600;
+}
+
+/* ============== METRIC CARDS ============== */
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0;
+  margin: 28px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.metric-card {
+  background: transparent !important;
+  border: none !important;
+  border-right: 1px solid var(--rule) !important;
+  border-radius: 0 !important;
+  padding: 18px 16px !important;
+  text-align: left !important;
+}
+.metric-card:last-child { border-right: none !important; }
+.metric-card .num {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+.metric-card .label {
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+}
+
+/* ============== TIMELINE ============== */
+.timeline {
+  margin: 24px 0;
+  padding-left: 20px;
+  border-left: 1px solid var(--rule);
+}
+.timeline-item {
+  margin-bottom: 20px;
+  position: relative;
+  padding-left: 16px;
+}
+.timeline-item::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ink);
+  position: absolute;
+  left: -23px;
+  top: 8px;
+}
+.timeline-item .date {
+  font-size: 11px;
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.timeline-item p {
+  font-size: 14px;
+  margin: 4px 0 0;
+  color: var(--ink);
+}
+
+/* ============== VERDICT (the "what i'd measure" callout) ============== */
+.verdict {
+  background: var(--ink) !important;
+  padding: 28px !important;
+  border-radius: 2px !important;
+  margin: 32px 0;
+  color: var(--paper);
+}
+.verdict h3 {
+  color: var(--paper) !important;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 20px;
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+.verdict p {
+  color: var(--paper) !important;
+  font-size: 14px;
+  margin: 0 0 12px;
+}
+.verdict .measure {
+  background: rgba(255,255,255,0.08) !important;
+  border-radius: 2px !important;
+  padding: 14px 16px !important;
+  margin-top: 16px;
+  border-left: 2px solid var(--paper);
+}
+.verdict .measure p {
+  color: var(--paper) !important;
+  font-size: 14px;
+}
+.verdict .measure strong { color: var(--paper); }
+
+/* ============== PIE-LIKE LIST ============== */
+.pie-container {
+  margin: 24px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 16px 0;
+}
+.pie-container svg { display: none; }   /* hide the actual pie graphic */
+.pie-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.pie-legend-item {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--ink);
+  padding-left: 0;
+}
+.pie-dot {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 0 !important;
+  background: var(--ink) !important;
+  flex-shrink: 0;
+}
+
+/* ============== CHANNEL STACK (used by Fae Beauty) ============== */
+.channel-stack { margin: 24px 0; }
+.channel-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  padding: 6px 0;
+}
+.channel-label {
+  font-size: 13px;
+  min-width: 60px;
+  text-align: right;
+  color: var(--muted);
+  font-weight: 500;
+}
+.channel-bar {
+  height: 8px !important;
+  display: flex;
+  border-radius: 1px;
+  overflow: hidden;
+  flex: 1;
+  background: var(--rule);
+}
+.channel-seg {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 0 !important;     /* hide the inline labels */
+  color: transparent !important;
+  height: 100% !important;
+}
+.channel-seg:nth-child(1) { background: var(--ink) !important; }
+.channel-seg:nth-child(2) { background: #555 !important; }
+.channel-seg:nth-child(3) { background: #888 !important; }
+.channel-seg:nth-child(4) { background: var(--accent) !important; }
+.channel-seg:nth-child(5) { background: #aaa !important; }
+.channel-legend {
+  display: flex;
+  gap: 18px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+  font-size: 11px;
+  color: var(--muted);
+}
+.channel-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.channel-legend .dot {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 0 !important;
+}
+.channel-legend span:nth-child(1) .dot { background: var(--ink) !important; }
+.channel-legend span:nth-child(2) .dot { background: #555 !important; }
+.channel-legend span:nth-child(3) .dot { background: #888 !important; }
+.channel-legend span:nth-child(4) .dot { background: var(--accent) !important; }
+.channel-legend span:nth-child(5) .dot { background: #aaa !important; }
+
+/* ============== REVENUE BAR CHART (Fae Beauty etc.) ============== */
+.rev-chart { margin: 28px 0; }
+.rev-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  height: 200px;
+  padding: 0 0 20px;
+  border-bottom: 1px solid var(--rule);
+}
+.rev-bar-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.rev-bar {
+  width: 100%;
+  border-radius: 1px 1px 0 0 !important;
+  background: var(--ink) !important;
+  color: var(--paper) !important;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 6px !important;
+  padding-bottom: 0 !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  min-height: 4px;
+}
+.rev-label {
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+  font-weight: 500;
+}
+.rev-note {
+  font-size: 10px;
+  color: var(--accent) !important;
+  text-align: center;
+  font-weight: 500;
+  max-width: 72px;
+  line-height: 1.3;
+  margin-top: 0;
+}
+
+/* ============== FOOTER ============== */
+.footer {
+  padding: 28px 0 56px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer .author {
+  font-size: 13px;
+  color: var(--muted);
+}
+.footer .series {
+  font-size: 11px;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* ============== SCROLLBAR + MOBILE ============== */
+@media (max-width: 700px) {
+  body { padding: 0 1rem; }
+  .hero { padding: 56px 0 40px; }
+  .hero h1 { font-size: 32px; }
+  .metrics { grid-template-columns: repeat(2, 1fr); }
+  .metric-card { border-right: none !important; border-bottom: 1px solid var(--rule) !important; }
+}
+
 </style>
 </head>
 <body>
 
 <div class="hero">
-  <div class="label">Brand Growth Teardown · 03</div>
-  <h1>Dot & Key: When the influencer playbook hits a ceiling at ₹500 crore</h1>
-  <div class="subtitle">India's fastest-growing skincare brand scaled 115% YoY to ₹529 Cr. The question nobody's asking: is the engine that got them here the same one that gets them to ₹1000 Cr?</div>
+  <div class="label">brand growth teardown · 03</div>
+  <h1>dot & key: when the influencer playbook hits a ceiling at ₹500 crore</h1>
   <div class="meta-bar">
     <span class="meta-item">Gen Z Skincare</span>
     <span class="meta-item">₹529 Cr NSV · ₹910 Cr GMV (FY25)</span>
@@ -79,11 +544,11 @@ p{font-size:15px;color:#374151;margin-bottom:14px}
 <div class="content">
 
   <div class="section">
-    <div class="section-label">Brand Snapshot</div>
-    <h2>The Indian D2C brand that actually scaled, but at what cost?</h2>
-    <p>Founded in 2018 in Kolkata by husband-wife duo Suyash and Anisha Saraf, Dot & Key identified a gap in the Indian skincare market: Gen Z consumers wanted clean, effective, ingredient-transparent products without the intimidation of clinical brands or the distrust of Ayurvedic generics.</p>
-    <p>Their approach worked spectacularly. From ₹1 crore in their first year, they've grown to ₹529 crore in net sales with 14% EBITDA margins, profitable at scale, a rarity in Indian D2C. The Nykaa acquisition (51% in 2021, increased to 90% in 2024) gave them unmatched distribution leverage on India's largest beauty platform.</p>
-    <p>But the growth engine is overwhelmingly influencer-driven. Campaigns like #GlowWithDotAndKey (7M+ organic views), partnerships spanning nano to macro influencers and dermatologists, and aggressive content marketing drove the bulk of their acquisition. At ₹500Cr, the question is whether this model scales linearly or hits diminishing returns.</p>
+    <div class="section-label">brand snapshot</div>
+    <h2>the indian d2c brand that actually scaled. so why does the engine feel fragile?</h2>
+    <p>dot & key was founded in 2018 in kolkata by suyash and anisha saraf. their bet was that gen z indian skincare consumers were stuck between two bad options. clinical brands that felt intimidating, and ayurvedic generics they didn't quite trust. they built for the middle, clean, effective, ingredient-transparent, not scary.</p>
+    <p>the bet paid off, big. from ₹1cr in year one to ₹529cr in net sales today, with 14% ebitda margins. profitable at scale, which almost no indian d2c brand is. the nykaa acquisition (51% in 2021, then 90% in 2024) gave them distribution power on india's biggest beauty platform that no competitor can match.</p>
+    <p>but the engine is overwhelmingly influencer-led. #glowwithdotandkey did 7m+ organic views. they have partnerships across every influencer tier and a stable of dermatologist creators. content marketing has done most of the work of building the brand. at ₹500cr the question is whether this keeps scaling, or whether it's already started showing diminishing returns.</p>
 
     <div class="metrics">
       <div class="metric-card"><div class="num">₹529Cr</div><div class="label">NSV FY25</div></div>
@@ -94,48 +559,48 @@ p{font-size:15px;color:#374151;margin-bottom:14px}
   </div>
 
   <div class="section">
-    <div class="section-label">Data Analysis</div>
-    <h2>The revenue trajectory: hypergrowth that's accelerating, not decelerating</h2>
+    <div class="section-label">data analysis</div>
+    <h2>the revenue curve: still accelerating, not decelerating yet</h2>
 
     <div class="rev-row">
       <div class="rev-bar-wrap">
-        <div class="rev-bar" style="height:1%;background:#fed7aa">₹1</div>
+        <div class="rev-bar" style="height:1%;">₹1</div>
         <div class="rev-label">FY19</div>
       </div>
       <div class="rev-bar-wrap">
-        <div class="rev-bar" style="height:3%;background:#fdba74">₹8</div>
+        <div class="rev-bar" style="height:3%;">₹8</div>
         <div class="rev-label">FY20</div>
       </div>
       <div class="rev-bar-wrap">
-        <div class="rev-bar" style="height:6%;background:#fb923c">₹20</div>
+        <div class="rev-bar" style="height:6%;">₹20</div>
         <div class="rev-label">FY21</div>
       </div>
       <div class="rev-bar-wrap">
-        <div class="rev-bar" style="height:12%;background:#f97316">₹52</div>
+        <div class="rev-bar" style="height:12%;">₹52</div>
         <div class="rev-label">FY22</div>
       </div>
       <div class="rev-bar-wrap">
-        <div class="rev-bar" style="height:22%;background:#ea580c">₹120</div>
+        <div class="rev-bar" style="height:22%;">₹120</div>
         <div class="rev-label">FY23</div>
       </div>
       <div class="rev-bar-wrap">
-        <div class="rev-bar" style="height:47%;background:#e85d04">₹246</div>
+        <div class="rev-bar" style="height:47%;">₹246</div>
         <div class="rev-label">FY24</div>
       </div>
       <div class="rev-bar-wrap">
-        <div class="rev-bar" style="height:100%;background:#9a3412">₹529</div>
+        <div class="rev-bar" style="height:100%;">₹529</div>
         <div class="rev-label">FY25</div>
       </div>
     </div>
 
     <div class="highlight-box">
-      <p><strong>The Nykaa effect:</strong> The 2021 acquisition coincides with the acceleration from ₹20Cr → ₹52Cr → ₹120Cr. Nykaa didn't just invest, they gave Dot & Key priority shelf space, co-marketing, and distribution infrastructure. The question: how much of the growth is the brand vs the platform?</p>
+      <p><strong>the nykaa effect:</strong> the 2021 acquisition is exactly where the curve starts bending up, ₹20cr → ₹52cr → ₹120cr. nykaa didn't just write a cheque. they gave dot & key priority shelf placement, co-marketing budget, and distribution infrastructure that nobody else gets. the real question: how much of this growth is the brand, and how much is the platform amplifying it?</p>
     </div>
   </div>
 
   <div class="section">
     <div class="section-label">Competitive Landscape</div>
-    <h2>The Indian Gen Z skincare battlefield</h2>
+    <h2>the indian gen z skincare battlefield</h2>
 
     <table class="comp-table">
       <thead><tr><th>Brand</th><th>Revenue (FY25 est.)</th><th>Positioning</th><th>Growth model</th><th>Moat</th></tr></thead>
@@ -149,67 +614,55 @@ p{font-size:15px;color:#374151;margin-bottom:14px}
     </table>
 
     <div class="insight-box">
-      <p><strong>Dot & Key's competitive edge:</strong> They're the only brand in this cohort with direct Nykaa ownership, a structural distribution advantage no competitor can replicate. But it's also a dependency: if Nykaa's growth slows or their algorithm deprioritises Dot & Key, the brand has limited independent distribution muscle.</p>
+      <p><strong>their edge:</strong> they're the only brand in this cohort with direct nykaa ownership. that's a structural distribution advantage no one else can replicate. it's also a dependency. if nykaa's own growth slows, or if a future algorithm change deprioritises dot & key for some reason, the brand suddenly looks much weaker than the topline suggests.</p>
     </div>
   </div>
 
   <div class="section">
-    <div class="section-label">The One Thing They're Doing Wrong</div>
-    <h2>Influencer-led acquisition has a rising cost curve at ₹500 crore</h2>
-    <p>Dot & Key's growth playbook, sign influencers across nano/micro/macro tiers, co-create content, drive Nykaa traffic, has been very effective. But influencer economics change at scale:</p>
+    <div class="section-label">the one thing they're doing wrong</div>
+    <h2>the influencer playbook gets expensive at ₹500cr</h2>
+    <p>the playbook so far: sign influencers across every tier (nano, micro, macro), co-create content, drive nykaa traffic, repeat. it has worked. but influencer economics don't stay the same at every revenue stage. they change with the addressable audience.</p>
 
     <div class="two-col">
       <div class="col-card">
-        <h3>At ₹50 Cr (FY22)</h3>
-        <p>Nano influencers cost ₹5–15K per post. Micro influencers ₹25–50K. The cost of acquiring an incremental customer through influencer content was low because the audience was largely untapped. Every influencer post reached people who hadn't heard of the brand.</p>
+        <h3>at ₹50cr (fy22)</h3>
+        <p>nano influencers were costing ₹5 to 15k per post. micros were ₹25 to 50k. the audience was still mostly untapped, so every post landed in front of people who genuinely hadn't heard of the brand. cac was low because discovery was easy.</p>
       </div>
       <div class="col-card">
-        <h3>At ₹500 Cr (FY25)</h3>
-        <p>The reachable "skincare-interested Gen Z on Instagram" audience is increasingly saturated. Each influencer post now reaches more people who've already seen Dot & Key content. CAC is rising because the incremental customer is harder to find. Influencer rates have also inflated 40–60% industry-wide since 2022.</p>
+        <h3>at ₹500cr (fy25)</h3>
+        <p>the addressable "skincare-interested gen z on instagram" audience is saturated now. most people in that segment have already seen dot & key content at least once. so each new post reaches more repeat eyeballs than new ones. the incremental customer is much harder to find, and influencer rates have inflated 40 to 60% industry-wide since 2022. the same playbook costs twice as much and converts less.</p>
       </div>
     </div>
 
     <div class="warning-box">
-      <p><strong>The CAC trap:</strong> If influencer CAC is rising 20–30% YoY while AOV stays flat, the brand is running faster to stay in the same place. At ₹500Cr, a 1% improvement in 90-day repurchase rate is worth more than a ₹10Cr influencer campaign. The growth lever needs to shift from acquisition to retention.</p>
+      <p><strong>the cac trap:</strong> if influencer cac is rising 20 to 30% year on year while aov stays flat, the brand is running faster to stay in the same place. at this revenue scale, a 1% improvement in 90-day repurchase rate is worth more than a ₹10cr influencer campaign. the lever that wins from here isn't acquisition. it's retention.</p>
     </div>
   </div>
 
   <div class="section">
-    <div class="section-label">The Recommendation</div>
-    <h2>From influencer-led acquisition to community-led retention</h2>
-    <p>Dot & Key has 6M+ customers. That's a retention goldmine if mined correctly. The shift:</p>
-    <p><strong>Build a skin-type personalization engine.</strong> Using existing purchase history and Nykaa browsing data, create personalised product recommendations that say "based on your skin type and what you've bought, here's your next step", not "here's what's trending." The goal is to make the repurchase decision feel guided, not random.</p>
-    <p><strong>Launch a loyalty program tied to routine completion, not points.</strong> Most beauty loyalty programs reward spend. Instead, reward routine adherence: "You bought cleanser in January and serum in February, complete the routine with sunscreen and get 20% off." This creates a pull-retention mechanic tied to the product line architecture.</p>
-    <p><strong>Invest in community content over influencer content.</strong> The #GlowWithDotAndKey campaign already had 7M views. The next evolution: make it a recurring user-generated series. Feature real customers' routines weekly. The cost per impression drops to near-zero while the trust signal (real person, real results) outperforms any paid influencer post.</p>
+    <div class="section-label">the recommendation</div>
+    <h2>shift the lever from acquisition to retention</h2>
+    <p>dot & key has 6m+ existing customers. that's a retention pool most d2c brands would kill for. the shift to make:</p>
+    <p><strong>build a skin-type personalisation engine.</strong> use existing purchase history plus nykaa browsing data to make personalised recommendations that say "based on your skin type and what you've already bought, this is your next step," instead of "this is what's trending right now." the goal is to make every repurchase decision feel guided, not random.</p>
+    <p><strong>launch a loyalty program tied to routine completion, not points.</strong> most beauty loyalty programs reward spend, which just incentivises buying more of whatever. reward routine adherence instead: "you bought cleanser in january and serum in february, finish the routine with sunscreen this month and get 20% off." loyalty tied to product line architecture, not arbitrary spending milestones.</p>
+    <p><strong>shift content investment from influencers to community.</strong> #glowwithdotandkey already did 7m views. the next move is to make it a recurring user-generated series. feature real customers' routines weekly. cost per impression drops to near zero, and the trust signal (real person, real results, no script) outperforms anything you can pay a creator to say.</p>
 
     <div class="verdict">
-      <h3>What I'd measure in 30 days</h3>
+      <h3>what i'd measure in 30 days</h3>
       <div class="measure">
-        <p><strong>90-day repurchase rate by customer cohort (monthly cohorts, FY24 vs FY25).</strong></p>
-        <p>If newer cohorts have lower repurchase rates than older ones → the acquisition channel mix is bringing in lower-quality customers (classic CAC inflation signal). If repurchase rates are stable across cohorts → the retention floor is solid and the acquisition engine can keep running. The cohort comparison is the diagnostic, not the aggregate.</p>
+        <p><strong><strong>90-day repurchase rate by customer cohort, comparing fy24 cohorts to fy25 cohorts month by month.</strong></strong></p>
+        <p>if newer cohorts have lower repurchase rates than older ones, the channel mix is bringing in worse-quality customers. that's the classic cac inflation signal. if the rates are stable across cohorts, the retention floor is solid and the acquisition engine can keep running for a while longer. the cohort comparison is the diagnostic. the aggregate number on its own tells you almost nothing.</p>
       </div>
     </div>
   </div>
 
-  <div class="section">
-    <div class="section-label">Frameworks Applied</div>
-    <table class="comp-table">
-      <thead><tr><th>Framework</th><th>How it was used</th></tr></thead>
-      <tbody>
-        <tr><td>Growth Loops vs Funnels</td><td>Diagnosed that Dot & Key runs a funnel (influencer → Nykaa → purchase), not a loop (purchase → community → referral → purchase). Loops compound; funnels don't.</td></tr>
-        <tr><td>Cohort Analysis</td><td>Proposed cohort-level repurchase analysis to detect whether CAC inflation is bringing in lower-quality customers</td></tr>
-        <tr><td>CAC / LTV</td><td>Argued that rising influencer costs at ₹500Cr scale make retention-led growth more economically efficient than acquisition-led growth</td></tr>
-        <tr><td>Competitive Moats (Porter)</td><td>Identified Nykaa distribution lock-in as the primary moat, but also the primary dependency</td></tr>
-        <tr><td>Network Effects</td><td>Proposed community-led retention as a mechanism to build a weak network effect (community content → social proof → retention)</td></tr>
-      </tbody>
-    </table>
-  </div>
+  
 
 </div>
 
 <div class="footer">
-  <div class="author">Amrutha Satyamoorthy · Growth Analyst & Brand Strategist</div>
-  <div class="series">Teardown 03 of 06</div>
+  <div class="author">amrutha satyamoorthy · data analyst, storyteller, & metric obsessive</div>
+  <div class="series">teardown 03 of 06</div>
 </div>
 
 </body>
