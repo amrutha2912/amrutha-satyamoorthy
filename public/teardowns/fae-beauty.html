@@ -3,78 +3,540 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">💄</text></svg>'>
 <title>Fae Beauty, Brand Growth Teardown</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--ink:#1a1a1a;--paper:#faf9f6;--accent:#7c3aed;--accent-light:#ede9fe;--coral:#e07a5f;--coral-light:#fce4db;--blue:#457b9d;--blue-light:#dbeaf3;--green:#059669;--green-light:#d1fae5;--gray:#6b7280;--light-gray:#f3f4f6;--border:#e5e7eb}
-body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);line-height:1.7;max-width:860px;margin:0 auto}
-.hero{background:linear-gradient(135deg,#4c1d95 0%,#7c3aed 50%,#a78bfa 100%);padding:60px 48px 50px;position:relative;overflow:hidden}
-.hero .label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#c4b5fd;margin-bottom:16px;font-weight:700}
-.hero h1{font-family:'DM Serif Display',serif;font-size:36px;color:#fff;line-height:1.2;margin-bottom:12px}
-.hero .subtitle{font-size:16px;color:#ddd6fe;line-height:1.6;max-width:560px}
-.meta-bar{display:flex;gap:24px;margin-top:24px;flex-wrap:wrap}
-.meta-item{font-size:12px;color:#c4b5fd;padding:6px 14px;border:1px solid rgba(255,255,255,0.15);border-radius:20px}
-.content{padding:48px}
-.section{margin-bottom:48px}
-.section-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
-.section-label::before{content:'';width:20px;height:2px;background:var(--accent)}
-h2{font-family:'DM Serif Display',serif;font-size:26px;margin-bottom:16px;color:var(--ink);line-height:1.3}
-h3{font-size:16px;font-weight:700;margin-bottom:10px;color:var(--ink)}
-p{font-size:15px;color:#374151;margin-bottom:14px}
-.highlight-box{background:var(--accent-light);border-left:4px solid var(--accent);padding:20px 24px;border-radius:0 10px 10px 0;margin:20px 0}
-.highlight-box p{margin:0;color:#4c1d95;font-size:14px}
-.warning-box{background:var(--coral-light);border-left:4px solid var(--coral);padding:20px 24px;border-radius:0 10px 10px 0;margin:20px 0}
-.warning-box p{margin:0;color:#6b2a1a;font-size:14px}
-.insight-box{background:var(--green-light);border-left:4px solid var(--green);padding:20px 24px;border-radius:0 10px 10px 0;margin:20px 0}
-.insight-box p{margin:0;color:#064e3b;font-size:14px}
-.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0}
-.metric-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
-.metric-card .num{font-family:'DM Serif Display',serif;font-size:24px;color:var(--accent);margin-bottom:4px}
-.metric-card .label{font-size:11px;color:var(--gray);text-transform:uppercase;letter-spacing:.5px}
-/* REVENUE CURVE */
-.rev-chart{margin:28px 0;position:relative}
-.rev-chart svg{width:100%;height:auto}
-.rev-row{display:flex;align-items:flex-end;gap:8px;height:220px;padding:0 0 30px;border-bottom:1px solid var(--border)}
-.rev-bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px}
-.rev-bar{width:100%;border-radius:6px 6px 0 0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:8px;color:#fff;font-size:11px;font-weight:700;min-height:4px}
-.rev-label{font-size:11px;color:var(--gray);text-align:center}
-.rev-note{font-size:10px;color:var(--accent);text-align:center;font-weight:700;max-width:60px;line-height:1.3;margin-top:2px}
-/* CHANNEL MIX */
-.channel-stack{margin:20px 0}
-.channel-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
-.channel-label{font-size:13px;min-width:80px;text-align:right;color:var(--gray)}
-.channel-bar{height:32px;display:flex;border-radius:6px;overflow:hidden;flex:1}
-.channel-seg{display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff}
-.channel-legend{display:flex;gap:16px;margin-top:12px;flex-wrap:wrap}
-.channel-legend span{font-size:12px;display:flex;align-items:center;gap:5px;color:var(--gray)}
-.channel-legend .dot{width:8px;height:8px;border-radius:50%}
-.comp-table{width:100%;border-collapse:separate;border-spacing:0;margin:20px 0;border-radius:10px;overflow:hidden;border:1px solid var(--border)}
-.comp-table thead th{background:#f8f9fa;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:12px 16px;text-align:left;color:var(--gray);border-bottom:1px solid var(--border)}
-.comp-table tbody td{padding:12px 16px;font-size:14px;border-bottom:1px solid var(--border);color:#374151}
-.comp-table tbody tr:last-child td{border-bottom:none}
-.verdict{background:linear-gradient(135deg,#4c1d95,#7c3aed);padding:32px;border-radius:12px;margin:32px 0}
-.verdict h3{color:#fff;font-family:'DM Serif Display',serif;font-size:20px;margin-bottom:12px}
-.verdict p{color:#ddd6fe;font-size:14px;margin:0}
-.verdict .measure{background:rgba(255,255,255,0.1);border-radius:8px;padding:14px 18px;margin-top:16px}
-.verdict .measure p{color:#ede9fe;font-size:13px}
-.footer{padding:32px 48px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
-.footer .author{font-size:13px;color:var(--gray)}
-.footer .series{font-size:11px;color:var(--accent);font-weight:700;letter-spacing:1px;text-transform:uppercase}
-.annotate{position:relative;display:inline-block}
-.annotate::after{content:attr(data-note);position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:9px;color:var(--accent);white-space:nowrap;font-weight:700}
+/* ============================================================
+   MINIMAL TEARDOWN STYLESHEET — shared across all 6 reports.
+   Black + white + warm paper + single green accent.
+   Editorial newspaper / long-read essay feel.
+   ============================================================ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ink: #1a1a1a;
+  --paper: #faf9f6;
+  --accent: #2d6a4f;
+  --muted: #6b7280;
+  --line: #d8d4c5;
+  --rule: #e6e2d6;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.7;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { color: var(--accent); }
+a:hover { text-decoration: underline; }
+
+/* ============== HERO ============== */
+.hero {
+  padding: 80px 0 56px;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 56px;
+}
+.hero .label {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 32px;
+}
+.hero h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 800;
+  font-size: clamp(32px, 4.5vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  color: var(--ink);
+}
+.hero .subtitle {
+  font-size: 17px;
+  color: var(--ink);
+  line-height: 1.6;
+  max-width: 600px;
+  font-style: italic;
+  margin-bottom: 32px;
+}
+.meta-bar {
+  display: flex;
+  gap: 0;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--rule);
+  padding-top: 20px;
+}
+.meta-item {
+  font-size: 12px;
+  color: var(--muted);
+  padding-right: 16px;
+  margin-right: 16px;
+  border-right: 1px solid var(--line);
+}
+.meta-item:last-child { border-right: none; }
+
+/* ============== SECTIONS ============== */
+.content { padding: 0 0 56px; }
+.section { margin-bottom: 56px; }
+.section-label {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 800;
+  font-size: clamp(22px, 3vw, 28px);
+  margin-bottom: 20px;
+  color: var(--ink);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 28px;
+  margin-bottom: 12px;
+  color: var(--ink);
+  letter-spacing: 0;
+}
+p {
+  font-size: 16px;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+strong { font-weight: 600; color: var(--ink); }
+em { font-style: italic; }
+
+/* ============== CALLOUT BOXES (all 3 styles converge) ============== */
+.highlight-box,
+.warning-box,
+.insight-box {
+  background: transparent;
+  border: none;
+  border-left: 2px solid var(--accent);
+  padding: 8px 0 8px 20px;
+  margin: 24px 0;
+  border-radius: 0;
+}
+.highlight-box p,
+.warning-box p,
+.insight-box p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 15px;
+}
+
+/* ============== FUNNEL ============== */
+.funnel { margin: 28px 0; }
+.funnel-stage {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 6px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.funnel-stage:last-child { border-bottom: none; }
+.funnel-label {
+  font-size: 13px;
+  color: var(--ink);
+  min-width: 100px;
+  font-weight: 500;
+}
+.funnel-bar {
+  height: 8px !important;
+  background: var(--ink) !important;
+  border-radius: 1px;
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 !important;
+  color: var(--ink) !important;
+  font-size: 0 !important;
+  position: relative;
+  flex-shrink: 0;
+}
+.funnel-bar .bar-val {
+  position: absolute;
+  left: calc(100% + 12px);
+  font-size: 12px !important;
+  color: var(--muted) !important;
+  font-weight: 400 !important;
+  white-space: nowrap;
+}
+
+/* ============== BAR CHART ============== */
+.bar-chart { margin: 28px 0; }
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 4px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.bar-row:last-child { border-bottom: none; }
+.bar-name {
+  font-size: 13px;
+  color: var(--ink);
+  min-width: 130px;
+  font-weight: 500;
+}
+.bar-track {
+  flex: 1;
+  background: transparent !important;
+  border-radius: 0 !important;
+  height: auto !important;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.bar-fill {
+  height: 6px !important;
+  background: var(--ink) !important;
+  border-radius: 1px !important;
+  display: block !important;
+  padding: 0 !important;
+  flex-shrink: 0;
+}
+.bar-fill .bar-val {
+  display: none !important;
+}
+.bar-val-out {
+  font-size: 12px;
+  color: var(--muted);
+  margin-left: 12px;
+  min-width: 100px;
+  font-weight: 500;
+}
+
+/* ============== TABLES ============== */
+.comp-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  border: none;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  border-radius: 0 !important;
+  overflow: visible !important;
+}
+.comp-table thead th {
+  background: transparent !important;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 12px 12px 12px 0;
+  text-align: left;
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+.comp-table tbody td {
+  padding: 12px 12px 12px 0;
+  font-size: 14px;
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink);
+  vertical-align: top;
+}
+.comp-table tbody tr:last-child td { border-bottom: none; }
+.comp-table .brand-highlight {
+  background: transparent !important;
+  font-weight: 600;
+}
+
+/* ============== METRIC CARDS ============== */
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0;
+  margin: 28px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.metric-card {
+  background: transparent !important;
+  border: none !important;
+  border-right: 1px solid var(--rule) !important;
+  border-radius: 0 !important;
+  padding: 18px 16px !important;
+  text-align: left !important;
+}
+.metric-card:last-child { border-right: none !important; }
+.metric-card .num {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+.metric-card .label {
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+}
+
+/* ============== TIMELINE ============== */
+.timeline {
+  margin: 24px 0;
+  padding-left: 20px;
+  border-left: 1px solid var(--rule);
+}
+.timeline-item {
+  margin-bottom: 20px;
+  position: relative;
+  padding-left: 16px;
+}
+.timeline-item::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ink);
+  position: absolute;
+  left: -23px;
+  top: 8px;
+}
+.timeline-item .date {
+  font-size: 11px;
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.timeline-item p {
+  font-size: 14px;
+  margin: 4px 0 0;
+  color: var(--ink);
+}
+
+/* ============== VERDICT (the "what i'd measure" callout) ============== */
+.verdict {
+  background: var(--ink) !important;
+  padding: 28px !important;
+  border-radius: 2px !important;
+  margin: 32px 0;
+  color: var(--paper);
+}
+.verdict h3 {
+  color: var(--paper) !important;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 20px;
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+.verdict p {
+  color: var(--paper) !important;
+  font-size: 14px;
+  margin: 0 0 12px;
+}
+.verdict .measure {
+  background: rgba(255,255,255,0.08) !important;
+  border-radius: 2px !important;
+  padding: 14px 16px !important;
+  margin-top: 16px;
+  border-left: 2px solid var(--paper);
+}
+.verdict .measure p {
+  color: var(--paper) !important;
+  font-size: 14px;
+}
+.verdict .measure strong { color: var(--paper); }
+
+/* ============== PIE-LIKE LIST ============== */
+.pie-container {
+  margin: 24px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 16px 0;
+}
+.pie-container svg { display: none; }   /* hide the actual pie graphic */
+.pie-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.pie-legend-item {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--ink);
+  padding-left: 0;
+}
+.pie-dot {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 0 !important;
+  background: var(--ink) !important;
+  flex-shrink: 0;
+}
+
+/* ============== CHANNEL STACK (used by Fae Beauty) ============== */
+.channel-stack { margin: 24px 0; }
+.channel-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  padding: 6px 0;
+}
+.channel-label {
+  font-size: 13px;
+  min-width: 60px;
+  text-align: right;
+  color: var(--muted);
+  font-weight: 500;
+}
+.channel-bar {
+  height: 8px !important;
+  display: flex;
+  border-radius: 1px;
+  overflow: hidden;
+  flex: 1;
+  background: var(--rule);
+}
+.channel-seg {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 0 !important;     /* hide the inline labels */
+  color: transparent !important;
+  height: 100% !important;
+}
+.channel-seg:nth-child(1) { background: var(--ink) !important; }
+.channel-seg:nth-child(2) { background: #555 !important; }
+.channel-seg:nth-child(3) { background: #888 !important; }
+.channel-seg:nth-child(4) { background: var(--accent) !important; }
+.channel-seg:nth-child(5) { background: #aaa !important; }
+.channel-legend {
+  display: flex;
+  gap: 18px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+  font-size: 11px;
+  color: var(--muted);
+}
+.channel-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.channel-legend .dot {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 0 !important;
+}
+.channel-legend span:nth-child(1) .dot { background: var(--ink) !important; }
+.channel-legend span:nth-child(2) .dot { background: #555 !important; }
+.channel-legend span:nth-child(3) .dot { background: #888 !important; }
+.channel-legend span:nth-child(4) .dot { background: var(--accent) !important; }
+.channel-legend span:nth-child(5) .dot { background: #aaa !important; }
+
+/* ============== REVENUE BAR CHART (Fae Beauty etc.) ============== */
+.rev-chart { margin: 28px 0; }
+.rev-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  height: 200px;
+  padding: 0 0 20px;
+  border-bottom: 1px solid var(--rule);
+}
+.rev-bar-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.rev-bar {
+  width: 100%;
+  border-radius: 1px 1px 0 0 !important;
+  background: var(--ink) !important;
+  color: var(--paper) !important;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 6px !important;
+  padding-bottom: 0 !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  min-height: 4px;
+}
+.rev-label {
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+  font-weight: 500;
+}
+.rev-note {
+  font-size: 10px;
+  color: var(--accent) !important;
+  text-align: center;
+  font-weight: 500;
+  max-width: 72px;
+  line-height: 1.3;
+  margin-top: 0;
+}
+
+/* ============== FOOTER ============== */
+.footer {
+  padding: 28px 0 56px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer .author {
+  font-size: 13px;
+  color: var(--muted);
+}
+.footer .series {
+  font-size: 11px;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* ============== SCROLLBAR + MOBILE ============== */
+@media (max-width: 700px) {
+  body { padding: 0 1rem; }
+  .hero { padding: 56px 0 40px; }
+  .hero h1 { font-size: 32px; }
+  .metrics { grid-template-columns: repeat(2, 1fr); }
+  .metric-card { border-right: none !important; border-bottom: 1px solid var(--rule) !important; }
+}
+
 </style>
 </head>
 <body>
 
 <div class="hero">
-  <div class="label">Brand Growth Teardown · 02</div>
-  <h1>Fae Beauty: The near-death pivot that turned hero-product focus into a growth engine</h1>
-  <div class="subtitle">How a brand that was burning ₹2.5Cr/year on losses became profitable by doing less, and what the quick commerce channel shift reveals about modern activation.</div>
+  <div class="label">brand growth teardown · 02</div>
+  <h1>fae beauty: the near-death pivot that turned hero-product focus into a growth engine</h1>
   <div class="meta-bar">
-    <span class="meta-item">Inclusive Cosmetics</span>
-    <span class="meta-item">₹22 Cr FY25 (projected)</span>
-    <span class="meta-item">Shark Tank S4, ₹100Cr valuation</span>
+    <span class="meta-item">inclusive cosmetics</span>
+    <span class="meta-item">₹22cr fy25 (projected)</span>
+    <span class="meta-item">shark tank s4, ₹100cr valuation</span>
     <span class="meta-item">26 employees</span>
   </div>
 </div>
@@ -82,142 +544,129 @@ p{font-size:15px;color:#374151;margin-bottom:14px}
 <div class="content">
 
   <div class="section">
-    <div class="section-label">Brand Snapshot</div>
-    <h2>"Free and Equal", the brand that almost died trying to be everything</h2>
-    <p>Founded in 2018 by Karishma Kewalramani (ex-management consultant, Berkeley grad), Fae Beauty was born from a clear insight: 74% of Indian women have brown to dark brown skin, yet most beauty products are formulated and marketed for fair skin. FAE (Free And Equal) set out to fix this with vegan, cruelty-free cosmetics designed for real Indian skin tones.</p>
-    <p>The mission was right. The execution nearly killed the company. From FY21 to FY23, Fae burned through capital, expanding its SKU range without a clear hero product, spending on marketing without unit economics discipline. Revenue crawled from ₹30 lakhs to ₹3.3 crore while losses peaked at ₹2.5 crore.</p>
-    <p>The pivot came in FY24: stop building new products, focus on one hero SKU (Lip Whip), and shift distribution to quick commerce. The results were dramatic, revenue doubled, losses shrank, and by October 2024 the company was profitable for the first time.</p>
+    <div class="section-label">brand snapshot</div>
+    <h2>"free and equal", the brand that almost died trying to be everything</h2>
+    <p>fae beauty was founded in 2018 by karishma kewalramani. the insight behind the brand is clean and correct: 74% of indian women have brown to dark brown skin, but most beauty products are formulated and marketed for fair skin. fae (free and equal) set out to actually fix that, with vegan, cruelty-free cosmetics built for real indian skin tones.</p>
+    <p>the mission was right. the execution almost killed the company. between fy21 and fy23 fae kept adding skus without ever picking a hero, kept spending on marketing without watching unit economics, and burned through capital doing both. revenue inched from ₹30 lakhs to ₹3.3 crore. losses peaked at ₹2.5 crore in the same window.</p>
+    <p>the pivot landed in fy24. three decisions, all subtractive. stop building new products. concentrate everything on one hero (the lip whip). move serious volume to quick commerce. revenue more than doubled. losses collapsed. by october 2024 the company was profitable for the first time in its life.</p>
 
     <div class="metrics">
-      <div class="metric-card"><div class="num">₹22Cr</div><div class="label">FY25 Revenue</div></div>
-      <div class="metric-card"><div class="num">₹100Cr</div><div class="label">Shark Tank Val.</div></div>
-      <div class="metric-card"><div class="num">12%</div><div class="label">EBITDA Margin</div></div>
-      <div class="metric-card"><div class="num">25%</div><div class="label">Revenue from QC</div></div>
+      <div class="metric-card"><div class="num">₹22Cr</div><div class="label">fy25 revenue</div></div>
+      <div class="metric-card"><div class="num">₹100Cr</div><div class="label">shark tank val.</div></div>
+      <div class="metric-card"><div class="num">12%</div><div class="label">ebitda margin</div></div>
+      <div class="metric-card"><div class="num">25%</div><div class="label">revenue from qc</div></div>
     </div>
   </div>
 
   <div class="section">
-    <div class="section-label">Data Analysis</div>
-    <h2>The revenue inflection curve: where the pivot happened</h2>
+    <div class="section-label">data analysis</div>
+    <h2>the revenue curve: where the pivot actually shows up</h2>
 
     <div class="rev-row">
       <div class="rev-bar-wrap">
-        <div class="rev-bar" style="height:3%;background:#c4b5fd">₹0.3</div>
+        <div class="rev-bar" style="height:3%;">₹0.3</div>
         <div class="rev-label">FY21</div>
-        <div class="rev-note">Launch year</div>
+        <div class="rev-note">launch year</div>
       </div>
       <div class="rev-bar-wrap">
-        <div class="rev-bar" style="height:6%;background:#c4b5fd">₹0.7</div>
+        <div class="rev-bar" style="height:6%;">₹0.7</div>
         <div class="rev-label">FY22</div>
-        <div class="rev-note">SKU expansion</div>
+        <div class="rev-note">sku expansion</div>
       </div>
       <div class="rev-bar-wrap">
-        <div class="rev-bar" style="height:22%;background:#a78bfa">₹3.3</div>
+        <div class="rev-bar" style="height:22%;">₹3.3</div>
         <div class="rev-label">FY23</div>
-        <div class="rev-note">Peak loss -₹2.5Cr</div>
+        <div class="rev-note">peak loss ₹-2.5cr</div>
       </div>
       <div class="rev-bar-wrap">
-        <div class="rev-bar" style="height:46%;background:#7c3aed">₹7</div>
+        <div class="rev-bar" style="height:46%;">₹7</div>
         <div class="rev-label">FY24</div>
-        <div class="rev-note" style="color:var(--green)">Lip Whip focus</div>
+        <div class="rev-note" >lip whip focus</div>
       </div>
       <div class="rev-bar-wrap">
-        <div class="rev-bar" style="height:100%;background:#5b21b6">₹22</div>
+        <div class="rev-bar" style="height:100%;">₹22</div>
         <div class="rev-label">FY25</div>
-        <div class="rev-note" style="color:var(--green)">+214% · Profitable</div>
+        <div class="rev-note" >+214% · profitable</div>
       </div>
     </div>
 
     <div class="insight-box">
-      <p><strong>The inflection is FY24.</strong> Revenue doubles while losses shrink by 68%. The driver isn't a new product or a funding round, it's a subtraction. Fae stopped chasing SKU breadth and concentrated resources on one hero product with proven demand. This is the activation lesson: making one thing undeniably easy to buy beats making 20 things available.</p>
+      <p><strong>fy24 is where it turns.</strong> revenue doubles while losses fall by 68%. the driver isn't a new product. it isn't a fresh fundraise. it's a subtraction. fae stopped trying to be 20 skus and started being one. that's the activation lesson. making one thing undeniably easy to buy beats putting 20 things on a shelf.</p>
     </div>
   </div>
 
   <div class="section">
-    <div class="section-label">Growth Diagnosis</div>
-    <h2>Quick commerce as an activation channel, not just a distribution one</h2>
-    <p>Fae's quick commerce pivot contributed 25% of revenue within 3 months of launch. That's not just a channel shift, it's an activation redesign. Here's why:</p>
-    <p>On Nykaa or the D2C website, a first-time buyer faces: browse 15+ SKUs → read descriptions → compare shades → add to cart → wait 3–5 days for delivery. Decision cost is high, time-to-value is long. Most visitors bounce.</p>
-    <p>On Blinkit or Zepto: see Lip Whip → add to cart → receive in 10 minutes. The activation friction is nearly zero. The product arrives before the impulse fades. Quick commerce collapsed the funnel from 5 steps to 2.</p>
+    <div class="section-label">growth diagnosis</div>
+    <h2>quick commerce isn't really a channel decision. it's an activation decision.</h2>
+    <p>the quick commerce push contributed 25% of revenue inside 3 months. that's not just a channel shift. it's a complete redesign of the activation flow. here's why:</p>
+    <p>on nykaa or the d2c website, the first-time buyer goes through: browse 15+ skus → read descriptions → compare shades → add to cart → wait 3 to 5 days. that's a lot of decision cost for someone who hasn't even tried the product yet. most of them bounce. understandably.</p>
+    <p>on blinkit or zepto: see lip whip → add to cart → it's at your door in 10 minutes. the product arrives before the impulse fades. five steps collapsed to two. that's why the numbers moved the way they did.</p>
 
-    <h3>Estimated channel mix shift (FY24 → FY25)</h3>
+    <h3>estimated channel mix shift (fy24 to fy25)</h3>
     <div class="channel-stack">
       <div class="channel-row">
         <div class="channel-label">FY24</div>
         <div class="channel-bar">
-          <div class="channel-seg" style="width:40%;background:#7c3aed">D2C 40%</div>
-          <div class="channel-seg" style="width:35%;background:#a78bfa">Nykaa 35%</div>
-          <div class="channel-seg" style="width:15%;background:#c4b5fd;color:#4c1d95">Amazon 15%</div>
-          <div class="channel-seg" style="width:10%;background:#e5e7eb;color:#6b7280">QC 10%</div>
+          <div class="channel-seg" style="width:40%;">D2C 40%</div>
+          <div class="channel-seg" style="width:35%;">Nykaa 35%</div>
+          <div class="channel-seg" style="width:15%;">Amazon 15%</div>
+          <div class="channel-seg" style="width:10%;">QC 10%</div>
         </div>
       </div>
       <div class="channel-row">
         <div class="channel-label">FY25</div>
         <div class="channel-bar">
-          <div class="channel-seg" style="width:25%;background:#7c3aed">D2C 25%</div>
-          <div class="channel-seg" style="width:25%;background:#a78bfa">Nykaa 25%</div>
-          <div class="channel-seg" style="width:15%;background:#c4b5fd;color:#4c1d95">Amazon 15%</div>
-          <div class="channel-seg" style="width:25%;background:#059669">QC 25%</div>
-          <div class="channel-seg" style="width:10%;background:#e5e7eb;color:#6b7280">Retail 10%</div>
+          <div class="channel-seg" style="width:25%;">D2C 25%</div>
+          <div class="channel-seg" style="width:25%;">Nykaa 25%</div>
+          <div class="channel-seg" style="width:15%;">Amazon 15%</div>
+          <div class="channel-seg" style="width:25%;">QC 25%</div>
+          <div class="channel-seg" style="width:10%;">Retail 10%</div>
         </div>
       </div>
     </div>
     <div class="channel-legend">
-      <span><span class="dot" style="background:#7c3aed"></span>D2C Website</span>
-      <span><span class="dot" style="background:#a78bfa"></span>Nykaa/Tira</span>
-      <span><span class="dot" style="background:#c4b5fd"></span>Amazon</span>
-      <span><span class="dot" style="background:#059669"></span>Quick Commerce</span>
-      <span><span class="dot" style="background:#e5e7eb"></span>Retail/Other</span>
+      <span><span class="dot" ></span>D2C Website</span>
+      <span><span class="dot" ></span>Nykaa/Tira</span>
+      <span><span class="dot" ></span>Amazon</span>
+      <span><span class="dot" ></span>Quick Commerce</span>
+      <span><span class="dot" ></span>Retail/Other</span>
     </div>
   </div>
 
   <div class="section">
-    <div class="section-label">The One Thing They're Doing Wrong</div>
-    <h2>One hero product can't carry a ₹100 crore brand</h2>
-    <p>The Lip Whip focus saved Fae. It also created a new dependency. The Shark Tank valuation of ₹100 crore assumes continued 200%+ growth, but Lip Whip alone has a ceiling. The total addressable market for a single lip product SKU in India, even at Fae's price point, caps out well before ₹100 crore.</p>
-    <p>Fae needs a second hero product. Not a new category. Not 10 new SKUs. One product that the existing Lip Whip buyer naturally wants next. The mistake would be returning to the pre-pivot strategy of SKU proliferation. The right move is data-driven basket expansion: what do Lip Whip buyers already search for, already add to cart alongside it, already ask about in reviews?</p>
+    <div class="section-label">the one thing they're doing wrong</div>
+    <h2>one hero product can't carry a ₹100 crore brand</h2>
+    <p>the lip whip focus saved fae. it also built a new dependency. the shark tank valuation of ₹100 crore is priced on the assumption that 200%+ growth keeps going. lip whip alone has a ceiling. the addressable market for a single lip product sku at this price point, even being generous, caps out well before ₹100 crore.</p>
+    <p>fae needs a second hero. not a new category. not ten new skus. one product that the existing lip whip buyer naturally wants next. the trap is sliding back into pre-pivot habits, launching everything at once because you can. the move is to read what's already happening. what lip whip buyers search for next. what they add to cart alongside it. what they ask about in reviews. the second hero is hiding in that data.</p>
 
     <div class="warning-box">
-      <p><strong>The Shark Tank math:</strong> At a ₹100Cr valuation and ₹22Cr revenue, the implied revenue multiple is ~4.5x. For a beauty brand to justify that, investors expect 100%+ growth for 2–3 more years. A single hero SKU can't compound at that rate without a second product pulling its weight.</p>
+      <p><strong>the shark tank math:</strong> ₹100cr valuation on ₹22cr revenue is roughly a 4.5x multiple. for a beauty brand to grow into that, investors are expecting 100%+ growth for the next 2 to 3 years. one sku can't compound that way alone. there has to be a second product carrying weight by year 2.</p>
     </div>
   </div>
 
   <div class="section">
-    <div class="section-label">The Recommendation</div>
-    <h2>Find the "second basket item" from existing purchase data</h2>
-    <p>Don't guess the next hero product. Let the data tell you. The quick commerce platforms (Blinkit, Zepto) have basket-level data showing what Lip Whip buyers are already purchasing alongside it. Nykaa has search-after-purchase data. The D2C site has browse-after-purchase patterns.</p>
-    <p>The hypothesis: Lip Whip buyers are likely adding a lip-adjacent product (gloss, tinted balm) or a complementary step (foundation, concealer for brown skin tones). The product that already appears most frequently in the same basket or the same session is the candidate for hero product #2.</p>
-    <p>Build that one product. Give it the Lip Whip treatment: best-in-class for brown skin, hero positioning, quick commerce activation. Don't launch it as "new SKU." Launch it as "the second step in the Fae routine."</p>
+    <div class="section-label">the recommendation</div>
+    <h2>the second hero is in the basket data. go find it.</h2>
+    <p>don't guess. the data already exists. blinkit and zepto have basket-level co-purchase data for every lip whip order. nykaa has search-after-purchase data. the d2c site has browse-after-purchase patterns. all of it tells the same story from three angles.</p>
+    <p>the working hypothesis: lip whip buyers are reaching for a lip-adjacent product (gloss, tinted balm) or a complementary step (foundation, concealer in brown skin tones). whatever shows up most often in the same basket, or the same browsing session, is the candidate for hero #2.</p>
+    <p>build that one product properly. give it the lip whip treatment: best in class for brown skin, hero positioning, quick commerce from day one. don't launch it as "new sku." launch it as "step two in the fae routine." position is everything.</p>
 
     <div class="verdict">
-      <h3>What I'd measure in 30 days</h3>
+      <h3>what i'd measure in 30 days</h3>
       <div class="measure">
-        <p><strong>% of Lip Whip buyers who purchase a second FAE SKU within 60 days.</strong></p>
-        <p>If below 10% → the product catalog isn't cross-selling and the second hero is urgent. If above 20% → identify which SKU is already winning and double down. The gap between these two numbers is the growth opportunity.</p>
+        <p><strong>% of lip whip buyers who purchase a second fae sku within 60 days.</strong></p>
+        <p>if it's below 10%, the catalog isn't cross-selling and the second hero is urgent. if it's above 20%, look at which sku is already winning and double down on that one. the gap between those two numbers is the growth opportunity.</p>
       </div>
     </div>
   </div>
 
-  <div class="section">
-    <div class="section-label">Frameworks Applied</div>
-    <table class="comp-table">
-      <thead><tr><th>Framework</th><th>How it was used</th></tr></thead>
-      <tbody>
-        <tr><td>AARRR Funnel</td><td>Diagnosed activation as the pre-pivot bottleneck; showed how quick commerce collapsed the activation funnel</td></tr>
-        <tr><td>Activation / Aha Moment</td><td>Quick commerce delivers the Aha Moment (trying Lip Whip) 10x faster than D2C or Nykaa</td></tr>
-        <tr><td>Unit Economics</td><td>Revenue growth with loss reduction = improving contribution margins; EBITDA moved from -70% to +12%</td></tr>
-        <tr><td>Fermi Estimation</td><td>Used to estimate TAM ceiling for a single hero SKU at Fae's price point</td></tr>
-        <tr><td>TAM/SAM/SOM</td><td>Argued that Lip Whip alone can't support ₹100Cr valuation, second product needed for SAM expansion</td></tr>
-        <tr><td>Channel Strategy</td><td>Analysed channel mix shift as an activation redesign, not just a distribution decision</td></tr>
-      </tbody>
-    </table>
-  </div>
+  
 
 </div>
 
 <div class="footer">
-  <div class="author">Amrutha Satyamoorthy · Growth Analyst & Brand Strategist</div>
-  <div class="series">Teardown 02 of 06</div>
+  <div class="author">amrutha satyamoorthy · data analyst, storyteller, & metric obsessive</div>
+  <div class="series">teardown 02 of 06</div>
 </div>
 
 </body>
