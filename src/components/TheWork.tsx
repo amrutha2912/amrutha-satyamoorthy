@@ -14,7 +14,7 @@ type Teardown = {
 
 const projects: Project[] = [
   {
-    title: "ada — salary transparency for women in tech",
+    title: "ada: salary transparency for women in tech",
     description:
       "a web product that turns the national pay gap into a personal one. you enter your role, experience, and location; ada shows what women in your role earn, the market rate, and the gap between them. designed, built, and shipped end to end.",
     stack: ["react", "tanstack", "product design"],
