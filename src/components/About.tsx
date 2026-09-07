@@ -26,6 +26,10 @@ const About = () => {
             gets built, and the user journey behind the numbers.
           </p>
           <p>
+            i'm in the netherlands now, open to part-time and internship work
+            alongside the degree.
+          </p>
+          <p>
             the intersection of biology, fashion, and technology is where i'm
             most curious. any two of those at once and i'm in.
           </p>
