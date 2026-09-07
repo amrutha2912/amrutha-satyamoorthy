@@ -10,19 +10,19 @@ const roles: Role[] = [
   {
     company: "weRize",
     role: "data analyst, data science team",
-    dates: "jan 2026 – present",
+    dates: "jan 2026 – jun 2026",
     location: "bengaluru",
     bullets: [
       "designed the NSC early indicator system to identify non-successful-connect customers in the collections pipeline by analysing calling attempt patterns, connection-rate curves, and lead-level behavioural signals, enabling early flagging of uncollectable cases.",
       "reduced wasted calling attempts by 30%, cutting per-customer contact attempts from over 30 down to 7 to 8 for identified NSC cohorts.",
-      "building a bounce charges collection prioritisation system using classification and regression models to predict payment likelihood and expected recovery amount across three loan segments, integrating payment history, bounce charge data, credit bureau data, field visit history, and calling data.",
-      "perform exploratory data analysis and feature engineering on large-scale loan datasets to support model development, hypothesis testing, and operational decision-making.",
+      "built a bounce charges collection prioritisation system using classification and regression models to predict payment likelihood and expected recovery amount across three loan segments, integrating payment history, bounce charge data, credit bureau data, field visit history, and calling data.",
+      "performed exploratory data analysis and feature engineering on large-scale loan datasets to support model development, hypothesis testing, and operational decision-making.",
     ],
   },
   {
     company: "Porter",
     role: "business analyst, decision systems",
-    dates: "oct 2024 – dec 2025",
+    dates: "oct 2024 – nov 2025",
     location: "bengaluru",
     bullets: [
       "engineered end-to-end analytical workflows using SQL, python, and streamlit to monitor key business metrics including fulfilment rate, allocation accuracy, cancellations, and driver utilisation across multiple geographies.",
