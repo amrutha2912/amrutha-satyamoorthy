@@ -13,10 +13,10 @@ const roles: Role[] = [
     dates: "jan 2026 – jun 2026",
     location: "bengaluru",
     bullets: [
-      "designed the NSC early indicator system to identify non-successful-connect customers in the collections pipeline by analysing calling attempt patterns, connection-rate curves, and lead-level behavioural signals, enabling early flagging of uncollectable cases.",
-      "reduced wasted calling attempts by 30%, cutting per-customer contact attempts from over 30 down to 7 to 8 for identified NSC cohorts.",
-      "built a bounce charges collection prioritisation system using classification and regression models to predict payment likelihood and expected recovery amount across three loan segments, integrating payment history, bounce charge data, credit bureau data, field visit history, and calling data.",
-      "performed exploratory data analysis and feature engineering on large-scale loan datasets to support model development, hypothesis testing, and operational decision-making.",
+      "built four segmented gradient-boosting models (lightgbm, xgboost) to predict payment propensity across bounce and late-charge collections, on a 1.6m-row loan-month panel with 130+ engineered features from repayment history, nach bounce behaviour, credit attributes, and calling outcomes.",
+      "engineered the dataset from scratch in snowflake: point-in-time features to avoid leakage, loan-bucket segmentation, and a finance reconciliation that surfaced a 4x row-duplication bug in the charge-allocation joins.",
+      "turned model output into a decile-ranked calling framework (d1 = highest propensity), calibrated so the top tier holds around 10% of the eligible base, and productionised it in python to score 21k+ leads daily and land ranked lists with ops before 6am.",
+      "designed the nsc early indicator to flag uncollectable cases early from calling patterns and connection-rate curves; cut wasted calling effort by 30%, from 30+ attempts down to 7 to 8 for flagged cohorts.",
     ],
   },
   {
